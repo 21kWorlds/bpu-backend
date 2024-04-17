@@ -52,7 +52,9 @@ registerComponent(Calendar, {
   name: 'CalendarCC',
   props: {
     className: 'string'
-  }
+  },
+  importPath: '@/components/ui/calendar.jsx',
+  isDefaultExport: false
 })
 
 registerComponent(NavBarCC, {

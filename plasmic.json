@@ -547,6 +547,33 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/bookings/[id]"
+        },
+        {
+          "id": "BMcbq5bHB84h",
+          "name": "NewPage2",
+          "type": "managed",
+          "projectId": "m9sTNijpsuGxLr6622n67c",
+          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicNewPage2.jsx",
+          "importSpec": {
+            "modulePath": "../pages/bookings-2/[id].jsx"
+          },
+          "cssFilePath": "plasmic/bpu_backend/PlasmicNewPage2.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/bookings-2/[id]"
+        },
+        {
+          "id": "JDCQsxq2mhS7",
+          "name": "TimeRangeInput",
+          "type": "managed",
+          "projectId": "m9sTNijpsuGxLr6622n67c",
+          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicTimeRangeInput.jsx",
+          "importSpec": {
+            "modulePath": "TimeRangeInput.jsx"
+          },
+          "cssFilePath": "plasmic/bpu_backend/PlasmicTimeRangeInput.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -607,6 +634,12 @@
           "name": "AlertDescriptionCC",
           "displayName": "AlertDescriptionCC",
           "componentImportPath": "@/components/ui/alert.jsx"
+        },
+        {
+          "id": "ZCXz3VtgcKO-",
+          "name": "CalendarCC",
+          "displayName": "CalendarCC",
+          "componentImportPath": "@/components/ui/calendar.jsx"
         }
       ],
       "customFunctions": []
@@ -633,6 +666,64 @@
       ],
       "customFunctions": [],
       "jsBundleThemes": []
+    },
+    {
+      "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
+      "projectApiToken": "vXGGQpdi9fhcncabBdg8DcMRUbkz0iRW6HS1jzQufQR6QH0MasPwr9SX7ap4SsK3xXwwXmzZtglWGe0Rm2nw",
+      "projectName": "plasmic-basic-components",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_basic_components/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "CMDBvOhaI4s",
+          "name": "Iframe",
+          "displayName": "hostless-iframe",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "RhitNJW5Zu-",
+          "name": "Video",
+          "displayName": "hostless-html-video",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "PKldDYkH42",
+          "name": "Embed",
+          "displayName": "hostless-embed",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "D4RbnlpRXg3",
+          "name": "DataProvider",
+          "displayName": "hostless-data-provider",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "zlBHsvkFlN",
+          "name": "ConditionGuard",
+          "displayName": "hostless-condition-guard",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "K-mWGqrHefEp",
+          "name": "SideEffect",
+          "displayName": "hostless-side-effect",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        },
+        {
+          "id": "SpkzmXJqg27p",
+          "name": "Timer",
+          "displayName": "hostless-timer",
+          "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
+        }
+      ],
+      "customFunctions": []
     }
   ],
   "globalVariants": {

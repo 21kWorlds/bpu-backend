@@ -110,7 +110,20 @@ function PlasmicNewPage__RenderFunc(props) {
         path: "input2.value",
         type: "private",
         variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.query.data[0].status;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
@@ -283,6 +296,26 @@ function PlasmicNewPage__RenderFunc(props) {
             }
           })(),
         onMutate: generateOnMutateForSpec("value", AntdDatePicker_Helpers)
+      },
+      {
+        path: "input4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $queries.query.data[0].description;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       }
     ],
 
@@ -524,139 +557,166 @@ function PlasmicNewPage__RenderFunc(props) {
                             label={"date"}
                             name={"date"}
                           >
-                            {(() => {
-                              const child$Props = {
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.dateTimePicker
-                                ),
-                                defaultValue: (() => {
-                                  try {
-                                    return $state.form.value.date;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })(),
-                                onChange:
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "value",
-                                    ["dateTimePicker", "value"],
-                                    AntdDatePicker_Helpers
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__zC8Fz
+                              )}
+                            >
+                              {(() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.dateTimePicker
                                   ),
-                                picker: "date",
-                                popupScopeClassName:
-                                  sty["dateTimePicker__datePickerPopup"],
-                                showTime: false,
-                                value: generateStateValueProp($state, [
-                                  "dateTimePicker",
-                                  "value"
-                                ])
-                              };
-                              initializeCodeComponentStates(
-                                $state,
-                                [
-                                  {
-                                    name: "value",
-                                    plasmicStateName: "dateTimePicker.value"
-                                  }
-                                ],
+                                  defaultValue: (() => {
+                                    try {
+                                      return $state.form.value.date;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
+                                  onChange:
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "value",
+                                      ["dateTimePicker", "value"],
+                                      AntdDatePicker_Helpers
+                                    ),
+                                  picker: "date",
+                                  popupScopeClassName:
+                                    sty["dateTimePicker__datePickerPopup"],
+                                  showTime: false,
+                                  value: generateStateValueProp($state, [
+                                    "dateTimePicker",
+                                    "value"
+                                  ])
+                                };
+                                initializeCodeComponentStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "value",
+                                      plasmicStateName: "dateTimePicker.value"
+                                    }
+                                  ],
 
-                                [],
-                                AntdDatePicker_Helpers ?? {},
-                                child$Props
-                              );
-                              return (
-                                <AntdDatePicker
-                                  data-plasmic-name={"dateTimePicker"}
-                                  data-plasmic-override={
-                                    overrides.dateTimePicker
-                                  }
-                                  {...child$Props}
-                                />
-                              );
-                            })()}
+                                  [],
+                                  AntdDatePicker_Helpers ?? {},
+                                  child$Props
+                                );
+                                return (
+                                  <AntdDatePicker
+                                    data-plasmic-name={"dateTimePicker"}
+                                    data-plasmic-override={
+                                      overrides.dateTimePicker
+                                    }
+                                    {...child$Props}
+                                  />
+                                );
+                              })()}
+                            </div>
                           </FormItemWrapper>
                           <FormItemWrapper
                             data-plasmic-name={"status"}
                             data-plasmic-override={overrides.status}
                             className={classNames("__wab_instance", sty.status)}
-                            initialValue={(() => {
-                              try {
-                                return $queries.query.data[0].status;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}
+                            initialValue={$queries.query.data[0].status}
                             label={"status"}
                             name={"status"}
                           >
-                            {(() => {
-                              const child$Props = {
-                                className: classNames(
-                                  "__wab_instance",
-                                  sty.input2
-                                ),
-                                onChange:
-                                  generateStateOnChangePropForCodeComponents(
-                                    $state,
-                                    "value",
-                                    ["input2", "value"],
-                                    AntdInput_Helpers
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__yuFjo
+                              )}
+                            >
+                              {(() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.input2
                                   ),
-                                placeholder: (() => {
-                                  try {
-                                    return $queries.query.data[0].status;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
+                                  onChange:
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "value",
+                                      ["input2", "value"],
+                                      AntdInput_Helpers
+                                    ),
+                                  value: generateStateValueProp($state, [
+                                    "input2",
+                                    "value"
+                                  ])
+                                };
+                                initializeCodeComponentStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "value",
+                                      plasmicStateName: "input2.value"
                                     }
-                                    throw e;
-                                  }
-                                })(),
-                                value: generateStateValueProp($state, [
-                                  "input2",
-                                  "value"
-                                ])
-                              };
-                              initializeCodeComponentStates(
-                                $state,
-                                [
-                                  {
-                                    name: "value",
-                                    plasmicStateName: "input2.value"
-                                  }
-                                ],
+                                  ],
 
-                                [],
-                                AntdInput_Helpers ?? {},
-                                child$Props
-                              );
-                              return (
-                                <AntdInput
-                                  data-plasmic-name={"input2"}
-                                  data-plasmic-override={overrides.input2}
-                                  {...child$Props}
-                                />
-                              );
-                            })()}
+                                  [],
+                                  AntdInput_Helpers ?? {},
+                                  child$Props
+                                );
+                                return (
+                                  <AntdInput
+                                    data-plasmic-name={"input2"}
+                                    data-plasmic-override={overrides.input2}
+                                    {...child$Props}
+                                  />
+                                );
+                              })()}
+                              {(() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.input4
+                                  ),
+                                  onChange:
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "value",
+                                      ["input4", "value"],
+                                      AntdInput_Helpers
+                                    ),
+                                  value: generateStateValueProp($state, [
+                                    "input4",
+                                    "value"
+                                  ])
+                                };
+                                initializeCodeComponentStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "value",
+                                      plasmicStateName: "input4.value"
+                                    }
+                                  ],
+
+                                  [],
+                                  AntdInput_Helpers ?? {},
+                                  child$Props
+                                );
+                                return (
+                                  <AntdInput
+                                    data-plasmic-name={"input4"}
+                                    data-plasmic-override={overrides.input4}
+                                    {...child$Props}
+                                  />
+                                );
+                              })()}
+                            </div>
                           </FormItemWrapper>
                           <FormItemWrapper
                             data-plasmic-name={"_public"}
@@ -709,7 +769,22 @@ function PlasmicNewPage__RenderFunc(props) {
                                 "checked"
                               ])}
                             >
-                              {"public"}
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.freeBox__zUvPn
+                                )}
+                              >
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__hDpzP
+                                  )}
+                                >
+                                  {"public"}
+                                </div>
+                              </div>
                             </AntdCheckbox>
                           </FormItemWrapper>
                         </div>
@@ -1021,6 +1096,20 @@ function PlasmicNewPage__RenderFunc(props) {
                                       ["input9", "value"],
                                       AntdInput_Helpers
                                     ),
+                                  placeholder: (() => {
+                                    try {
+                                      return undefined;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return undefined;
+                                      }
+                                      throw e;
+                                    }
+                                  })(),
                                   type: "time",
                                   value: generateStateValueProp($state, [
                                     "input9",
@@ -2137,6 +2226,7 @@ const PlasmicDescendants = {
     "dateTimePicker",
     "status",
     "input2",
+    "input4",
     "_public",
     "checkbox",
     "description",
@@ -2195,6 +2285,7 @@ const PlasmicDescendants = {
     "dateTimePicker",
     "status",
     "input2",
+    "input4",
     "_public",
     "checkbox",
     "description",
@@ -2252,6 +2343,7 @@ const PlasmicDescendants = {
     "dateTimePicker",
     "status",
     "input2",
+    "input4",
     "_public",
     "checkbox",
     "description",
@@ -2308,6 +2400,7 @@ const PlasmicDescendants = {
     "dateTimePicker",
     "status",
     "input2",
+    "input4",
     "_public",
     "checkbox",
     "description",
@@ -2359,8 +2452,9 @@ const PlasmicDescendants = {
 
   date: ["date", "dateTimePicker"],
   dateTimePicker: ["dateTimePicker"],
-  status: ["status", "input2"],
+  status: ["status", "input2", "input4"],
   input2: ["input2"],
+  input4: ["input4"],
   _public: ["_public", "checkbox"],
   checkbox: ["checkbox"],
   description: ["description", "input3"],
@@ -2487,6 +2581,7 @@ export const PlasmicNewPage = Object.assign(
     dateTimePicker: makeNodeComponent("dateTimePicker"),
     status: makeNodeComponent("status"),
     input2: makeNodeComponent("input2"),
+    input4: makeNodeComponent("input4"),
     _public: makeNodeComponent("_public"),
     checkbox: makeNodeComponent("checkbox"),
     description: makeNodeComponent("description"),

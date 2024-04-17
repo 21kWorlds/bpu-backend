@@ -79,10 +79,21 @@
   max-width: 126px;
   min-width: 0;
 }
+.freeBox__zC8Fz {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
 .dateTimePicker:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
-  position: relative;
 }
 .status:global(.__wab_instance) {
   width: 100%;
@@ -90,9 +101,26 @@
   min-width: 0;
   margin: 0px 16px;
 }
+.freeBox__yuFjo {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
 .input2:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.input4:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
 }
 ._public:global(.__wab_instance) {
   width: auto;
@@ -105,6 +133,18 @@
 .checkbox:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+}
+.freeBox__zUvPn {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
 }
 .text__eCcWn {
   position: relative;
