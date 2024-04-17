@@ -3,6 +3,7 @@ import { PlasmicCanvasHost, registerComponent } from '@plasmicapp/react-web/lib/
 import NewComponent from '@/components/NewComponent';
 import NavBarCC from '@/components/NavBarCC';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { Calendar } from '@/components/ui/calendar';
 // You can register any code components that you want to use here; see
 // https://docs.plasmic.app/learn/code-components-ref/
 // And configure your Plasmic project to use the host url pointing at
