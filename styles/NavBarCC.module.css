@@ -1,0 +1,51 @@
+/* components/NavBar.module.css */
+.navbar {
+  --navbar-bg-color: #333; /* Local variable definition */
+  --navbar-text-color: white; /* Local variable definition */
+  --navbar-padding: 10px; /* Local variable definition */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--navbar-bg-color);
+  color: var(--navbar-text-color);
+  padding: var(--navbar-padding);
+}
+
+.logo {
+  margin-left: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.tab {
+  --tab-margin: 0 10px; /* Local variable definition */
+  position: relative;
+  margin: var(--tab-margin);
+  cursor: pointer;
+}
+
+.dropdown-content {
+  --dropdown-bg-color: #f9f9f9; /* Local variable definition */
+  --dropdown-text-color: black; /* Local variable definition */
+  --dropdown-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Local variable definition */
+  display: none;
+  position: absolute;
+  background-color: var(--dropdown-bg-color);
+  min-width: 160px;
+  box-shadow: var(--dropdown-shadow);
+  z-index: 1;
+  color: var(--dropdown-text-color);
+}
+
+.tab:hover .dropdown-content {
+  display: block;
+}
+
+.search-bar input {
+  padding: 8px;
+  margin-right: 20px;
+}

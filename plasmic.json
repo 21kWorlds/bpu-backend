@@ -7,7 +7,7 @@
   },
   "style": {
     "scheme": "css-modules",
-    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
   },
   "images": {
     "scheme": "public-files",
@@ -41,7 +41,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -95,7 +96,8 @@
           }
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -495,12 +497,13 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "m9sTNijpsuGxLr6622n67c",
       "projectApiToken": "2FFJqoxNGcc7VILuUJHG4hoaJVSijyBvaNZCfp5uQn5WVquAyYrChlESePH71wiqjHYuxFCKK7JbPGeg",
-      "projectName": "App starter",
+      "projectName": "bpu-backend",
       "version": "latest",
       "cssFilePath": "plasmic/app_starter/plasmic.module.css",
       "components": [
@@ -530,6 +533,20 @@
           "cssFilePath": "plasmic/app_starter/PlasmicPageLayout.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "3gDeoVff23-u",
+          "name": "NewPage",
+          "type": "managed",
+          "projectId": "m9sTNijpsuGxLr6622n67c",
+          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicNewPage.jsx",
+          "importSpec": {
+            "modulePath": "../pages/bookings/[id].jsx"
+          },
+          "cssFilePath": "plasmic/bpu_backend/PlasmicNewPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/bookings/[id]"
         }
       ],
       "icons": [
@@ -560,9 +577,62 @@
           "name": "Fetcher",
           "displayName": "plasmic-data-source-fetcher",
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
+        },
+        {
+          "id": "jl6JXVVzbZ1h",
+          "name": "NewComponent",
+          "displayName": "NewComponent",
+          "componentImportPath": "@/components/NewComponent.jsx"
+        },
+        {
+          "id": "HNXB9iqmGdMg",
+          "name": "NavBarCc",
+          "displayName": "NavBarCC",
+          "componentImportPath": "@/components/NavBarCC.jsx"
+        },
+        {
+          "id": "BkBkGxtRKP55",
+          "name": "AlertCC",
+          "displayName": "AlertCC",
+          "componentImportPath": "@/components/ui/alert.jsx"
+        },
+        {
+          "id": "I7Fq0CWIDLdi",
+          "name": "AlertTitleCC",
+          "displayName": "AlertTitleCC",
+          "componentImportPath": "@/components/ui/alert.jsx"
+        },
+        {
+          "id": "-F_itjirwXPY",
+          "name": "AlertDescriptionCC",
+          "displayName": "AlertDescriptionCC",
+          "componentImportPath": "@/components/ui/alert.jsx"
         }
       ],
       "customFunctions": []
+    },
+    {
+      "projectId": "7nJ7UcFmq9UzB6eXfC5z4a",
+      "projectApiToken": "uZp069FLSLNVA2dpWnqC3BUaj3flvtNBNXt6e1b67rm4Uh6lGHgYJ65FCBXlOFTB5KDW7RmmOxIAzgHYCg",
+      "projectName": "plasmic-nav",
+      "version": ">0.0.0",
+      "cssFilePath": "plasmic/plasmic_nav/plasmic.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "splitsProviderFilePath": "",
+      "codeComponents": [
+        {
+          "id": "jGx9tiKJoex",
+          "name": "NavigationBar",
+          "displayName": "hostless-plasmic-navigation-bar",
+          "componentImportPath": "@plasmicpkgs/plasmic-nav"
+        }
+      ],
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {

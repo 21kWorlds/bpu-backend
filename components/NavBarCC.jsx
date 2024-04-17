@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import "./styles/NavBarCC.css"; // Make sure to adjust the CSS file accordingly
+import "@/styles/NavBarCC.module.css"; // Make sure to adjust the CSS file accordingly
 
 const NavBarCC = forwardRef(({ tabs, style, className = "" }, ref) => {
   return (
