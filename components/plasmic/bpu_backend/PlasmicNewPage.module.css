@@ -117,11 +117,6 @@
   max-width: 100%;
   object-fit: cover;
 }
-.input4:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-  position: relative;
-}
 ._public:global(.__wab_instance) {
   width: auto;
   margin-bottom: 24px;
@@ -197,9 +192,12 @@
   margin-bottom: 24px;
   min-width: 0;
 }
-.input7:global(.__wab_instance) {
+.textarea {
+  position: relative;
+  width: 100%;
+  height: auto;
   max-width: 100%;
-  object-fit: cover;
+  min-width: 0;
 }
 .freeBox__oxOl3 {
   display: flex;
@@ -308,9 +306,10 @@
   margin-bottom: 24px;
   min-width: 0;
 }
-.input15:global(.__wab_instance) {
+.select:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+  position: relative;
 }
 .freeBox__vBNhy {
   display: flex;
@@ -329,9 +328,22 @@
   margin-bottom: 24px;
   min-width: 0;
 }
-.input16:global(.__wab_instance) {
+.freeBox__vw3Dk {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.select2:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+  position: relative;
 }
 .carafeNo:global(.__wab_instance) {
   margin-bottom: 24px;
@@ -359,36 +371,88 @@
   margin-bottom: 24px;
   min-width: 0;
 }
-.input17:global(.__wab_instance) {
+.freeBox___2Cwbp {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.select6:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+  position: relative;
 }
 .lighting:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
 }
-.input18:global(.__wab_instance) {
+.freeBox__cjPNh {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.select4:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+  position: relative;
 }
 .sound:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
 }
-.input19:global(.__wab_instance) {
+.freeBox__nfSww {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.select5:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+  position: relative;
 }
 .presentation:global(.__wab_instance) {
   width: 100%;
   margin-bottom: 24px;
   min-width: 0;
 }
-.input20:global(.__wab_instance) {
+.freeBox__hmQiH {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px;
+}
+.select3:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
+  position: relative;
 }
 .freeBox__hskqk {
   display: flex;
@@ -429,27 +493,12 @@
   margin-bottom: 24px;
   min-width: 0;
 }
-.input8:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
-}
-.idField:global(.__wab_instance) {
+.textarea2 {
+  position: relative;
   width: 100%;
-  margin-bottom: 24px;
-  min-width: 0;
-}
-.input:global(.__wab_instance) {
+  height: auto;
   max-width: 100%;
-  object-fit: cover;
-}
-.hCreatedAt:global(.__wab_instance) {
-  width: 100%;
-  margin-bottom: 24px;
   min-width: 0;
-}
-.input22:global(.__wab_instance) {
-  max-width: 100%;
-  object-fit: cover;
 }
 .button:global(.__wab_instance) {
   max-width: 100%;
