@@ -1,0 +1,120 @@
+.modal:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.form:global(.__wab_instance) {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  object-fit: cover;
+  min-width: 0;
+  padding: 8px;
+}
+.formField___6Sol6:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 0px;
+  min-width: 0;
+}
+.input4:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.freeBox {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 0px;
+  align-self: auto;
+  min-width: 0;
+  padding: 8px;
+}
+.formField__sCjGf:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 0px;
+  min-width: 0;
+}
+.input5:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__tjf80:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 0px;
+  margin-left: 8px;
+  margin-right: 8px;
+  min-width: 0;
+}
+.numberInput2:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__wwX4K:global(.__wab_instance) {
+  width: 100%;
+  align-self: center;
+  min-width: 0;
+}
+.checkbox:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__q9HkW {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.formField___9PQi:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  min-width: 0;
+}
+.input6:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__pb48L:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 4px;
+  max-width: 100%;
+  object-fit: cover;
+  margin-top: 4px;
+  min-width: 0;
+}
+.text__vvw1B {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.input3:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__pmbyp {
+  padding-bottom: 0px;
+}
+.button:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__g9Ysv {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}

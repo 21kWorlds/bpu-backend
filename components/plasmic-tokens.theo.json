@@ -1,6 +1,26 @@
 {
   "props": [
     {
+      "name": "PerfPink",
+      "type": "color",
+      "value": "#FF00C6",
+      "category": "color",
+      "meta": {
+        "projectId": "m9sTNijpsuGxLr6622n67c",
+        "id": "TKaKr6sHpQPw"
+      }
+    },
+    {
+      "name": "SupaPurp",
+      "type": "color",
+      "value": "#AB00FF",
+      "category": "color",
+      "meta": {
+        "projectId": "m9sTNijpsuGxLr6622n67c",
+        "id": "ALRRMWaCvqGz"
+      }
+    },
+    {
       "name": "System: Bg Container",
       "type": "color",
       "value": "var(--antd-colorBgContainer)",

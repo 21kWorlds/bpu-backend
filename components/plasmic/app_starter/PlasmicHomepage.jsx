@@ -27,7 +27,9 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
 import PageLayout from "../../PageLayout"; // plasmic-import: x2bZy_YU1m2F/component
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { RichList } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-list";
+import NewRows2 from "../../NewRows2"; // plasmic-import: NP6K4NtaonuD/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
@@ -63,22 +65,32 @@ function PlasmicHomepage__RenderFunc(props) {
   const currentUser = useCurrentUser?.() || {};
   let [$queries, setDollarQueries] = React.useState({});
   const new$Queries = {
-    hexQuery: usePlasmicDataOp(() => {
-      return {
-        sourceId: "4ACnaEgTThrwyGmam4pjE6",
-        opId: "1a376e6c-c903-46c7-97a6-d155037d36a1",
-        userArgs: {},
-        cacheKey: `plasmic.$.1a376e6c-c903-46c7-97a6-d155037d36a1.$.`,
-        invalidatedKeys: null,
-        roleId: null
-      };
-    }),
-    query: usePlasmicDataOp(() => {
+    bookings: usePlasmicDataOp(() => {
       return {
         sourceId: "4ACnaEgTThrwyGmam4pjE6",
         opId: "bf6197d5-f3e5-4fee-8b09-d30f0d9fb940",
         userArgs: {},
         cacheKey: `plasmic.$.bf6197d5-f3e5-4fee-8b09-d30f0d9fb940.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    contacts: usePlasmicDataOp(() => {
+      return {
+        sourceId: "4ACnaEgTThrwyGmam4pjE6",
+        opId: "de66d1ae-38be-436d-b8cd-46441104c968",
+        userArgs: {},
+        cacheKey: `plasmic.$.de66d1ae-38be-436d-b8cd-46441104c968.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    inventory: usePlasmicDataOp(() => {
+      return {
+        sourceId: "4ACnaEgTThrwyGmam4pjE6",
+        opId: "0ec4d106-bd31-43a7-9517-3aa9569d4209",
+        userArgs: {},
+        cacheKey: `plasmic.$.0ec4d106-bd31-43a7-9517-3aa9569d4209.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -122,36 +134,49 @@ function PlasmicHomepage__RenderFunc(props) {
           >
             <DataCtxReader__>
               {$ctx => (
-                <RichList
-                  data-plasmic-name={"dataList"}
-                  data-plasmic-override={overrides.dataList}
-                  bordered={true}
-                  className={classNames("__wab_instance", sty.dataList)}
-                  content={(() => {
-                    const __composite = [
-                      { key: "contactID", fieldId: null, role: "content" }
-                    ];
+                <React.Fragment>
+                  <AntdButton
+                    data-plasmic-name={"button"}
+                    data-plasmic-override={overrides.button}
+                    className={classNames("__wab_instance", sty.button)}
+                    href={`/bookings-3/${""}`}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__mgzgp
+                      )}
+                    >
+                      {"Go to Catering Info"}
+                    </div>
+                  </AntdButton>
+                  <h1
+                    data-plasmic-name={"h1"}
+                    data-plasmic-override={overrides.h1}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h1,
+                      projectcss.__wab_text,
+                      sty.h1
+                    )}
+                  >
+                    {"Bookings"}
+                  </h1>
+                  <RichList
+                    bordered={true}
+                    className={classNames("__wab_instance", sty.dataList__hJ0Q)}
+                    content={(() => {
+                      const __composite = [
+                        { key: "contactID", fieldId: null, role: "content" }
+                      ];
 
-                    __composite["0"]["fieldId"] = "description";
-                    return __composite;
-                  })()}
-                  data={(() => {
-                    try {
-                      return $queries.query;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  linkTo={currentItem => {
-                    return `/bookings/${(() => {
+                      __composite["0"]["fieldId"] = "description";
+                      return __composite;
+                    })()}
+                    data={(() => {
                       try {
-                        return currentItem.id;
+                        return $queries.bookings;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -161,14 +186,200 @@ function PlasmicHomepage__RenderFunc(props) {
                         }
                         throw e;
                       }
-                    })()}`;
-                  }}
-                  onRowClick={async (rowKey, row, event) => {
-                    const $steps = {};
-                  }}
-                  title={[{}]}
-                  type={"list"}
-                />
+                    })()}
+                    hideSearch={true}
+                    linkTo={currentItem => {
+                      return `/bookings/${(() => {
+                        try {
+                          return currentItem.id;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}`;
+                    }}
+                    onRowClick={async (rowKey, row, event) => {
+                      const $steps = {};
+                    }}
+                    pagination={false}
+                    title={(() => {
+                      const __composite = [{ role: "title", fieldId: null }];
+                      __composite["0"]["fieldId"] = "title";
+                      return __composite;
+                    })()}
+                    type={"list"}
+                  />
+
+                  <h2
+                    data-plasmic-name={"h2"}
+                    data-plasmic-override={overrides.h2}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h2,
+                      projectcss.__wab_text,
+                      sty.h2
+                    )}
+                  >
+                    {"Organizations"}
+                  </h2>
+                  <RichList
+                    bordered={true}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.dataList___7RRny
+                    )}
+                    content={[]}
+                    data={(() => {
+                      try {
+                        return $queries.contacts.data.filter(
+                          item => item.isOrg
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return (() => {
+                            try {
+                              return $queries.contacts;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return undefined;
+                              }
+                              throw e;
+                            }
+                          })();
+                        }
+                        throw e;
+                      }
+                    })()}
+                    hideSearch={true}
+                    onRowClick={async (rowKey, row, event) => {
+                      const $steps = {};
+                    }}
+                    pagination={false}
+                  />
+
+                  <h3
+                    data-plasmic-name={"h3"}
+                    data-plasmic-override={overrides.h3}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h3,
+                      projectcss.__wab_text,
+                      sty.h3
+                    )}
+                  >
+                    {"Contacts"}
+                  </h3>
+                  <RichList
+                    bordered={true}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.dataList__w3G5X
+                    )}
+                    content={[]}
+                    data={(() => {
+                      try {
+                        return $queries.contacts.data.filter(
+                          item => !item.isOrg
+                        );
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    hideSearch={true}
+                    onRowClick={async (rowKey, row, event) => {
+                      const $steps = {};
+                    }}
+                    pagination={false}
+                  />
+
+                  <h4
+                    data-plasmic-name={"h4"}
+                    data-plasmic-override={overrides.h4}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h4,
+                      projectcss.__wab_text,
+                      sty.h4
+                    )}
+                  >
+                    {"Inventory"}
+                  </h4>
+                  <RichList
+                    bordered={true}
+                    className={classNames("__wab_instance", sty.dataList__yNHb)}
+                    content={[{}]}
+                    data={(() => {
+                      try {
+                        return $queries.inventory.data;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    hideSearch={true}
+                    onRowClick={async (rowKey, row, event) => {
+                      const $steps = {};
+                    }}
+                    pagination={false}
+                    title={(() => {
+                      const __composite = [{ role: "title", fieldId: null }];
+                      __composite["0"]["fieldId"] = "memo";
+                      return __composite;
+                    })()}
+                  />
+
+                  <NewRows2
+                    data-plasmic-name={"newRows2"}
+                    data-plasmic-override={overrides.newRows2}
+                    className={classNames("__wab_instance", sty.newRows2)}
+                  />
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bQxFq
+                    )}
+                  >
+                    <React.Fragment>
+                      {(() => {
+                        try {
+                          return undefined;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return "";
+                          }
+                          throw e;
+                        }
+                      })()}
+                    </React.Fragment>
+                  </div>
+                </React.Fragment>
               )}
             </DataCtxReader__>
           </PageLayout>
@@ -179,9 +390,14 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout", "dataList"],
-  pageLayout: ["pageLayout", "dataList"],
-  dataList: ["dataList"]
+  root: ["root", "pageLayout", "button", "h1", "h2", "h3", "h4", "newRows2"],
+  pageLayout: ["pageLayout", "button", "h1", "h2", "h3", "h4", "newRows2"],
+  button: ["button"],
+  h1: ["h1"],
+  h2: ["h2"],
+  h3: ["h3"],
+  h4: ["h4"],
+  newRows2: ["newRows2"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -254,7 +470,12 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
-    dataList: makeNodeComponent("dataList"),
+    button: makeNodeComponent("button"),
+    h1: makeNodeComponent("h1"),
+    h2: makeNodeComponent("h2"),
+    h3: makeNodeComponent("h3"),
+    h4: makeNodeComponent("h4"),
+    newRows2: makeNodeComponent("newRows2"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,
