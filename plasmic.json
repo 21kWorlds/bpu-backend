@@ -668,20 +668,6 @@
           "componentType": "component"
         },
         {
-          "id": "_umXE26So9su",
-          "name": "CateringInfo",
-          "type": "managed",
-          "projectId": "m9sTNijpsuGxLr6622n67c",
-          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicCateringInfo.jsx",
-          "importSpec": {
-            "modulePath": "../pages/catering-info.jsx"
-          },
-          "cssFilePath": "plasmic/bpu_backend/PlasmicCateringInfo.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/bookings-3/[id]"
-        },
-        {
           "id": "PUOjAEVuITrD",
           "name": "InventoryModal",
           "type": "managed",
@@ -717,6 +703,33 @@
             "modulePath": "NewRows2.jsx"
           },
           "cssFilePath": "plasmic/bpu_backend/PlasmicNewRows2.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "iB4rR5cgbkRc",
+          "name": "NewPage",
+          "type": "managed",
+          "projectId": "m9sTNijpsuGxLr6622n67c",
+          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicNewPage.jsx",
+          "importSpec": {
+            "modulePath": "../pages/new-page.jsx"
+          },
+          "cssFilePath": "plasmic/bpu_backend/PlasmicNewPage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page"
+        },
+        {
+          "id": "HNh49Ai2o5aV",
+          "name": "CateringDisplay",
+          "type": "managed",
+          "projectId": "m9sTNijpsuGxLr6622n67c",
+          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicCateringDisplay.jsx",
+          "importSpec": {
+            "modulePath": "CateringDisplay.jsx"
+          },
+          "cssFilePath": "plasmic/bpu_backend/PlasmicCateringDisplay.module.css",
           "scheme": "blackbox",
           "componentType": "component"
         }

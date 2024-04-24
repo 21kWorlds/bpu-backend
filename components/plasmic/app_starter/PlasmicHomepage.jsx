@@ -139,7 +139,7 @@ function PlasmicHomepage__RenderFunc(props) {
                     data-plasmic-name={"button"}
                     data-plasmic-override={overrides.button}
                     className={classNames("__wab_instance", sty.button)}
-                    href={`/catering-info`}
+                    href={`/new-page`}
                   >
                     <div
                       className={classNames(
