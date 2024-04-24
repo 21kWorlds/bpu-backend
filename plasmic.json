@@ -674,7 +674,7 @@
           "projectId": "m9sTNijpsuGxLr6622n67c",
           "renderModuleFilePath": "plasmic/bpu_backend/PlasmicCateringInfo.jsx",
           "importSpec": {
-            "modulePath": "../pages/bookings-3/[id].jsx"
+            "modulePath": "../pages/catering-info.jsx"
           },
           "cssFilePath": "plasmic/bpu_backend/PlasmicCateringInfo.module.css",
           "scheme": "blackbox",
@@ -901,7 +901,8 @@
           "componentImportPath": "@plasmicpkgs/plasmic-link-preview"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     },
     {
       "projectId": "sqPBLwEBBKHA2WDuGb17eV",
@@ -991,7 +992,8 @@
           "componentImportPath": "@plasmicpkgs/radix-ui"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {
