@@ -99,6 +99,7 @@
   max-width: 100%;
   object-fit: cover;
   position: relative;
+  width: 180px;
 }
 .freeBox__iDv0Y {
   display: flex;
@@ -164,13 +165,6 @@
   object-fit: cover;
 }
 .text__ysdNr {
-  position: relative;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  min-width: 0;
-}
-.text__plFwc {
   position: relative;
   width: 100%;
   height: auto;

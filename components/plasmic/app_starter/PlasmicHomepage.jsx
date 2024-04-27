@@ -17,7 +17,12 @@ import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
-  useCurrentUser
+  generateStateOnChangeProp,
+  generateStateValueProp,
+  get as $stateGet,
+  set as $stateSet,
+  useCurrentUser,
+  useDollarState
 } from "@plasmicapp/react-web";
 import {
   DataCtxReader as DataCtxReader__,
@@ -27,9 +32,15 @@ import * as plasmicAuth from "@plasmicapp/react-web/lib/auth";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
 import PageLayout from "../../PageLayout"; // plasmic-import: x2bZy_YU1m2F/component
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { AntdTabs } from "@plasmicpkgs/antd5/skinny/registerTabs";
+import { AntdTabItem } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { RichList } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-list";
 import NewRows2 from "../../NewRows2"; // plasmic-import: NP6K4NtaonuD/component
+import Drawer from "../../Drawer"; // plasmic-import: jeKLErA7oK4P/component
+import BookingDisplay from "../../BookingDisplay"; // plasmic-import: immbM_V6pqdI/component
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { AntdModal } from "@plasmicpkgs/antd5/skinny/registerModal";
+import ContactDisplay from "../../ContactDisplay"; // plasmic-import: 5r_sXaPlWptQ/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
@@ -64,6 +75,48 @@ function PlasmicHomepage__RenderFunc(props) {
   const $refs = refsRef.current;
   const currentUser = useCurrentUser?.() || {};
   let [$queries, setDollarQueries] = React.useState({});
+  const stateSpecs = React.useMemo(
+    () => [
+      {
+        path: "drawer.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "drawerBooking",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      },
+      {
+        path: "tabs.activeKey",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "modal.open",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false
+      },
+      {
+        path: "modalContact",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => ({})
+      }
+    ],
+
+    [$props, $ctx, $refs]
+  );
+  const $state = useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: $queries,
+    $refs
+  });
   const new$Queries = {
     bookings: usePlasmicDataOp(() => {
       return {
@@ -135,219 +188,520 @@ function PlasmicHomepage__RenderFunc(props) {
             <DataCtxReader__>
               {$ctx => (
                 <React.Fragment>
-                  <AntdButton
-                    data-plasmic-name={"button"}
-                    data-plasmic-override={overrides.button}
-                    className={classNames("__wab_instance", sty.button)}
-                    href={`/new-page`}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__mgzgp
-                      )}
-                    >
-                      {"Go to Catering Info"}
-                    </div>
-                  </AntdButton>
-                  <h1
-                    data-plasmic-name={"h1"}
-                    data-plasmic-override={overrides.h1}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h1,
-                      projectcss.__wab_text,
-                      sty.h1
-                    )}
-                  >
-                    {"Bookings"}
-                  </h1>
-                  <RichList
-                    bordered={true}
-                    className={classNames("__wab_instance", sty.dataList__hJ0Q)}
-                    content={(() => {
-                      const __composite = [
-                        { key: "contactID", fieldId: null, role: "content" }
-                      ];
-
-                      __composite["0"]["fieldId"] = "description";
-                      return __composite;
-                    })()}
-                    data={(() => {
-                      try {
-                        return $queries.bookings;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    hideSearch={true}
-                    linkTo={currentItem => {
-                      return `/bookings/${(() => {
-                        try {
-                          return currentItem.id;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
+                  <AntdTabs
+                    data-plasmic-name={"tabs"}
+                    data-plasmic-override={overrides.tabs}
+                    activeKey={generateStateValueProp($state, [
+                      "tabs",
+                      "activeKey"
+                    ])}
+                    animateTabBar={true}
+                    animateTabContent={false}
+                    animated={true}
+                    className={classNames("__wab_instance", sty.tabs)}
+                    items={
+                      <React.Fragment>
+                        <AntdTabItem
+                          className={classNames(
+                            "__wab_instance",
+                            sty.tabItem__cAzUl
+                          )}
+                          key={"1"}
+                          label={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__nVd8C
+                              )}
+                            >
+                              {"Bookings"}
+                            </div>
                           }
-                          throw e;
-                        }
-                      })()}`;
-                    }}
-                    onRowClick={async (rowKey, row, event) => {
-                      const $steps = {};
-                    }}
-                    pagination={false}
-                    title={(() => {
-                      const __composite = [{ role: "title", fieldId: null }];
-                      __composite["0"]["fieldId"] = "title";
-                      return __composite;
-                    })()}
-                    type={"list"}
-                  />
+                        >
+                          <section
+                            className={classNames(
+                              projectcss.all,
+                              sty.section__ixlBh
+                            )}
+                          >
+                            <h1
+                              data-plasmic-name={"h1"}
+                              data-plasmic-override={overrides.h1}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h1,
+                                projectcss.__wab_text,
+                                sty.h1
+                              )}
+                            >
+                              {"Bookings"}
+                            </h1>
+                            <RichList
+                              bordered={true}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.dataList__hJ0Q
+                              )}
+                              content={(() => {
+                                const __composite = [
+                                  {
+                                    key: "contactID",
+                                    fieldId: null,
+                                    role: "content"
+                                  }
+                                ];
 
-                  <h2
-                    data-plasmic-name={"h2"}
-                    data-plasmic-override={overrides.h2}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h2,
-                      projectcss.__wab_text,
-                      sty.h2
-                    )}
-                  >
-                    {"Organizations"}
-                  </h2>
-                  <RichList
-                    bordered={true}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.dataList___7RRny
-                    )}
-                    content={[]}
-                    data={(() => {
-                      try {
-                        return $queries.contacts.data.filter(
-                          item => item.isOrg
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return (() => {
-                            try {
-                              return $queries.contacts;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })();
-                        }
-                        throw e;
-                      }
-                    })()}
-                    hideSearch={true}
-                    onRowClick={async (rowKey, row, event) => {
-                      const $steps = {};
-                    }}
-                    pagination={false}
-                  />
+                                __composite["0"]["fieldId"] = "description";
+                                return __composite;
+                              })()}
+                              data={(() => {
+                                try {
+                                  return $queries.bookings;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              hideSearch={true}
+                              onRowClick={async (rowKey, row, event) => {
+                                const $steps = {};
+                                $steps["updateDrawerOpen2"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["drawerBooking"]
+                                        },
+                                        operation: 0,
+                                        value: row
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateDrawerOpen2"] != null &&
+                                  typeof $steps["updateDrawerOpen2"] ===
+                                    "object" &&
+                                  typeof $steps["updateDrawerOpen2"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateDrawerOpen2"] = await $steps[
+                                    "updateDrawerOpen2"
+                                  ];
+                                }
+                                $steps["updateDrawerOpen"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["drawer", "open"]
+                                        },
+                                        operation: 0,
+                                        value: true
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateDrawerOpen"] != null &&
+                                  typeof $steps["updateDrawerOpen"] ===
+                                    "object" &&
+                                  typeof $steps["updateDrawerOpen"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateDrawerOpen"] = await $steps[
+                                    "updateDrawerOpen"
+                                  ];
+                                }
+                              }}
+                              pagination={false}
+                              title={(() => {
+                                const __composite = [
+                                  { role: "title", fieldId: null }
+                                ];
 
-                  <h3
-                    data-plasmic-name={"h3"}
-                    data-plasmic-override={overrides.h3}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h3,
-                      projectcss.__wab_text,
-                      sty.h3
-                    )}
-                  >
-                    {"Contacts"}
-                  </h3>
-                  <RichList
-                    bordered={true}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.dataList__w3G5X
-                    )}
-                    content={[]}
-                    data={(() => {
-                      try {
-                        return $queries.contacts.data.filter(
-                          item => !item.isOrg
-                        );
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    hideSearch={true}
-                    onRowClick={async (rowKey, row, event) => {
-                      const $steps = {};
-                    }}
-                    pagination={false}
-                  />
+                                __composite["0"]["fieldId"] = "title";
+                                return __composite;
+                              })()}
+                              type={"list"}
+                            />
 
-                  <h4
-                    data-plasmic-name={"h4"}
-                    data-plasmic-override={overrides.h4}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h4,
-                      projectcss.__wab_text,
-                      sty.h4
-                    )}
-                  >
-                    {"Inventory"}
-                  </h4>
-                  <RichList
-                    bordered={true}
-                    className={classNames("__wab_instance", sty.dataList__yNHb)}
-                    content={[{}]}
-                    data={(() => {
-                      try {
-                        return $queries.inventory.data;
-                      } catch (e) {
-                        if (
-                          e instanceof TypeError ||
-                          e?.plasmicType === "PlasmicUndefinedDataError"
-                        ) {
-                          return undefined;
-                        }
-                        throw e;
-                      }
-                    })()}
-                    hideSearch={true}
-                    onRowClick={async (rowKey, row, event) => {
-                      const $steps = {};
-                    }}
-                    pagination={false}
-                    title={(() => {
-                      const __composite = [{ role: "title", fieldId: null }];
-                      __composite["0"]["fieldId"] = "memo";
-                      return __composite;
-                    })()}
+                            <h2
+                              data-plasmic-name={"h2"}
+                              data-plasmic-override={overrides.h2}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h2,
+                                projectcss.__wab_text,
+                                sty.h2
+                              )}
+                            >
+                              {"Organizations"}
+                            </h2>
+                            <RichList
+                              bordered={true}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.dataList___7RRny
+                              )}
+                              content={[]}
+                              data={(() => {
+                                try {
+                                  return $queries.contacts.data.filter(
+                                    item => item.isOrg
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return (() => {
+                                      try {
+                                        return $queries.contacts;
+                                      } catch (e) {
+                                        if (
+                                          e instanceof TypeError ||
+                                          e?.plasmicType ===
+                                            "PlasmicUndefinedDataError"
+                                        ) {
+                                          return undefined;
+                                        }
+                                        throw e;
+                                      }
+                                    })();
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              hideSearch={true}
+                              onRowClick={async (rowKey, row, event) => {
+                                const $steps = {};
+                                $steps["updateModalContact"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["modalContact"]
+                                        },
+                                        operation: 0,
+                                        value: row
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateModalContact"] != null &&
+                                  typeof $steps["updateModalContact"] ===
+                                    "object" &&
+                                  typeof $steps["updateModalContact"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateModalContact"] = await $steps[
+                                    "updateModalContact"
+                                  ];
+                                }
+                                $steps["updateModalOpen"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["modal", "open"]
+                                        },
+                                        operation: 4
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+                                        const oldValue = $stateGet(
+                                          objRoot,
+                                          variablePath
+                                        );
+                                        $stateSet(
+                                          objRoot,
+                                          variablePath,
+                                          !oldValue
+                                        );
+                                        return !oldValue;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateModalOpen"] != null &&
+                                  typeof $steps["updateModalOpen"] ===
+                                    "object" &&
+                                  typeof $steps["updateModalOpen"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateModalOpen"] = await $steps[
+                                    "updateModalOpen"
+                                  ];
+                                }
+                              }}
+                              pagination={false}
+                            />
+
+                            <h3
+                              data-plasmic-name={"h3"}
+                              data-plasmic-override={overrides.h3}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h3,
+                                projectcss.__wab_text,
+                                sty.h3
+                              )}
+                            >
+                              {"Contacts"}
+                            </h3>
+                            <RichList
+                              bordered={true}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.dataList__w3G5X
+                              )}
+                              content={[]}
+                              data={(() => {
+                                try {
+                                  return $queries.contacts.data.filter(
+                                    item => !item.isOrg
+                                  );
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              hideSearch={true}
+                              onRowClick={async (rowKey, row, event) => {
+                                const $steps = {};
+                                $steps["updateModalContact"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["modalContact"]
+                                        },
+                                        operation: 0,
+                                        value: row
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+                                        $stateSet(objRoot, variablePath, value);
+                                        return value;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateModalContact"] != null &&
+                                  typeof $steps["updateModalContact"] ===
+                                    "object" &&
+                                  typeof $steps["updateModalContact"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateModalContact"] = await $steps[
+                                    "updateModalContact"
+                                  ];
+                                }
+                                $steps["updateModalOpen"] = true
+                                  ? (() => {
+                                      const actionArgs = {
+                                        variable: {
+                                          objRoot: $state,
+                                          variablePath: ["modal", "open"]
+                                        },
+                                        operation: 4
+                                      };
+                                      return (({
+                                        variable,
+                                        value,
+                                        startIndex,
+                                        deleteCount
+                                      }) => {
+                                        if (!variable) {
+                                          return;
+                                        }
+                                        const { objRoot, variablePath } =
+                                          variable;
+                                        const oldValue = $stateGet(
+                                          objRoot,
+                                          variablePath
+                                        );
+                                        $stateSet(
+                                          objRoot,
+                                          variablePath,
+                                          !oldValue
+                                        );
+                                        return !oldValue;
+                                      })?.apply(null, [actionArgs]);
+                                    })()
+                                  : undefined;
+                                if (
+                                  $steps["updateModalOpen"] != null &&
+                                  typeof $steps["updateModalOpen"] ===
+                                    "object" &&
+                                  typeof $steps["updateModalOpen"].then ===
+                                    "function"
+                                ) {
+                                  $steps["updateModalOpen"] = await $steps[
+                                    "updateModalOpen"
+                                  ];
+                                }
+                              }}
+                              pagination={false}
+                            />
+                          </section>
+                        </AntdTabItem>
+                        <AntdTabItem
+                          className={classNames(
+                            "__wab_instance",
+                            sty.tabItem__iY1Dq
+                          )}
+                          key={"2"}
+                          label={
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__gnCo
+                              )}
+                            >
+                              {"Inventory"}
+                            </div>
+                          }
+                        >
+                          <section
+                            className={classNames(
+                              projectcss.all,
+                              sty.section__rp0CN
+                            )}
+                          >
+                            <h4
+                              data-plasmic-name={"h4"}
+                              data-plasmic-override={overrides.h4}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4
+                              )}
+                            >
+                              {"Inventory"}
+                            </h4>
+                            <RichList
+                              bordered={true}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.dataList__yNHb
+                              )}
+                              content={[{}]}
+                              data={(() => {
+                                try {
+                                  return $queries.inventory.data;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return undefined;
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                              hideSearch={true}
+                              onRowClick={async (rowKey, row, event) => {
+                                const $steps = {};
+                              }}
+                              pagination={false}
+                              title={(() => {
+                                const __composite = [
+                                  { role: "title", fieldId: null }
+                                ];
+
+                                __composite["0"]["fieldId"] = "memo";
+                                return __composite;
+                              })()}
+                            />
+                          </section>
+                        </AntdTabItem>
+                      </React.Fragment>
+                    }
+                    onChange={generateStateOnChangeProp($state, [
+                      "tabs",
+                      "activeKey"
+                    ])}
+                    sticky={false}
+                    tabBarBackground={"#FFF"}
+                    tabsDropdownScopeClassName={sty["tabs__tabsDropdown"]}
+                    tabsScopeClassName={sty["tabs__tabs"]}
                   />
 
                   <NewRows2
@@ -356,6 +710,93 @@ function PlasmicHomepage__RenderFunc(props) {
                     className={classNames("__wab_instance", sty.newRows2)}
                   />
 
+                  <Drawer
+                    data-plasmic-name={"drawer"}
+                    data-plasmic-override={overrides.drawer}
+                    className={classNames("__wab_instance", sty.drawer)}
+                    noTrigger={true}
+                    onOpenChange={generateStateOnChangeProp($state, [
+                      "drawer",
+                      "open"
+                    ])}
+                    open={generateStateValueProp($state, ["drawer", "open"])}
+                    slot={
+                      <BookingDisplay
+                        data-plasmic-name={"bookingDisplay"}
+                        data-plasmic-override={overrides.bookingDisplay}
+                        booking={(() => {
+                          try {
+                            return $state.drawerBooking;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        className={classNames(
+                          "__wab_instance",
+                          sty.bookingDisplay
+                        )}
+                      />
+                    }
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__vnGhx
+                      )}
+                    >
+                      {"Drawer title"}
+                    </div>
+                  </Drawer>
+                  <div
+                    data-plasmic-name={"freeBox"}
+                    data-plasmic-override={overrides.freeBox}
+                    className={classNames(projectcss.all, sty.freeBox)}
+                  >
+                    <AntdButton
+                      className={classNames("__wab_instance", sty.button__r43E)}
+                      href={`/bookings-2/${"56185278-8e17-4912-947c-b778e4099d31"}`}
+                      onClick={async () => {
+                        const $steps = {};
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___2V3L3
+                        )}
+                      >
+                        {"Go to Booking Intake"}
+                      </div>
+                    </AntdButton>
+                    <AntdButton
+                      className={classNames(
+                        "__wab_instance",
+                        sty.button___2I7C7
+                      )}
+                      href={`/new-page`}
+                      onClick={async () => {
+                        const $steps = {};
+                      }}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__mgzgp
+                        )}
+                      >
+                        {"Go to Catering Intake"}
+                      </div>
+                    </AntdButton>
+                  </div>
                   <div
                     className={classNames(
                       projectcss.all,
@@ -379,6 +820,93 @@ function PlasmicHomepage__RenderFunc(props) {
                       })()}
                     </React.Fragment>
                   </div>
+                  <AntdModal
+                    data-plasmic-name={"modal"}
+                    data-plasmic-override={overrides.modal}
+                    className={classNames("__wab_instance", sty.modal)}
+                    defaultStylesClassName={classNames(
+                      projectcss.root_reset,
+                      projectcss.plasmic_default_styles,
+                      projectcss.plasmic_mixins,
+                      projectcss.plasmic_tokens,
+                      plasmic_antd_5_hostless_css.plasmic_tokens,
+                      plasmic_plasmic_rich_components_css.plasmic_tokens
+                    )}
+                    hideFooter={true}
+                    modalContentClassName={classNames({
+                      [sty["pcls_85UpUgZzKA-a"]]: true
+                    })}
+                    modalScopeClassName={sty["modal__modal"]}
+                    onOpenChange={generateStateOnChangeProp($state, [
+                      "modal",
+                      "open"
+                    ])}
+                    open={generateStateValueProp($state, ["modal", "open"])}
+                    title={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__yuHDp
+                        )}
+                      >
+                        {"Modal title"}
+                      </div>
+                    }
+                    trigger={
+                      <AntdButton
+                        className={classNames(
+                          "__wab_instance",
+                          sty.button___4TQmB
+                        )}
+                        disabled={false}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__miQnt
+                          )}
+                        >
+                          {"Show modal"}
+                        </div>
+                      </AntdButton>
+                    }
+                    width={"1040px"}
+                    wrapClassName={classNames({
+                      [sty["pcls_ioiuw1PCwmhI"]]: true
+                    })}
+                  >
+                    <ContactDisplay
+                      data-plasmic-name={"contactDisplay"}
+                      data-plasmic-override={overrides.contactDisplay}
+                      className={classNames(
+                        "__wab_instance",
+                        sty.contactDisplay
+                      )}
+                      contact={(() => {
+                        try {
+                          return $state.modalContact;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return {
+                              name: "Elizabeth",
+                              last_name: "Garcia",
+                              email: "elizabeth.garcia@example.com",
+                              phone_number: "+1-715-881-6976",
+                              partnershiptype: "Caterer",
+                              id: "daba90a4-dcf8-4fd4-9187-68375480e84a",
+                              isOrg: false
+                            };
+                          }
+                          throw e;
+                        }
+                      })()}
+                    />
+                  </AntdModal>
                 </React.Fragment>
               )}
             </DataCtxReader__>
@@ -390,14 +918,48 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "pageLayout", "button", "h1", "h2", "h3", "h4", "newRows2"],
-  pageLayout: ["pageLayout", "button", "h1", "h2", "h3", "h4", "newRows2"],
-  button: ["button"],
+  root: [
+    "root",
+    "pageLayout",
+    "tabs",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "newRows2",
+    "drawer",
+    "bookingDisplay",
+    "freeBox",
+    "modal",
+    "contactDisplay"
+  ],
+
+  pageLayout: [
+    "pageLayout",
+    "tabs",
+    "h1",
+    "h2",
+    "h3",
+    "h4",
+    "newRows2",
+    "drawer",
+    "bookingDisplay",
+    "freeBox",
+    "modal",
+    "contactDisplay"
+  ],
+
+  tabs: ["tabs", "h1", "h2", "h3", "h4"],
   h1: ["h1"],
   h2: ["h2"],
   h3: ["h3"],
   h4: ["h4"],
-  newRows2: ["newRows2"]
+  newRows2: ["newRows2"],
+  drawer: ["drawer", "bookingDisplay"],
+  bookingDisplay: ["bookingDisplay"],
+  freeBox: ["freeBox"],
+  modal: ["modal", "contactDisplay"],
+  contactDisplay: ["contactDisplay"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -470,12 +1032,17 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     pageLayout: makeNodeComponent("pageLayout"),
-    button: makeNodeComponent("button"),
+    tabs: makeNodeComponent("tabs"),
     h1: makeNodeComponent("h1"),
     h2: makeNodeComponent("h2"),
     h3: makeNodeComponent("h3"),
     h4: makeNodeComponent("h4"),
     newRows2: makeNodeComponent("newRows2"),
+    drawer: makeNodeComponent("drawer"),
+    bookingDisplay: makeNodeComponent("bookingDisplay"),
+    freeBox: makeNodeComponent("freeBox"),
+    modal: makeNodeComponent("modal"),
+    contactDisplay: makeNodeComponent("contactDisplay"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,

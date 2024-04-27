@@ -15,6 +15,7 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts,
   generateOnMutateForSpec,
+  generateStateOnChangeProp,
   generateStateOnChangePropForCodeComponents,
   generateStateValueProp,
   get as $stateGet,
@@ -25,12 +26,17 @@ import {
   useDollarState
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
-import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
+import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
+import {
+  executePlasmicDataOp,
+  usePlasmicDataOp,
+  usePlasmicInvalidate
+} from "@plasmicapp/react-web/lib/data-sources";
+import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import { AntdSwitch } from "@plasmicpkgs/antd5/skinny/registerSwitch";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
-import { RichList } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-list";
-import InventoryModal from "../../InventoryModal"; // plasmic-import: PUOjAEVuITrD/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
@@ -64,7 +70,7 @@ function PlasmicContactDisplay__RenderFunc(props) {
             email: "elizabeth.garcia@example.com",
             phone_number: "+1-715-881-6976",
             partnershiptype: "Caterer",
-            id: "8329e76d-7de8-48c2-bfd2-71d33ba5cbb4",
+            id: "daba90a4-dcf8-4fd4-9187-68375480e84a",
             isOrg: false
           }
         },
@@ -148,6 +154,64 @@ function PlasmicContactDisplay__RenderFunc(props) {
             }
           })(),
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "_switch.checked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.contact.isOrg;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return false;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "select.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.contact.partnershiptype;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })()
+      },
+      {
+        path: "input3.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return $props.contact.name;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return undefined;
+              }
+              throw e;
+            }
+          })(),
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       }
     ],
 
@@ -159,6 +223,8 @@ function PlasmicContactDisplay__RenderFunc(props) {
     $queries: $queries,
     $refs
   });
+  const dataSourcesCtx = usePlasmicDataSourceContext();
+  const plasmicInvalidate = usePlasmicInvalidate();
   const new$Queries = {
     query: usePlasmicDataOp(() => {
       return {
@@ -168,6 +234,18 @@ function PlasmicContactDisplay__RenderFunc(props) {
           filters: [$props.contact.id]
         },
         cacheKey: `plasmic.$.71736dc2-bf8a-44af-a362-d2160d4843a7.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    query2: usePlasmicDataOp(() => {
+      return {
+        sourceId: "4ACnaEgTThrwyGmam4pjE6",
+        opId: "c7578279-5d1d-498f-925f-ca1a0e713f9e",
+        userArgs: {
+          filters: [$props.contact.id]
+        },
+        cacheKey: `plasmic.$.c7578279-5d1d-498f-925f-ca1a0e713f9e.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -213,44 +291,77 @@ function PlasmicContactDisplay__RenderFunc(props) {
         })}
       >
         <div
-          data-plasmic-name={"freeBox"}
-          data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox)}
+          className={classNames(projectcss.all, sty.freeBox__cu8Ky, {
+            [sty.freeBoxupdateLayout__cu8Kyeo86C]: hasVariant(
+              $state,
+              "updateLayout",
+              "updateLayout"
+            )
+          })}
         >
-          <h4
-            className={classNames(
-              projectcss.all,
-              projectcss.h4,
-              projectcss.__wab_text,
-              sty.h4__gkAup
-            )}
+          <div
+            className={classNames(projectcss.all, sty.freeBox__zePd2, {
+              [sty.freeBoxupdateLayout__zePd2Eo86C]: hasVariant(
+                $state,
+                "updateLayout",
+                "updateLayout"
+              )
+            })}
           >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.contact.isOrg ? "Organization" : "Individual";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "You won't believe what happens next.";
-                  }
-                  throw e;
+            <h4
+              className={classNames(
+                projectcss.all,
+                projectcss.h4,
+                projectcss.__wab_text,
+                sty.h4__cW94,
+                {
+                  [sty.h4updateLayout__cW94Eo86C]: hasVariant(
+                    $state,
+                    "updateLayout",
+                    "updateLayout"
+                  )
                 }
-              })()}
-            </React.Fragment>
-          </h4>
-          <h4
-            className={classNames(
-              projectcss.all,
-              projectcss.h4,
-              projectcss.__wab_text,
-              sty.h4__cW94
-            )}
-          >
-            <React.Fragment>
-              {(() => {
+              )}
+            >
+              {hasVariant($state, "updateLayout", "updateLayout") ? (
+                "Partnership type: "
+              ) : (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.contact.PartnerType;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "You won't believe what happens next.";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              )}
+            </h4>
+            <AntdSelect
+              data-plasmic-name={"select"}
+              data-plasmic-override={overrides.select}
+              className={classNames("__wab_instance", sty.select, {
+                [sty.selectupdateLayout]: hasVariant(
+                  $state,
+                  "updateLayout",
+                  "updateLayout"
+                )
+              })}
+              defaultStylesClassName={classNames(
+                projectcss.root_reset,
+                projectcss.plasmic_default_styles,
+                projectcss.plasmic_mixins,
+                projectcss.plasmic_tokens,
+                plasmic_antd_5_hostless_css.plasmic_tokens,
+                plasmic_plasmic_rich_components_css.plasmic_tokens
+              )}
+              defaultValue={(() => {
                 try {
                   return $props.contact.partnershiptype;
                 } catch (e) {
@@ -258,314 +369,762 @@ function PlasmicContactDisplay__RenderFunc(props) {
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return "You won't believe what happens next.";
+                    return undefined;
                   }
                   throw e;
                 }
               })()}
-            </React.Fragment>
-          </h4>
+              onChange={generateStateOnChangeProp($state, ["select", "value"])}
+              options={(() => {
+                const __composite = [
+                  { value: null, label: null, type: "option" },
+                  { value: null, label: null, type: "option" },
+                  { type: "option", label: null, value: null }
+                ];
+
+                __composite["0"]["value"] = "Community Caterer";
+                __composite["0"]["label"] = "Community Caterer";
+                __composite["1"]["value"] = "Commercial Caterer";
+                __composite["1"]["label"] = "Commercial Caterer";
+                __composite["2"]["label"] = "None";
+                __composite["2"]["value"] = "None";
+                return __composite;
+              })()}
+              placeholder={"Select..."}
+              popupScopeClassName={sty["select__popup"]}
+              value={generateStateValueProp($state, ["select", "value"])}
+            />
+          </div>
+          <div
+            className={classNames(projectcss.all, sty.freeBox__r4Eo, {
+              [sty.freeBoxupdateLayout__r4EoEo86C]: hasVariant(
+                $state,
+                "updateLayout",
+                "updateLayout"
+              )
+            })}
+          >
+            <h4
+              className={classNames(
+                projectcss.all,
+                projectcss.h4,
+                projectcss.__wab_text,
+                sty.h4__gkAup,
+                {
+                  [sty.h4updateLayout__gkAupEo86C]: hasVariant(
+                    $state,
+                    "updateLayout",
+                    "updateLayout"
+                  )
+                }
+              )}
+            >
+              {hasVariant($state, "updateLayout", "updateLayout") ? (
+                "Org: "
+              ) : (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.contact.isOrg
+                        ? "Organization"
+                        : "Individual";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "You won't believe what happens next.";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              )}
+            </h4>
+            <AntdSwitch
+              data-plasmic-name={"_switch"}
+              data-plasmic-override={overrides._switch}
+              checked={generateStateValueProp($state, ["_switch", "checked"])}
+              className={classNames("__wab_instance", sty._switch, {
+                [sty._switchupdateLayout]: hasVariant(
+                  $state,
+                  "updateLayout",
+                  "updateLayout"
+                )
+              })}
+              defaultChecked={(() => {
+                try {
+                  return $props.contact.isOrg;
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return false;
+                  }
+                  throw e;
+                }
+              })()}
+              onChange={generateStateOnChangeProp($state, [
+                "_switch",
+                "checked"
+              ])}
+            />
+          </div>
+          {(
+            hasVariant($state, "updateLayout", "updateLayout") ? true : false
+          ) ? (
+            <h4
+              className={classNames(
+                projectcss.all,
+                projectcss.h4,
+                projectcss.__wab_text,
+                sty.h4__c3FDj,
+                {
+                  [sty.h4updateLayout__c3FDjEo86C]: hasVariant(
+                    $state,
+                    "updateLayout",
+                    "updateLayout"
+                  )
+                }
+              )}
+            >
+              {hasVariant($state, "updateLayout", "updateLayout") ? (
+                "Org: "
+              ) : (
+                <React.Fragment>
+                  {(() => {
+                    try {
+                      return $props.contact.isOrg
+                        ? "Organization"
+                        : "Individual";
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return "You won't believe what happens next.";
+                      }
+                      throw e;
+                    }
+                  })()}
+                </React.Fragment>
+              )}
+            </h4>
+          ) : null}
         </div>
-        <h1
-          data-plasmic-name={"h1"}
-          data-plasmic-override={overrides.h1}
-          className={classNames(
-            projectcss.all,
-            projectcss.h1,
-            projectcss.__wab_text,
-            sty.h1
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.contact.name;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "You won't believe what happens next.";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </h1>
-        <h3
-          className={classNames(
-            projectcss.all,
-            projectcss.h3,
-            projectcss.__wab_text,
-            sty.h3__v7T3T,
-            {
-              [sty.h3updateLayout__v7T3TEo86C]: hasVariant(
-                $state,
-                "updateLayout",
-                "updateLayout"
-              )
-            }
-          )}
-        >
-          {hasVariant($state, "updateLayout", "updateLayout") ? (
-            <React.Fragment>
-              {(() => {
-                try {
-                  return "Email:";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              {(() => {
-                try {
-                  return "Email: " + $props.contact.email;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          )}
-        </h3>
-        {(() => {
-          const child$Props = {
-            className: classNames("__wab_instance", sty.input, {
-              [sty.inputupdateLayout]: hasVariant(
-                $state,
-                "updateLayout",
-                "updateLayout"
-              )
-            }),
-            onChange: generateStateOnChangePropForCodeComponents(
-              $state,
-              "value",
-              ["input", "value"],
-              AntdInput_Helpers
-            ),
-            value: generateStateValueProp($state, ["input", "value"])
-          };
-          initializeCodeComponentStates(
-            $state,
-            [
-              {
-                name: "value",
-                plasmicStateName: "input.value"
-              }
-            ],
-
-            [],
-            AntdInput_Helpers ?? {},
-            child$Props
-          );
-          return (
-            <AntdInput
-              data-plasmic-name={"input"}
-              data-plasmic-override={overrides.input}
-              {...child$Props}
-            />
-          );
-        })()}
-        <h3
-          className={classNames(
-            projectcss.all,
-            projectcss.h3,
-            projectcss.__wab_text,
-            sty.h3__bfxEj,
-            {
-              [sty.h3updateLayout__bfxEjEo86C]: hasVariant(
-                $state,
-                "updateLayout",
-                "updateLayout"
-              )
-            }
-          )}
-        >
-          {hasVariant($state, "updateLayout", "updateLayout") ? (
-            <React.Fragment>
-              {(() => {
-                try {
-                  return "Phone Number:";
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              {(() => {
-                try {
-                  return "Phone Number: " + $props.contact.phone_number;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          )}
-        </h3>
-        {(() => {
-          const child$Props = {
-            className: classNames("__wab_instance", sty.input2, {
-              [sty.input2updateLayout]: hasVariant(
-                $state,
-                "updateLayout",
-                "updateLayout"
-              )
-            }),
-            onChange: generateStateOnChangePropForCodeComponents(
-              $state,
-              "value",
-              ["input2", "value"],
-              AntdInput_Helpers
-            ),
-            value: generateStateValueProp($state, ["input2", "value"])
-          };
-          initializeCodeComponentStates(
-            $state,
-            [
-              {
-                name: "value",
-                plasmicStateName: "input2.value"
-              }
-            ],
-
-            [],
-            AntdInput_Helpers ?? {},
-            child$Props
-          );
-          return (
-            <AntdInput
-              data-plasmic-name={"input2"}
-              data-plasmic-override={overrides.input2}
-              {...child$Props}
-            />
-          );
-        })()}
-        <AntdButton
-          data-plasmic-name={"button"}
-          data-plasmic-override={overrides.button}
-          className={classNames("__wab_instance", sty.button, {
-            [sty.buttonupdateLayout]: hasVariant(
+        <div
+          className={classNames(projectcss.all, sty.freeBox__iETqq, {
+            [sty.freeBoxupdateLayout__iETqqEo86C]: hasVariant(
               $state,
               "updateLayout",
               "updateLayout"
             )
           })}
-          onClick={async () => {
-            const $steps = {};
-            $steps["updateUpdate"] = true
-              ? (() => {
-                  const actionArgs = {
-                    variable: {
-                      objRoot: $state,
-                      variablePath: ["update"]
-                    },
-                    operation: 4
-                  };
-                  return (({ variable, value, startIndex, deleteCount }) => {
-                    if (!variable) {
-                      return;
-                    }
-                    const { objRoot, variablePath } = variable;
-                    const oldValue = $stateGet(objRoot, variablePath);
-                    $stateSet(objRoot, variablePath, !oldValue);
-                    return !oldValue;
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["updateUpdate"] != null &&
-              typeof $steps["updateUpdate"] === "object" &&
-              typeof $steps["updateUpdate"].then === "function"
-            ) {
-              $steps["updateUpdate"] = await $steps["updateUpdate"];
-            }
-          }}
         >
-          <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
+          <h1
+            data-plasmic-name={"h1"}
+            data-plasmic-override={overrides.h1}
             className={classNames(
               projectcss.all,
+              projectcss.h1,
               projectcss.__wab_text,
-              sty.text
+              sty.h1,
+              {
+                [sty.h1updateLayout]: hasVariant(
+                  $state,
+                  "updateLayout",
+                  "updateLayout"
+                )
+              }
             )}
           >
-            {"Update"}
-          </div>
-        </AntdButton>
+            {hasVariant($state, "updateLayout", "updateLayout") ? (
+              "Name: "
+            ) : (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return $props.contact.name;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "You won't believe what happens next.";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            )}
+          </h1>
+          {(() => {
+            const child$Props = {
+              className: classNames("__wab_instance", sty.input3, {
+                [sty.input3updateLayout]: hasVariant(
+                  $state,
+                  "updateLayout",
+                  "updateLayout"
+                )
+              }),
+              onChange: generateStateOnChangePropForCodeComponents(
+                $state,
+                "value",
+                ["input3", "value"],
+                AntdInput_Helpers
+              ),
+              size: "large",
+              value: generateStateValueProp($state, ["input3", "value"])
+            };
+            initializeCodeComponentStates(
+              $state,
+              [
+                {
+                  name: "value",
+                  plasmicStateName: "input3.value"
+                }
+              ],
+
+              [],
+              AntdInput_Helpers ?? {},
+              child$Props
+            );
+            return (
+              <AntdInput
+                data-plasmic-name={"input3"}
+                data-plasmic-override={overrides.input3}
+                {...child$Props}
+              />
+            );
+          })()}
+        </div>
+        <div
+          className={classNames(projectcss.all, sty.freeBox___8Am7K, {
+            [sty.freeBoxupdateLayout___8Am7KEo86C]: hasVariant(
+              $state,
+              "updateLayout",
+              "updateLayout"
+            )
+          })}
+        >
+          <h3
+            className={classNames(
+              projectcss.all,
+              projectcss.h3,
+              projectcss.__wab_text,
+              sty.h3__v7T3T,
+              {
+                [sty.h3updateLayout__v7T3TEo86C]: hasVariant(
+                  $state,
+                  "updateLayout",
+                  "updateLayout"
+                )
+              }
+            )}
+          >
+            {hasVariant($state, "updateLayout", "updateLayout") ? (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return "Email: ";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return "Email: " + $props.contact.email;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            )}
+          </h3>
+          {(() => {
+            const child$Props = {
+              className: classNames("__wab_instance", sty.input, {
+                [sty.inputupdateLayout]: hasVariant(
+                  $state,
+                  "updateLayout",
+                  "updateLayout"
+                )
+              }),
+              onChange: generateStateOnChangePropForCodeComponents(
+                $state,
+                "value",
+                ["input", "value"],
+                AntdInput_Helpers
+              ),
+              value: generateStateValueProp($state, ["input", "value"])
+            };
+            initializeCodeComponentStates(
+              $state,
+              [
+                {
+                  name: "value",
+                  plasmicStateName: "input.value"
+                }
+              ],
+
+              [],
+              AntdInput_Helpers ?? {},
+              child$Props
+            );
+            return (
+              <AntdInput
+                data-plasmic-name={"input"}
+                data-plasmic-override={overrides.input}
+                {...child$Props}
+              />
+            );
+          })()}
+        </div>
+        <div
+          className={classNames(projectcss.all, sty.freeBox___6OukW, {
+            [sty.freeBoxupdateLayout___6OukWeo86C]: hasVariant(
+              $state,
+              "updateLayout",
+              "updateLayout"
+            )
+          })}
+        >
+          <h3
+            className={classNames(
+              projectcss.all,
+              projectcss.h3,
+              projectcss.__wab_text,
+              sty.h3__bfxEj,
+              {
+                [sty.h3updateLayout__bfxEjEo86C]: hasVariant(
+                  $state,
+                  "updateLayout",
+                  "updateLayout"
+                )
+              }
+            )}
+          >
+            {hasVariant($state, "updateLayout", "updateLayout") ? (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return "Phone Number: ";
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return "Phone Number: " + $props.contact.phoneNumber;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            )}
+          </h3>
+          {(() => {
+            const child$Props = {
+              className: classNames("__wab_instance", sty.input2, {
+                [sty.input2updateLayout]: hasVariant(
+                  $state,
+                  "updateLayout",
+                  "updateLayout"
+                )
+              }),
+              onChange: generateStateOnChangePropForCodeComponents(
+                $state,
+                "value",
+                ["input2", "value"],
+                AntdInput_Helpers
+              ),
+              value: generateStateValueProp($state, ["input2", "value"])
+            };
+            initializeCodeComponentStates(
+              $state,
+              [
+                {
+                  name: "value",
+                  plasmicStateName: "input2.value"
+                }
+              ],
+
+              [],
+              AntdInput_Helpers ?? {},
+              child$Props
+            );
+            return (
+              <AntdInput
+                data-plasmic-name={"input2"}
+                data-plasmic-override={overrides.input2}
+                {...child$Props}
+              />
+            );
+          })()}
+        </div>
+        <div
+          className={classNames(projectcss.all, sty.freeBox___5RVyk, {
+            [sty.freeBoxupdateLayout___5RVykEo86C]: hasVariant(
+              $state,
+              "updateLayout",
+              "updateLayout"
+            )
+          })}
+        >
+          <h5
+            data-plasmic-name={"h5"}
+            data-plasmic-override={overrides.h5}
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5,
+              {
+                [sty.h5updateLayout]: hasVariant(
+                  $state,
+                  "updateLayout",
+                  "updateLayout"
+                )
+              }
+            )}
+          >
+            {hasVariant($state, "updateLayout", "updateLayout")
+              ? "Linked Inventory:"
+              : "Linked Inventory:"}
+          </h5>
+          {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
+            (() => {
+              try {
+                return $queries.query.data;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()
+          ).map((__plasmic_item_0, __plasmic_idx_0) => {
+            const currentItem = __plasmic_item_0;
+            const currentIndex = __plasmic_idx_0;
+            return (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__pOadb)}
+                key={currentIndex}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__esNu7
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return currentItem.memo;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text___1Ln7
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return "$" + currentItem.price.toFixed(2);
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__lfwvn
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return currentItem.notes;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div
+          className={classNames(projectcss.all, sty.freeBox__p7HHd, {
+            [sty.freeBoxupdateLayout__p7HHdEo86C]: hasVariant(
+              $state,
+              "updateLayout",
+              "updateLayout"
+            )
+          })}
+        >
+          {(
+            hasVariant($state, "updateLayout", "updateLayout")
+              ? (() => {
+                  try {
+                    return $state.update;
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return true;
+                    }
+                    throw e;
+                  }
+                })()
+              : true
+          ) ? (
+            <AntdButton
+              className={classNames("__wab_instance", sty.button__kzgrP, {
+                [sty.buttonupdateLayout__kzgrPeo86C]: hasVariant(
+                  $state,
+                  "updateLayout",
+                  "updateLayout"
+                )
+              })}
+              onClick={async () => {
+                const $steps = {};
+                $steps["updateUpdate"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["update"]
+                        },
+                        operation: 4
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+                        const oldValue = $stateGet(objRoot, variablePath);
+                        $stateSet(objRoot, variablePath, !oldValue);
+                        return !oldValue;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateUpdate"] != null &&
+                  typeof $steps["updateUpdate"] === "object" &&
+                  typeof $steps["updateUpdate"].then === "function"
+                ) {
+                  $steps["updateUpdate"] = await $steps["updateUpdate"];
+                }
+                $steps["updateUpdate2"] = true
+                  ? (() => {
+                      const actionArgs = {
+                        variable: {
+                          objRoot: $state,
+                          variablePath: ["update"]
+                        },
+                        operation: 0
+                      };
+                      return (({
+                        variable,
+                        value,
+                        startIndex,
+                        deleteCount
+                      }) => {
+                        if (!variable) {
+                          return;
+                        }
+                        const { objRoot, variablePath } = variable;
+                        $stateSet(objRoot, variablePath, value);
+                        return value;
+                      })?.apply(null, [actionArgs]);
+                    })()
+                  : undefined;
+                if (
+                  $steps["updateUpdate2"] != null &&
+                  typeof $steps["updateUpdate2"] === "object" &&
+                  typeof $steps["updateUpdate2"].then === "function"
+                ) {
+                  $steps["updateUpdate2"] = await $steps["updateUpdate2"];
+                }
+              }}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__xk3S8
+                )}
+              >
+                {"Cancel"}
+              </div>
+            </AntdButton>
+          ) : null}
+          <AntdButton
+            className={classNames("__wab_instance", sty.button___93Lw5, {
+              [sty.buttonupdateLayout___93Lw5Eo86C]: hasVariant(
+                $state,
+                "updateLayout",
+                "updateLayout"
+              )
+            })}
+            onClick={async () => {
+              const $steps = {};
+              $steps["updateUpdate"] = true
+                ? (() => {
+                    const actionArgs = {
+                      variable: {
+                        objRoot: $state,
+                        variablePath: ["update"]
+                      },
+                      operation: 4
+                    };
+                    return (({ variable, value, startIndex, deleteCount }) => {
+                      if (!variable) {
+                        return;
+                      }
+                      const { objRoot, variablePath } = variable;
+                      const oldValue = $stateGet(objRoot, variablePath);
+                      $stateSet(objRoot, variablePath, !oldValue);
+                      return !oldValue;
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateUpdate"] != null &&
+                typeof $steps["updateUpdate"] === "object" &&
+                typeof $steps["updateUpdate"].then === "function"
+              ) {
+                $steps["updateUpdate"] = await $steps["updateUpdate"];
+              }
+              $steps["updateUpdate2"] = true
+                ? (() => {
+                    const actionArgs = {
+                      dataOp: {
+                        sourceId: "4ACnaEgTThrwyGmam4pjE6",
+                        opId: "295f6126-c954-43f7-9d75-334dbf8188ba",
+                        userArgs: {
+                          keys: [$props.contact.id],
+                          variables: [
+                            $state.input.value,
+                            $state.input2.value,
+                            $state.input3.value,
+                            $state.select.value
+                          ]
+                        },
+                        cacheKey: null,
+                        invalidatedKeys: ["plasmic_refresh_all"],
+                        roleId: null
+                      }
+                    };
+                    return (async ({ dataOp, continueOnError }) => {
+                      try {
+                        const response = await executePlasmicDataOp(dataOp, {
+                          userAuthToken: dataSourcesCtx?.userAuthToken,
+                          user: dataSourcesCtx?.user
+                        });
+                        await plasmicInvalidate(dataOp.invalidatedKeys);
+                        return response;
+                      } catch (e) {
+                        if (!continueOnError) {
+                          throw e;
+                        }
+                        return e;
+                      }
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["updateUpdate2"] != null &&
+                typeof $steps["updateUpdate2"] === "object" &&
+                typeof $steps["updateUpdate2"].then === "function"
+              ) {
+                $steps["updateUpdate2"] = await $steps["updateUpdate2"];
+              }
+            }}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__eNtnG
+              )}
+            >
+              {"Update"}
+            </div>
+          </AntdButton>
+        </div>
       </section>
-      <RichList
-        data-plasmic-name={"dataList"}
-        data-plasmic-override={overrides.dataList}
-        bordered={true}
-        className={classNames("__wab_instance", sty.dataList)}
-        content={(() => {
-          const __composite = [
-            {
-              key: "partnerID",
-              fieldId: null,
-              role: "content",
-              expr: null,
-              dataType: null
-            }
-          ];
-
-          __composite["0"]["fieldId"] = "memo";
-          __composite["0"]["expr"] = (currentItem, currentValue) => {
-            return currentItem.memo;
-          };
-          __composite["0"]["dataType"] = "string";
-          return __composite;
-        })()}
-        data={(() => {
-          try {
-            return $queries.query;
-          } catch (e) {
-            if (
-              e instanceof TypeError ||
-              e?.plasmicType === "PlasmicUndefinedDataError"
-            ) {
-              return undefined;
-            }
-            throw e;
-          }
-        })()}
-        hideSearch={true}
-        pagination={false}
-      />
-
-      <InventoryModal
-        data-plasmic-name={"inventoryModal"}
-        data-plasmic-override={overrides.inventoryModal}
-        className={classNames("__wab_instance", sty.inventoryModal)}
-        contact={args.contact}
-      />
     </div>
   );
 }
@@ -574,25 +1133,33 @@ const PlasmicDescendants = {
   root: [
     "root",
     "section",
-    "freeBox",
+    "select",
+    "_switch",
     "h1",
+    "input3",
     "input",
     "input2",
-    "button",
-    "text",
-    "dataList",
-    "inventoryModal"
+    "h5"
   ],
 
-  section: ["section", "freeBox", "h1", "input", "input2", "button", "text"],
-  freeBox: ["freeBox"],
+  section: [
+    "section",
+    "select",
+    "_switch",
+    "h1",
+    "input3",
+    "input",
+    "input2",
+    "h5"
+  ],
+
+  select: ["select"],
+  _switch: ["_switch"],
   h1: ["h1"],
+  input3: ["input3"],
   input: ["input"],
   input2: ["input2"],
-  button: ["button", "text"],
-  text: ["text"],
-  dataList: ["dataList"],
-  inventoryModal: ["inventoryModal"]
+  h5: ["h5"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -628,14 +1195,13 @@ export const PlasmicContactDisplay = Object.assign(
   {
     // Helper components rendering sub-elements
     section: makeNodeComponent("section"),
-    freeBox: makeNodeComponent("freeBox"),
+    select: makeNodeComponent("select"),
+    _switch: makeNodeComponent("_switch"),
     h1: makeNodeComponent("h1"),
+    input3: makeNodeComponent("input3"),
     input: makeNodeComponent("input"),
     input2: makeNodeComponent("input2"),
-    button: makeNodeComponent("button"),
-    text: makeNodeComponent("text"),
-    dataList: makeNodeComponent("dataList"),
-    inventoryModal: makeNodeComponent("inventoryModal"),
+    h5: makeNodeComponent("h5"),
     // Metadata about props expected for PlasmicContactDisplay
     internalVariantProps: PlasmicContactDisplay__VariantProps,
     internalArgProps: PlasmicContactDisplay__ArgProps

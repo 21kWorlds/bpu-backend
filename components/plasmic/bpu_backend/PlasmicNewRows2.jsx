@@ -26,6 +26,7 @@ import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import {
   executePlasmicDataOp,
+  usePlasmicDataOp,
   usePlasmicInvalidate
 } from "@plasmicapp/react-web/lib/data-sources";
 import { AntdAccordion } from "@plasmicpkgs/antd5/skinny/registerCollapse";
@@ -50,7 +51,7 @@ createPlasmicElementProxy;
 
 export const PlasmicNewRows2__VariantProps = new Array();
 
-export const PlasmicNewRows2__ArgProps = new Array("query");
+export const PlasmicNewRows2__ArgProps = new Array("partners");
 
 const $$ = {};
 
@@ -63,7 +64,16 @@ function useNextRouter() {
 
 function PlasmicNewRows2__RenderFunc(props) {
   const { variants, overrides, forNode } = props;
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {
+          partners: { name: "Joshua", id: "8" }
+        },
+        props.args
+      ),
+    [props.args]
+  );
   const $props = {
     ...args,
     ...variants
@@ -73,6 +83,7 @@ function PlasmicNewRows2__RenderFunc(props) {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
   const currentUser = useCurrentUser?.() || {};
+  let [$queries, setDollarQueries] = React.useState({});
   const stateSpecs = React.useMemo(
     () => [
       {
@@ -207,11 +218,27 @@ function PlasmicNewRows2__RenderFunc(props) {
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
-    $queries: {},
+    $queries: $queries,
     $refs
   });
   const dataSourcesCtx = usePlasmicDataSourceContext();
   const plasmicInvalidate = usePlasmicInvalidate();
+  const new$Queries = {
+    partners: usePlasmicDataOp(() => {
+      return {
+        sourceId: "4ACnaEgTThrwyGmam4pjE6",
+        opId: "ae559da8-a49a-4067-ae74-673a56622dd9",
+        userArgs: {},
+        cacheKey: `plasmic.$.ae559da8-a49a-4067-ae74-673a56622dd9.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    })
+  };
+  if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
+    setDollarQueries(new$Queries);
+    $queries = new$Queries;
+  }
   return (() => {
     const child$Props = {
       activeKey: generateStateValueProp($state, ["accordion", "activePanelId"]),
@@ -572,6 +599,7 @@ function PlasmicNewRows2__RenderFunc(props) {
                         <AntdSelect
                           data-plasmic-name={"select"}
                           data-plasmic-override={overrides.select}
+                          allowClear={true}
                           className={classNames("__wab_instance", sty.select)}
                           defaultStylesClassName={classNames(
                             projectcss.root_reset,
@@ -588,13 +616,17 @@ function PlasmicNewRows2__RenderFunc(props) {
                           options={(() => {
                             const __composite = [
                               { value: null, label: null, type: "option" },
-                              { value: null, label: null, type: "option" }
+                              { type: null, value: null, label: null },
+                              { type: "option", value: null, label: null }
                             ];
 
-                            __composite["0"]["value"] = "Caterer";
-                            __composite["0"]["label"] = "Caterer";
-                            __composite["1"]["value"] = "None";
-                            __composite["1"]["label"] = "Outside";
+                            __composite["0"]["value"] = "Community Caterer";
+                            __composite["0"]["label"] = "Community Caterer";
+                            __composite["1"]["type"] = "option";
+                            __composite["1"]["value"] = "Commercial Caterer";
+                            __composite["1"]["label"] = "Commercial Caterer";
+                            __composite["2"]["value"] = "none";
+                            __composite["2"]["label"] = "None";
                             return __composite;
                           })()}
                           placeholder={"Select..."}
@@ -832,15 +864,6 @@ function PlasmicNewRows2__RenderFunc(props) {
             }
             showArrow={true}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__plFwc
-              )}
-            >
-              {"Second Children"}
-            </div>
             {(() => {
               const child$Props = {
                 className: classNames("__wab_instance", sty.form2),
@@ -1209,7 +1232,7 @@ function PlasmicNewRows2__RenderFunc(props) {
                         ])}
                         options={(() => {
                           try {
-                            return $props.query.data.map(item => ({
+                            return $queries.partners.data.map(item => ({
                               label: item.name,
                               value: item.id
                             }));

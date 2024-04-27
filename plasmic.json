@@ -707,20 +707,6 @@
           "componentType": "component"
         },
         {
-          "id": "iB4rR5cgbkRc",
-          "name": "NewPage",
-          "type": "managed",
-          "projectId": "m9sTNijpsuGxLr6622n67c",
-          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicNewPage.jsx",
-          "importSpec": {
-            "modulePath": "../pages/new-page.jsx"
-          },
-          "cssFilePath": "plasmic/bpu_backend/PlasmicNewPage.module.css",
-          "scheme": "blackbox",
-          "componentType": "page",
-          "path": "/new-page"
-        },
-        {
           "id": "HNh49Ai2o5aV",
           "name": "CateringDisplay",
           "type": "managed",
@@ -732,6 +718,20 @@
           "cssFilePath": "plasmic/bpu_backend/PlasmicCateringDisplay.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "iB4rR5cgbkRc",
+          "name": "CateringIntake",
+          "type": "managed",
+          "projectId": "m9sTNijpsuGxLr6622n67c",
+          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicCateringIntake.jsx",
+          "importSpec": {
+            "modulePath": "../pages/new-page.jsx"
+          },
+          "cssFilePath": "plasmic/bpu_backend/PlasmicCateringIntake.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/new-page"
         }
       ],
       "icons": [

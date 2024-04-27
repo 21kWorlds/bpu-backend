@@ -38,7 +38,11 @@ createPlasmicElementProxy;
 
 export const PlasmicBookingDisplay__VariantProps = new Array();
 
-export const PlasmicBookingDisplay__ArgProps = new Array("booking");
+export const PlasmicBookingDisplay__ArgProps = new Array(
+  "booking",
+  "organization",
+  "contact"
+);
 
 const $$ = {};
 
@@ -168,72 +172,114 @@ function PlasmicBookingDisplay__RenderFunc(props) {
       )}
     >
       <div className={classNames(projectcss.all, sty.freeBox__omDf0)}>
-        <AntdButton
-          className={classNames("__wab_instance", sty.button__zZVs8)}
-          onClick={async () => {
-            const $steps = {};
-            $steps["runCode"] = true
-              ? (() => {
-                  const actionArgs = {
-                    customFunction: async () => {
-                      return undefined;
-                    }
-                  };
-                  return (({ customFunction }) => {
-                    return customFunction();
-                  })?.apply(null, [actionArgs]);
-                })()
-              : undefined;
-            if (
-              $steps["runCode"] != null &&
-              typeof $steps["runCode"] === "object" &&
-              typeof $steps["runCode"].then === "function"
-            ) {
-              $steps["runCode"] = await $steps["runCode"];
-            }
-          }}
+        <h1
+          className={classNames(
+            projectcss.all,
+            projectcss.h1,
+            projectcss.__wab_text,
+            sty.h1__ewa57
+          )}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__h9RH0
-            )}
-          >
-            {"Button"}
-          </div>
-        </AntdButton>
-        <AntdButton
-          className={classNames("__wab_instance", sty.button__uDz7)}
-          href={`/bookings-2/${(() => {
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.booking.title;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "You won't believe what happens next.";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </h1>
+      </div>
+      <h3
+        className={classNames(
+          projectcss.all,
+          projectcss.h3,
+          projectcss.__wab_text,
+          sty.h3__szbSj
+        )}
+      >
+        <React.Fragment>
+          {(() => {
             try {
-              return $props.booking.id;
+              return $props.booking.description;
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return undefined;
+                return "You won't believe what happens next.";
               }
               throw e;
             }
-          })()}`}
-          onClick={async () => {
-            const $steps = {};
-          }}
+          })()}
+        </React.Fragment>
+      </h3>
+      <div className={classNames(projectcss.all, sty.freeBox__ks8Fi)}>
+        <h1
+          className={classNames(
+            projectcss.all,
+            projectcss.h1,
+            projectcss.__wab_text,
+            sty.h1___0MdmI
+          )}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___4JEZ
-            )}
-          >
-            {"Button"}
-          </div>
-        </AntdButton>
+          {"Organization"}
+        </h1>
+        <h1
+          className={classNames(
+            projectcss.all,
+            projectcss.h1,
+            projectcss.__wab_text,
+            sty.h1__uj7Wc
+          )}
+        >
+          {"Contact"}
+        </h1>
+      </div>
+      <div className={classNames(projectcss.all, sty.freeBox__fos6J)}>
+        <h3
+          className={classNames(
+            projectcss.all,
+            projectcss.h3,
+            projectcss.__wab_text,
+            sty.h3__ilTho
+          )}
+        >
+          {"Website"}
+        </h3>
+        <h3
+          className={classNames(
+            projectcss.all,
+            projectcss.h3,
+            projectcss.__wab_text,
+            sty.h3__qo1GU
+          )}
+        >
+          {"Email"}
+        </h3>
+        <h3
+          className={classNames(
+            projectcss.all,
+            projectcss.h3,
+            projectcss.__wab_text,
+            sty.h3__vv1Sa
+          )}
+        >
+          {"Phone"}
+        </h3>
+      </div>
+      <div className={classNames(projectcss.all, sty.freeBox__x2S9C)}>
         <AntdButton
-          className={classNames("__wab_instance", sty.button__zeiu)}
+          data-plasmic-name={"button"}
+          data-plasmic-override={overrides.button}
+          className={classNames("__wab_instance", sty.button)}
           href={`/bookings-2/${(() => {
             try {
               return $props.booking.id;
@@ -261,30 +307,129 @@ function PlasmicBookingDisplay__RenderFunc(props) {
             {"Button"}
           </div>
         </AntdButton>
-        <h1
-          className={classNames(
-            projectcss.all,
-            projectcss.h1,
-            projectcss.__wab_text,
-            sty.h1__ewa57
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return $props.booking.title;
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "You won't believe what happens next.";
+        <div className={classNames(projectcss.all, sty.freeBox__udHqG)}>
+          <h5
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5__xF8A
+            )}
+          >
+            {"Event: "}
+          </h5>
+          <h5
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5__zZFmZ
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return new Date($props.booking.date).toLocaleDateString(
+                    "en-US",
+                    { year: "2-digit", month: "2-digit", day: "2-digit" }
+                  );
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "You won't believe what happens next.";
+                  }
+                  throw e;
                 }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </h1>
+              })()}
+            </React.Fragment>
+          </h5>
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__mQOt)}>
+          <h5
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5__fi0Vr
+            )}
+          >
+            {"Start: "}
+          </h5>
+          <h5
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5__wHnYv
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return (() => {
+                    const eventStart = $props.booking.event_start;
+                    const [hours, minutes] = eventStart.split(":");
+                    const period = hours >= 12 ? "PM" : "AM";
+                    const displayHours = hours % 12 || 12;
+                    return `${displayHours}:${minutes} ${period}`;
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "You won't believe what happens next.";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </h5>
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox___5W2Oa)}>
+          <h5
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5__zvSyo
+            )}
+          >
+            {"End: "}
+          </h5>
+          <h5
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5___2ViVb
+            )}
+          >
+            <React.Fragment>
+              {(() => {
+                try {
+                  return (() => {
+                    const eventEnd = $props.booking.event_end;
+                    const [hours, minutes] = eventEnd.split(":");
+                    const period = hours >= 12 ? "PM" : "AM";
+                    const displayHours = hours % 12 || 12;
+                    return `${displayHours}:${minutes} ${period}`;
+                  })();
+                } catch (e) {
+                  if (
+                    e instanceof TypeError ||
+                    e?.plasmicType === "PlasmicUndefinedDataError"
+                  ) {
+                    return "You won't believe what happens next.";
+                  }
+                  throw e;
+                }
+              })()}
+            </React.Fragment>
+          </h5>
+        </div>
         <AntdCheckbox
           data-plasmic-name={"checkbox"}
           data-plasmic-override={overrides.checkbox}
@@ -322,140 +467,6 @@ function PlasmicBookingDisplay__RenderFunc(props) {
             </React.Fragment>
           </div>
         </AntdCheckbox>
-      </div>
-      <h3
-        className={classNames(
-          projectcss.all,
-          projectcss.h3,
-          projectcss.__wab_text,
-          sty.h3__szbSj
-        )}
-      >
-        <React.Fragment>
-          {(() => {
-            try {
-              return $props.booking.description;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return "You won't believe what happens next.";
-              }
-              throw e;
-            }
-          })()}
-        </React.Fragment>
-      </h3>
-      <h1
-        className={classNames(
-          projectcss.all,
-          projectcss.h1,
-          projectcss.__wab_text,
-          sty.h1___0MdmI
-        )}
-      >
-        {"Organization + Contact"}
-      </h1>
-      <div className={classNames(projectcss.all, sty.freeBox__x2S9C)}>
-        <h5
-          className={classNames(
-            projectcss.all,
-            projectcss.h5,
-            projectcss.__wab_text,
-            sty.h5__zZFmZ
-          )}
-        >
-          <React.Fragment>
-            {(() => {
-              try {
-                return new Date($props.booking.date).toLocaleDateString(
-                  "en-US"
-                );
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return "You won't believe what happens next.";
-                }
-                throw e;
-              }
-            })()}
-          </React.Fragment>
-        </h5>
-        <div className={classNames(projectcss.all, sty.freeBox__mQOt)}>
-          <h5
-            className={classNames(
-              projectcss.all,
-              projectcss.h5,
-              projectcss.__wab_text,
-              sty.h5__fi0Vr
-            )}
-          >
-            {"Event Start: "}
-          </h5>
-          <h5
-            className={classNames(
-              projectcss.all,
-              projectcss.h5,
-              projectcss.__wab_text,
-              sty.h5__wHnYv
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.booking.event_start;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "You won't believe what happens next.";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </h5>
-        </div>
-        <div className={classNames(projectcss.all, sty.freeBox___5W2Oa)}>
-          <h5
-            className={classNames(
-              projectcss.all,
-              projectcss.h5,
-              projectcss.__wab_text,
-              sty.h5__zvSyo
-            )}
-          >
-            {"Event End: "}
-          </h5>
-          <h5
-            className={classNames(
-              projectcss.all,
-              projectcss.h5,
-              projectcss.__wab_text,
-              sty.h5___2ViVb
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return $props.booking.event_end;
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "You won't believe what happens next.";
-                  }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </h5>
-        </div>
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__fcsDy)}>
         <div className={classNames(projectcss.all, sty.freeBox__mwMiz)}>
@@ -1085,7 +1096,8 @@ function PlasmicBookingDisplay__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "checkbox", "checkbox2", "collapse", "collapse2"],
+  root: ["root", "button", "checkbox", "checkbox2", "collapse", "collapse2"],
+  button: ["button"],
   checkbox: ["checkbox"],
   checkbox2: ["checkbox2"],
   collapse: ["collapse"],
@@ -1124,6 +1136,7 @@ export const PlasmicBookingDisplay = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    button: makeNodeComponent("button"),
     checkbox: makeNodeComponent("checkbox"),
     checkbox2: makeNodeComponent("checkbox2"),
     collapse: makeNodeComponent("collapse"),
