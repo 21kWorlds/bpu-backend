@@ -23,6 +23,7 @@ import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
 import { RichList } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-list";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
@@ -1114,17 +1115,64 @@ function PlasmicCateringDisplay__RenderFunc(props) {
           />
         </div>
       </div>
+      <AntdButton
+        data-plasmic-name={"button"}
+        data-plasmic-override={overrides.button}
+        className={classNames("__wab_instance", sty.button)}
+        onClick={async () => {
+          const $steps = {};
+          $steps["runCode"] = true
+            ? (() => {
+                const actionArgs = {
+                  customFunction: async () => {
+                    return () => {
+                      navigator.clipboard
+                        .writeText("The text you want to copy")
+                        .then(() =>
+                          alert("Text successfully copied to clipboard!")
+                        )
+                        .catch(err =>
+                          console.error("Failed to copy text: ", err)
+                        );
+                    };
+                  }
+                };
+                return (({ customFunction }) => {
+                  return customFunction();
+                })?.apply(null, [actionArgs]);
+              })()
+            : undefined;
+          if (
+            $steps["runCode"] != null &&
+            typeof $steps["runCode"] === "object" &&
+            typeof $steps["runCode"].then === "function"
+          ) {
+            $steps["runCode"] = await $steps["runCode"];
+          }
+        }}
+      >
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__p4ZVd
+          )}
+        >
+          {"Submit"}
+        </div>
+      </AntdButton>
     </div>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "h1", "select", "select2", "select4", "select3"],
+  root: ["root", "h1", "select", "select2", "select4", "select3", "button"],
   h1: ["h1"],
   select: ["select"],
   select2: ["select2"],
   select4: ["select4"],
-  select3: ["select3"]
+  select3: ["select3"],
+  button: ["button"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -1164,6 +1212,7 @@ export const PlasmicCateringDisplay = Object.assign(
     select2: makeNodeComponent("select2"),
     select4: makeNodeComponent("select4"),
     select3: makeNodeComponent("select3"),
+    button: makeNodeComponent("button"),
     // Metadata about props expected for PlasmicCateringDisplay
     internalVariantProps: PlasmicCateringDisplay__VariantProps,
     internalArgProps: PlasmicCateringDisplay__ArgProps

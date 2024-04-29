@@ -471,47 +471,6 @@ function PlasmicContactDisplay__RenderFunc(props) {
               ])}
             />
           </div>
-          {(
-            hasVariant($state, "updateLayout", "updateLayout") ? true : false
-          ) ? (
-            <h4
-              className={classNames(
-                projectcss.all,
-                projectcss.h4,
-                projectcss.__wab_text,
-                sty.h4__c3FDj,
-                {
-                  [sty.h4updateLayout__c3FDjEo86C]: hasVariant(
-                    $state,
-                    "updateLayout",
-                    "updateLayout"
-                  )
-                }
-              )}
-            >
-              {hasVariant($state, "updateLayout", "updateLayout") ? (
-                "Org: "
-              ) : (
-                <React.Fragment>
-                  {(() => {
-                    try {
-                      return $props.contact.isOrg
-                        ? "Organization"
-                        : "Individual";
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return "You won't believe what happens next.";
-                      }
-                      throw e;
-                    }
-                  })()}
-                </React.Fragment>
-              )}
-            </h4>
-          ) : null}
         </div>
         <div
           className={classNames(projectcss.all, sty.freeBox__iETqq, {

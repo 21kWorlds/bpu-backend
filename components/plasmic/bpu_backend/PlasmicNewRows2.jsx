@@ -35,11 +35,11 @@ import { AntdAccordionItem } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
+import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { AntdSwitch } from "@plasmicpkgs/antd5/skinny/registerSwitch";
-import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -171,7 +171,7 @@ function PlasmicNewRows2__RenderFunc(props) {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "input3.value",
+        path: "iMemo.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
@@ -210,6 +210,40 @@ function PlasmicNewRows2__RenderFunc(props) {
           "activePanelId",
           AntdAccordion_Helpers
         )
+      },
+      {
+        path: "form3.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        refName: "form3",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "form3.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+        refName: "form3",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      },
+      {
+        path: "select4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "boSelect.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "bNotes.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => "This is a text area."
       }
     ],
 
@@ -227,9 +261,9 @@ function PlasmicNewRows2__RenderFunc(props) {
     partners: usePlasmicDataOp(() => {
       return {
         sourceId: "4ACnaEgTThrwyGmam4pjE6",
-        opId: "ae559da8-a49a-4067-ae74-673a56622dd9",
+        opId: "55033fda-3f36-4022-9a94-4af9a2025e11",
         userArgs: {},
-        cacheKey: `plasmic.$.ae559da8-a49a-4067-ae74-673a56622dd9.$.`,
+        cacheKey: `plasmic.$.55033fda-3f36-4022-9a94-4af9a2025e11.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -255,6 +289,393 @@ function PlasmicNewRows2__RenderFunc(props) {
       ),
       items: (
         <React.Fragment>
+          <AntdAccordionItem
+            className={classNames("__wab_instance", sty.accordionItem___1Gzv8)}
+            id={2}
+            label2={
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__qfAMe
+                )}
+              >
+                <React.Fragment>
+                  <span
+                    className={"plasmic_default__all plasmic_default__span"}
+                    style={{ fontWeight: 700 }}
+                  >
+                    {"New Booking"}
+                  </span>
+                </React.Fragment>
+              </div>
+            }
+            showArrow={true}
+          >
+            {(() => {
+              const child$Props = {
+                className: classNames("__wab_instance", sty.form3),
+                extendedOnValuesChange:
+                  generateStateOnChangePropForCodeComponents(
+                    $state,
+                    "value",
+                    ["form3", "value"],
+                    FormWrapper_Helpers
+                  ),
+                formItems: [
+                  { label: "Name", name: "name", inputType: "Text" },
+                  { label: "Message", name: "message", inputType: "Text Area" }
+                ],
+
+                labelCol: { span: 8, horizontalOnly: true },
+                layout: "vertical",
+                mode: "advanced",
+                onFinish: async values => {
+                  const $steps = {};
+                  $steps["defaultSubmit"] = true
+                    ? (() => {
+                        const actionArgs = {
+                          dataOp: {
+                            sourceId: "4ACnaEgTThrwyGmam4pjE6",
+                            opId: "d5fbdb12-91cb-4d56-98e6-c95be225bd99",
+                            userArgs: {
+                              variables: [$state.form3.value]
+                            },
+                            cacheKey: null,
+                            invalidatedKeys: ["plasmic_refresh_all"],
+                            roleId: null
+                          }
+                        };
+                        return (async ({ dataOp, continueOnError }) => {
+                          try {
+                            const response = await executePlasmicDataOp(
+                              dataOp,
+                              {
+                                userAuthToken: dataSourcesCtx?.userAuthToken,
+                                user: dataSourcesCtx?.user
+                              }
+                            );
+                            await plasmicInvalidate(dataOp.invalidatedKeys);
+                            return response;
+                          } catch (e) {
+                            if (!continueOnError) {
+                              throw e;
+                            }
+                            return e;
+                          }
+                        })?.apply(null, [actionArgs]);
+                      })()
+                    : undefined;
+                  if (
+                    $steps["defaultSubmit"] != null &&
+                    typeof $steps["defaultSubmit"] === "object" &&
+                    typeof $steps["defaultSubmit"].then === "function"
+                  ) {
+                    $steps["defaultSubmit"] = await $steps["defaultSubmit"];
+                  }
+                },
+                onIsSubmittingChange:
+                  generateStateOnChangePropForCodeComponents(
+                    $state,
+                    "isSubmitting",
+                    ["form3", "isSubmitting"],
+                    FormWrapper_Helpers
+                  ),
+                ref: ref => {
+                  $refs["form3"] = ref;
+                },
+                submitSlot: null,
+                wrapperCol: { span: 16, horizontalOnly: true }
+              };
+              initializeCodeComponentStates(
+                $state,
+                [
+                  {
+                    name: "value",
+                    plasmicStateName: "form3.value"
+                  },
+                  {
+                    name: "isSubmitting",
+                    plasmicStateName: "form3.isSubmitting"
+                  }
+                ],
+
+                [],
+                FormWrapper_Helpers ?? {},
+                child$Props
+              );
+              return (
+                <FormWrapper
+                  data-plasmic-name={"form3"}
+                  data-plasmic-override={overrides.form3}
+                  {...child$Props}
+                >
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__knWm5)}
+                  >
+                    <FormItemWrapper
+                      data-plasmic-name={"contactId"}
+                      data-plasmic-override={overrides.contactId}
+                      className={classNames("__wab_instance", sty.contactId)}
+                      initialValue={undefined}
+                      label={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__cWvMk
+                          )}
+                        >
+                          <React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Contact"}
+                            </span>
+                          </React.Fragment>
+                        </div>
+                      }
+                      name={"contactID"}
+                      rules={[{ ruleType: "required" }]}
+                    >
+                      <AntdSelect
+                        data-plasmic-name={"select4"}
+                        data-plasmic-override={overrides.select4}
+                        allowClear={true}
+                        className={classNames("__wab_instance", sty.select4)}
+                        defaultStylesClassName={classNames(
+                          projectcss.root_reset,
+                          projectcss.plasmic_default_styles,
+                          projectcss.plasmic_mixins,
+                          projectcss.plasmic_tokens,
+                          plasmic_antd_5_hostless_css.plasmic_tokens,
+                          plasmic_plasmic_rich_components_css.plasmic_tokens
+                        )}
+                        onChange={generateStateOnChangeProp($state, [
+                          "select4",
+                          "value"
+                        ])}
+                        options={(() => {
+                          try {
+                            return $queries.partners.data
+                              .filter(item => item.isOrg === false)
+                              .map(item => ({
+                                label: item.name,
+                                value: item.id
+                              }));
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  value: "option1",
+                                  label: "Option 1",
+                                  type: "option"
+                                },
+                                {
+                                  value: "option2",
+                                  label: "Option 2",
+                                  type: "option"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        placeholder={
+                          <div
+                            data-plasmic-name={"bcSelect"}
+                            data-plasmic-override={overrides.bcSelect}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.bcSelect
+                            )}
+                          >
+                            {"Select..."}
+                          </div>
+                        }
+                        popupScopeClassName={sty["select4__popup"]}
+                        value={generateStateValueProp($state, [
+                          "select4",
+                          "value"
+                        ])}
+                      />
+                    </FormItemWrapper>
+                    <FormItemWrapper
+                      className={classNames(
+                        "__wab_instance",
+                        sty.formField__t37V1
+                      )}
+                      initialValue={undefined}
+                      label={
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__vujLv
+                          )}
+                        >
+                          <React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ fontWeight: 700 }}
+                            >
+                              {"Organization"}
+                            </span>
+                          </React.Fragment>
+                        </div>
+                      }
+                      name={"OrgID"}
+                      rules={[{ ruleType: "required" }]}
+                    >
+                      <AntdSelect
+                        data-plasmic-name={"boSelect"}
+                        data-plasmic-override={overrides.boSelect}
+                        allowClear={true}
+                        className={classNames("__wab_instance", sty.boSelect)}
+                        defaultStylesClassName={classNames(
+                          projectcss.root_reset,
+                          projectcss.plasmic_default_styles,
+                          projectcss.plasmic_mixins,
+                          projectcss.plasmic_tokens,
+                          plasmic_antd_5_hostless_css.plasmic_tokens,
+                          plasmic_plasmic_rich_components_css.plasmic_tokens
+                        )}
+                        onChange={generateStateOnChangeProp($state, [
+                          "boSelect",
+                          "value"
+                        ])}
+                        options={(() => {
+                          try {
+                            return $queries.partners.data
+                              .filter(item => item.isOrg === true)
+                              .map(item => ({
+                                label: item.name,
+                                value: item.id
+                              }));
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return [
+                                {
+                                  value: "option1",
+                                  label: "Option 1",
+                                  type: "option"
+                                },
+                                {
+                                  value: "option2",
+                                  label: "Option 2",
+                                  type: "option"
+                                }
+                              ];
+                            }
+                            throw e;
+                          }
+                        })()}
+                        placeholder={"Select..."}
+                        popupScopeClassName={sty["boSelect__popup"]}
+                        value={generateStateValueProp($state, [
+                          "boSelect",
+                          "value"
+                        ])}
+                      />
+                    </FormItemWrapper>
+                  </div>
+                  <FormItemWrapper
+                    className={classNames(
+                      "__wab_instance",
+                      sty.formField__kzaQz
+                    )}
+                    initialValue={undefined}
+                    label={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__f6Nhr
+                        )}
+                      >
+                        <React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"Notes"}
+                          </span>
+                        </React.Fragment>
+                      </div>
+                    }
+                    name={"user_notes"}
+                  >
+                    <textarea
+                      data-plasmic-name={"bNotes"}
+                      data-plasmic-override={overrides.bNotes}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.textarea,
+                        sty.bNotes
+                      )}
+                      onChange={e => {
+                        generateStateOnChangeProp($state, ["bNotes", "value"])(
+                          e.target.value
+                        );
+                      }}
+                      ref={ref => {
+                        $refs["bNotes"] = ref;
+                      }}
+                      value={
+                        generateStateValueProp($state, ["bNotes", "value"]) ??
+                        ""
+                      }
+                    />
+                  </FormItemWrapper>
+                  <AntdButton
+                    className={classNames("__wab_instance", sty.button__u79Lv)}
+                    disabled={(() => {
+                      try {
+                        return undefined;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return undefined;
+                        }
+                        throw e;
+                      }
+                    })()}
+                    onClick={async () => {
+                      const $steps = {};
+                    }}
+                    submitsForm={true}
+                    type={"primary"}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__bfR
+                      )}
+                    >
+                      {"Submit"}
+                    </div>
+                  </AntdButton>
+                </FormWrapper>
+              );
+            })()}
+          </AntdAccordionItem>
           <AntdAccordionItem
             className={classNames("__wab_instance", sty.accordionItem___8Jef3)}
             id={1}
@@ -995,15 +1416,15 @@ function PlasmicNewRows2__RenderFunc(props) {
                     >
                       {(() => {
                         const child$Props = {
-                          className: classNames("__wab_instance", sty.input3),
+                          className: classNames("__wab_instance", sty.iMemo),
                           onChange: generateStateOnChangePropForCodeComponents(
                             $state,
                             "value",
-                            ["input3", "value"],
+                            ["iMemo", "value"],
                             AntdInput_Helpers
                           ),
                           value: generateStateValueProp($state, [
-                            "input3",
+                            "iMemo",
                             "value"
                           ])
                         };
@@ -1012,7 +1433,7 @@ function PlasmicNewRows2__RenderFunc(props) {
                           [
                             {
                               name: "value",
-                              plasmicStateName: "input3.value"
+                              plasmicStateName: "iMemo.value"
                             }
                           ],
 
@@ -1022,8 +1443,8 @@ function PlasmicNewRows2__RenderFunc(props) {
                         );
                         return (
                           <AntdInput
-                            data-plasmic-name={"input3"}
-                            data-plasmic-override={overrides.input3}
+                            data-plasmic-name={"iMemo"}
+                            data-plasmic-override={overrides.iMemo}
                             {...child$Props}
                           />
                         );
@@ -1232,10 +1653,12 @@ function PlasmicNewRows2__RenderFunc(props) {
                         ])}
                         options={(() => {
                           try {
-                            return $queries.partners.data.map(item => ({
-                              label: item.name,
-                              value: item.id
-                            }));
+                            return $queries.partners.data
+                              .filter(item => item.PartnerType !== null)
+                              .map(item => ({
+                                label: item.name,
+                                value: item.id
+                              }));
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -1365,6 +1788,12 @@ function PlasmicNewRows2__RenderFunc(props) {
 const PlasmicDescendants = {
   accordion: [
     "accordion",
+    "form3",
+    "contactId",
+    "select4",
+    "bcSelect",
+    "boSelect",
+    "bNotes",
     "form",
     "input4",
     "isOrg",
@@ -1374,7 +1803,7 @@ const PlasmicDescendants = {
     "input6",
     "textarea",
     "form2",
-    "input3",
+    "iMemo",
     "numberInput2",
     "switch2",
     "select2",
@@ -1382,6 +1811,12 @@ const PlasmicDescendants = {
     "textarea2"
   ],
 
+  form3: ["form3", "contactId", "select4", "bcSelect", "boSelect", "bNotes"],
+  contactId: ["contactId", "select4", "bcSelect"],
+  select4: ["select4", "bcSelect"],
+  bcSelect: ["bcSelect"],
+  boSelect: ["boSelect"],
+  bNotes: ["bNotes"],
   form: [
     "form",
     "input4",
@@ -1402,7 +1837,7 @@ const PlasmicDescendants = {
   textarea: ["textarea"],
   form2: [
     "form2",
-    "input3",
+    "iMemo",
     "numberInput2",
     "switch2",
     "select2",
@@ -1410,7 +1845,7 @@ const PlasmicDescendants = {
     "textarea2"
   ],
 
-  input3: ["input3"],
+  iMemo: ["iMemo"],
   numberInput2: ["numberInput2"],
   switch2: ["switch2"],
   select2: ["select2"],
@@ -1450,6 +1885,12 @@ export const PlasmicNewRows2 = Object.assign(
   makeNodeComponent("accordion"),
   {
     // Helper components rendering sub-elements
+    form3: makeNodeComponent("form3"),
+    contactId: makeNodeComponent("contactId"),
+    select4: makeNodeComponent("select4"),
+    bcSelect: makeNodeComponent("bcSelect"),
+    boSelect: makeNodeComponent("boSelect"),
+    bNotes: makeNodeComponent("bNotes"),
     form: makeNodeComponent("form"),
     input4: makeNodeComponent("input4"),
     isOrg: makeNodeComponent("isOrg"),
@@ -1459,7 +1900,7 @@ export const PlasmicNewRows2 = Object.assign(
     input6: makeNodeComponent("input6"),
     textarea: makeNodeComponent("textarea"),
     form2: makeNodeComponent("form2"),
-    input3: makeNodeComponent("input3"),
+    iMemo: makeNodeComponent("iMemo"),
     numberInput2: makeNodeComponent("numberInput2"),
     switch2: makeNodeComponent("switch2"),
     select2: makeNodeComponent("select2"),

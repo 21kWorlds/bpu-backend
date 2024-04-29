@@ -24,7 +24,6 @@ import {
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdCheckbox } from "@plasmicpkgs/antd5/skinny/registerCheckbox";
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
@@ -55,7 +54,16 @@ function useNextRouter() {
 
 function PlasmicBookingDisplay__RenderFunc(props) {
   const { variants, overrides, forNode } = props;
-  const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+  const args = React.useMemo(
+    () =>
+      Object.assign(
+        {
+          organization: { name: "21kWorlds", website: "21kworlds.earth" }
+        },
+        props.args
+      ),
+    [props.args]
+  );
   const $props = {
     ...args,
     ...variants
@@ -230,18 +238,48 @@ function PlasmicBookingDisplay__RenderFunc(props) {
             sty.h1___0MdmI
           )}
         >
-          {"Organization"}
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.organization[0].name ?? "Organization";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "Organization";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
         </h1>
-        <h1
+        <h2
+          data-plasmic-name={"h2"}
+          data-plasmic-override={overrides.h2}
           className={classNames(
             projectcss.all,
-            projectcss.h1,
+            projectcss.h2,
             projectcss.__wab_text,
-            sty.h1__uj7Wc
+            sty.h2
           )}
         >
-          {"Contact"}
-        </h1>
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.contact[0].name ?? "Contact";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "Contact";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </h2>
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__fos6J)}>
         <h3
@@ -252,61 +290,72 @@ function PlasmicBookingDisplay__RenderFunc(props) {
             sty.h3__ilTho
           )}
         >
-          {"Website"}
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.organization[0].website ?? "Website";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "Website";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
         </h3>
-        <h3
+        <h4
           className={classNames(
             projectcss.all,
-            projectcss.h3,
+            projectcss.h4,
             projectcss.__wab_text,
-            sty.h3__qo1GU
+            sty.h4__qo1GU
           )}
         >
-          {"Email"}
-        </h3>
-        <h3
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.contact[0].email ?? "Email";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "Email";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </h4>
+        <h4
           className={classNames(
             projectcss.all,
-            projectcss.h3,
+            projectcss.h4,
             projectcss.__wab_text,
-            sty.h3__vv1Sa
+            sty.h4__vv1Sa
           )}
         >
-          {"Phone"}
-        </h3>
+          <React.Fragment>
+            {(() => {
+              try {
+                return $props.contact[0].phoneNumber ?? "Phone";
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return "Phone";
+                }
+                throw e;
+              }
+            })()}
+          </React.Fragment>
+        </h4>
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__x2S9C)}>
-        <AntdButton
-          data-plasmic-name={"button"}
-          data-plasmic-override={overrides.button}
-          className={classNames("__wab_instance", sty.button)}
-          href={`/bookings-2/${(() => {
-            try {
-              return $props.booking.id;
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return undefined;
-              }
-              throw e;
-            }
-          })()}`}
-          onClick={async () => {
-            const $steps = {};
-          }}
-        >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___3ZY4T
-            )}
-          >
-            {"Button"}
-          </div>
-        </AntdButton>
         <div className={classNames(projectcss.all, sty.freeBox__udHqG)}>
           <h5
             className={classNames(
@@ -338,7 +387,7 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return "You won't believe what happens next.";
+                    return "--/--/--";
                   }
                   throw e;
                 }
@@ -380,7 +429,7 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return "You won't believe what happens next.";
+                    return "--:-- --";
                   }
                   throw e;
                 }
@@ -422,7 +471,7 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                     e instanceof TypeError ||
                     e?.plasmicType === "PlasmicUndefinedDataError"
                   ) {
-                    return "You won't believe what happens next.";
+                    return "--:-- --";
                   }
                   throw e;
                 }
@@ -1091,13 +1140,41 @@ function PlasmicBookingDisplay__RenderFunc(props) {
           </React.Fragment>
         </h5>
       </div>
+      <div
+        className={classNames(
+          projectcss.all,
+          projectcss.__wab_text,
+          sty.text__cLSuN
+        )}
+      >
+        <React.Fragment>
+          {(() => {
+            try {
+              return (
+                "https://bpu-backend.vercel.app/bookings-2/" +
+                $props.booking.id +
+                "/?name=" +
+                $props.contact[0].name.split(" ")[0]
+              );
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return "";
+              }
+              throw e;
+            }
+          })()}
+        </React.Fragment>
+      </div>
     </div>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "checkbox", "checkbox2", "collapse", "collapse2"],
-  button: ["button"],
+  root: ["root", "h2", "checkbox", "checkbox2", "collapse", "collapse2"],
+  h2: ["h2"],
   checkbox: ["checkbox"],
   checkbox2: ["checkbox2"],
   collapse: ["collapse"],
@@ -1136,7 +1213,7 @@ export const PlasmicBookingDisplay = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    button: makeNodeComponent("button"),
+    h2: makeNodeComponent("h2"),
     checkbox: makeNodeComponent("checkbox"),
     checkbox2: makeNodeComponent("checkbox2"),
     collapse: makeNodeComponent("collapse"),

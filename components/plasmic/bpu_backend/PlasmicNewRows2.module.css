@@ -5,6 +5,86 @@
   position: relative;
   min-width: 0;
 }
+.accordionItem___1Gzv8:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__qfAMe {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.form3:global(.__wab_instance) {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  object-fit: cover;
+  min-width: 0;
+  padding: 8px;
+}
+.freeBox__knWm5 {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+  padding: 0px;
+}
+.contactId:global(.__wab_instance) {
+  width: 100%;
+  margin-right: 4px;
+  margin-left: 0px;
+  min-width: 0;
+}
+.select4:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.formField__t37V1:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  margin-left: 4px;
+  min-width: 0;
+}
+.boSelect:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.formField__kzaQz:global(.__wab_instance) {
+  width: 100%;
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.bNotes {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.button__u79Lv:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
+.text__bfR {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .accordionItem___8Jef3:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
@@ -203,7 +283,7 @@
   margin-left: 4px;
   min-width: 0;
 }
-.input3:global(.__wab_instance) {
+.iMemo:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
 }

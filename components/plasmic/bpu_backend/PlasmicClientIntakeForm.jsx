@@ -35,7 +35,6 @@ import {
 } from "@plasmicapp/react-web/lib/data-sources";
 import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
@@ -44,6 +43,7 @@ import { AntdDatePicker } from "@plasmicpkgs/antd5/skinny/registerDatePicker";
 import { datePickerHelpers as AntdDatePicker_Helpers } from "@plasmicpkgs/antd5/skinny/registerDatePicker";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
 import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
@@ -197,13 +197,6 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
       },
       {
         path: "description2.value",
-        type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
-        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
-      },
-      {
-        path: "input35.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
@@ -711,19 +704,6 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
                       </span>
                     </React.Fragment>
                   </div>
-                  <AntdButton
-                    className={classNames("__wab_instance", sty.button__sf9P4)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__aqpSg
-                      )}
-                    >
-                      {"Start"}
-                    </div>
-                  </AntdButton>
                 </section>
                 <section
                   className={classNames(projectcss.all, sty.section__jphmO)}
@@ -1696,19 +1676,6 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
                       </span>
                     </React.Fragment>
                   </div>
-                  <AntdButton
-                    className={classNames("__wab_instance", sty.button__ijvby)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__a1YyE
-                      )}
-                    >
-                      {"Next"}
-                    </div>
-                  </AntdButton>
                 </section>
                 <section
                   className={classNames(projectcss.all, sty.section__nkPsL)}
@@ -1976,19 +1943,6 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
                       </FormItemWrapper>
                     ) : null}
                   </div>
-                  <AntdButton
-                    className={classNames("__wab_instance", sty.button___4OuhN)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__njWwA
-                      )}
-                    >
-                      {"Next"}
-                    </div>
-                  </AntdButton>
                 </section>
                 <section
                   className={classNames(projectcss.all, sty.section__dopes)}
@@ -3082,19 +3036,6 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
                       </span>
                     </React.Fragment>
                   </div>
-                  <AntdButton
-                    className={classNames("__wab_instance", sty.button___0Y3A)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__aBoDj
-                      )}
-                    >
-                      {"Next"}
-                    </div>
-                  </AntdButton>
                 </section>
                 <section
                   className={classNames(projectcss.all, sty.section__vnO0G)}
@@ -3291,7 +3232,12 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
                     </FormItemWrapper>
                   </div>
                   <AntdButton
-                    className={classNames("__wab_instance", sty.button___8LqH)}
+                    data-plasmic-name={"button"}
+                    data-plasmic-override={overrides.button}
+                    className={classNames("__wab_instance", sty.button)}
+                    onClick={async () => {
+                      const $steps = {};
+                    }}
                     submitsForm={true}
                     type={"primary"}
                   >
@@ -3306,73 +3252,6 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
                     </div>
                   </AntdButton>
                 </section>
-                <FormItemWrapper
-                  data-plasmic-name={"formField"}
-                  data-plasmic-override={overrides.formField}
-                  className={classNames("__wab_instance", sty.formField)}
-                  hidden={false}
-                  initialValue={(() => {
-                    try {
-                      return $ctx.params.id;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  label={
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__t1UUa
-                      )}
-                    >
-                      {"booking_id"}
-                    </div>
-                  }
-                  name={"booking_id"}
-                >
-                  {(() => {
-                    const child$Props = {
-                      className: classNames("__wab_instance", sty.input35),
-                      onChange: generateStateOnChangePropForCodeComponents(
-                        $state,
-                        "value",
-                        ["input35", "value"],
-                        AntdInput_Helpers
-                      ),
-                      value: generateStateValueProp($state, [
-                        "input35",
-                        "value"
-                      ])
-                    };
-                    initializeCodeComponentStates(
-                      $state,
-                      [
-                        {
-                          name: "value",
-                          plasmicStateName: "input35.value"
-                        }
-                      ],
-
-                      [],
-                      AntdInput_Helpers ?? {},
-                      child$Props
-                    );
-                    return (
-                      <AntdInput
-                        data-plasmic-name={"input35"}
-                        data-plasmic-override={overrides.input35}
-                        {...child$Props}
-                      />
-                    );
-                  })()}
-                </FormItemWrapper>
               </FormWrapper>
             );
           })()}
@@ -3437,8 +3316,7 @@ const PlasmicDescendants = {
     "subAmount2",
     "subReason",
     "subReason2",
-    "formField",
-    "input35"
+    "button"
   ],
 
   img: ["img"],
@@ -3494,8 +3372,7 @@ const PlasmicDescendants = {
     "subAmount2",
     "subReason",
     "subReason2",
-    "formField",
-    "input35"
+    "button"
   ],
 
   title: ["title", "title2"],
@@ -3548,8 +3425,7 @@ const PlasmicDescendants = {
   subAmount2: ["subAmount2"],
   subReason: ["subReason", "subReason2"],
   subReason2: ["subReason2"],
-  formField: ["formField", "input35"],
-  input35: ["input35"]
+  button: ["button"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -3673,8 +3549,7 @@ export const PlasmicClientIntakeForm = Object.assign(
     subAmount2: makeNodeComponent("subAmount2"),
     subReason: makeNodeComponent("subReason"),
     subReason2: makeNodeComponent("subReason2"),
-    formField: makeNodeComponent("formField"),
-    input35: makeNodeComponent("input35"),
+    button: makeNodeComponent("button"),
     // Metadata about props expected for PlasmicClientIntakeForm
     internalVariantProps: PlasmicClientIntakeForm__VariantProps,
     internalArgProps: PlasmicClientIntakeForm__ArgProps,

@@ -741,6 +741,38 @@ function PlasmicHomepage__RenderFunc(props) {
                           "__wab_instance",
                           sty.bookingDisplay
                         )}
+                        contact={(() => {
+                          try {
+                            return $queries.contacts.data.filter(
+                              contact =>
+                                contact.id === $state.drawerBooking.contactID
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
+                        organization={(() => {
+                          try {
+                            return $queries.contacts.data.filter(
+                              contact =>
+                                contact.id === $state.drawerBooking.OrgID
+                            );
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })()}
                       />
                     }
                   >
