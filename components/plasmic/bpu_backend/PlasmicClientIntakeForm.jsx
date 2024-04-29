@@ -13,6 +13,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import {
   PlasmicDataSourceContextProvider as PlasmicDataSourceContextProvider__,
+  PlasmicImg as PlasmicImg__,
   PlasmicPageGuard as PlasmicPageGuard__,
   classNames,
   createPlasmicElementProxy,
@@ -447,6 +448,26 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
             sty.root
           )}
         >
+          <PlasmicImg__
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"100%"}
+            loading={"lazy"}
+            src={{
+              src: "/plasmic/bpu_backend/images/_060116WaHallreopeningcelebrationCreditSticksStonesPhotography42Jpeg2.jpg",
+              fullWidth: 2481,
+              fullHeight: 817,
+              aspectRatio: undefined
+            }}
+          />
+
           {(() => {
             const child$Props = {
               className: classNames("__wab_instance", sty.form2),
@@ -3364,6 +3385,7 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
 const PlasmicDescendants = {
   root: [
     "root",
+    "img",
     "form2",
     "title",
     "title2",
@@ -3419,6 +3441,7 @@ const PlasmicDescendants = {
     "input35"
   ],
 
+  img: ["img"],
   form2: [
     "form2",
     "title",
@@ -3598,6 +3621,7 @@ export const PlasmicClientIntakeForm = Object.assign(
   withUsePlasmicAuth(withPlasmicPageGuard(makeNodeComponent("root"))),
   {
     // Helper components rendering sub-elements
+    img: makeNodeComponent("img"),
     form2: makeNodeComponent("form2"),
     title: makeNodeComponent("title"),
     title2: makeNodeComponent("title2"),

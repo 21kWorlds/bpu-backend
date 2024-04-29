@@ -22,6 +22,17 @@
 .root > * {
   grid-column: 4;
 }
+.img {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 100%;
+  grid-column-start: 1 !important;
+  grid-column-end: -1 !important;
+}
+.img > picture > img {
+  object-fit: cover;
+}
 .form2:global(.__wab_instance) {
   display: flex;
   flex-direction: column;

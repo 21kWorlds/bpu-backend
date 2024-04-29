@@ -756,7 +756,18 @@
           "moduleFilePath": "plasmic/bpu_backend/icons/PlasmicIcon__Icon4.jsx"
         }
       ],
-      "images": [],
+      "images": [
+        {
+          "id": "uK6aAUqLE4F0",
+          "name": "060116_WA+Hall+reopening+celebration_credit+Sticks+&+Stones+Photography+(42).jpeg",
+          "filePath": "../public/plasmic/bpu_backend/images/_060116WaHallreopeningcelebrationCreditSticksStonesPhotography42Jpeg.jpg"
+        },
+        {
+          "id": "5Ppi3N2V9yOU",
+          "name": "060116_WA+Hall+reopening+celebration_credit+Sticks+&+Stones+Photography+(42).jpeg 2",
+          "filePath": "../public/plasmic/bpu_backend/images/_060116WaHallreopeningcelebrationCreditSticksStonesPhotography42Jpeg2.jpg"
+        }
+      ],
       "indirect": false,
       "globalContextsFilePath": "plasmic/app_starter/PlasmicGlobalContextsProvider.jsx",
       "splitsProviderFilePath": "",
