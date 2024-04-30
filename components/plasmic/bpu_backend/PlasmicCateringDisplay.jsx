@@ -22,8 +22,8 @@ import {
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
-import { RichList } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-list";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { RichList } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-list";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
@@ -887,7 +887,7 @@ function PlasmicCateringDisplay__RenderFunc(props) {
               sty.h5__yNpkb
             )}
           >
-            {"Select Option: "}
+            {"Option:  "}
           </h5>
           <AntdSelect
             data-plasmic-name={"select2"}
@@ -938,7 +938,7 @@ function PlasmicCateringDisplay__RenderFunc(props) {
               sty.h5__cfSw
             )}
           >
-            {"Select Snacks: "}
+            {"Snacks: "}
           </h5>
           <AntdSelect
             data-plasmic-name={"select4"}
@@ -958,7 +958,7 @@ function PlasmicCateringDisplay__RenderFunc(props) {
             options={(() => {
               try {
                 return $queries.inventory.data
-                  .filter(item => item.category === "Snacks")
+                  .filter(item => item.category === "5|Snack")
                   .map(item => ({
                     value: item.id,
                     label: item.memo
@@ -990,7 +990,7 @@ function PlasmicCateringDisplay__RenderFunc(props) {
               sty.h5__lgYqc
             )}
           >
-            {"Select Beverages:  "}
+            {"Beverages:  "}
           </h5>
           <AntdSelect
             data-plasmic-name={"select3"}
@@ -1010,7 +1010,7 @@ function PlasmicCateringDisplay__RenderFunc(props) {
             options={(() => {
               try {
                 return $queries.inventory.data
-                  .filter(item => item.category === "Beverage")
+                  .filter(item => item.category === "6|Beverage")
                   .map(item => ({
                     value: item.id,
                     label: item.memo
@@ -1033,6 +1033,59 @@ function PlasmicCateringDisplay__RenderFunc(props) {
             value={generateStateValueProp($state, ["select3", "value"])}
           />
         </div>
+        <AntdButton
+          data-plasmic-name={"button"}
+          data-plasmic-override={overrides.button}
+          className={classNames("__wab_instance", sty.button)}
+          onClick={async () => {
+            const $steps = {};
+            $steps["runCode"] = true
+              ? (() => {
+                  const actionArgs = {
+                    customFunction: async () => {
+                      return () => {
+                        navigator.clipboard
+                          .writeText("The text you want to copy")
+                          .then(() =>
+                            alert("Text successfully copied to clipboard!")
+                          )
+                          .catch(err =>
+                            console.error("Failed to copy text: ", err)
+                          );
+                      };
+                    }
+                  };
+                  return (({ customFunction }) => {
+                    return customFunction();
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              $steps["runCode"] != null &&
+              typeof $steps["runCode"] === "object" &&
+              typeof $steps["runCode"].then === "function"
+            ) {
+              $steps["runCode"] = await $steps["runCode"];
+            }
+          }}
+        >
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__p4ZVd
+            )}
+          >
+            <React.Fragment>
+              <span
+                className={"plasmic_default__all plasmic_default__span"}
+                style={{ fontWeight: 400 }}
+              >
+                {"Submit"}
+              </span>
+            </React.Fragment>
+          </div>
+        </AntdButton>
       </div>
       <section className={classNames(projectcss.all, sty.section__u8CUg)}>
         <h4
@@ -1147,52 +1200,6 @@ function PlasmicCateringDisplay__RenderFunc(props) {
           type={"grid"}
         />
       </section>
-      <AntdButton
-        data-plasmic-name={"button"}
-        data-plasmic-override={overrides.button}
-        className={classNames("__wab_instance", sty.button)}
-        onClick={async () => {
-          const $steps = {};
-          $steps["runCode"] = true
-            ? (() => {
-                const actionArgs = {
-                  customFunction: async () => {
-                    return () => {
-                      navigator.clipboard
-                        .writeText("The text you want to copy")
-                        .then(() =>
-                          alert("Text successfully copied to clipboard!")
-                        )
-                        .catch(err =>
-                          console.error("Failed to copy text: ", err)
-                        );
-                    };
-                  }
-                };
-                return (({ customFunction }) => {
-                  return customFunction();
-                })?.apply(null, [actionArgs]);
-              })()
-            : undefined;
-          if (
-            $steps["runCode"] != null &&
-            typeof $steps["runCode"] === "object" &&
-            typeof $steps["runCode"].then === "function"
-          ) {
-            $steps["runCode"] = await $steps["runCode"];
-          }
-        }}
-      >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__p4ZVd
-          )}
-        >
-          {"Submit"}
-        </div>
-      </AntdButton>
     </div>
   );
 }
