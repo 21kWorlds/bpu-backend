@@ -21,8 +21,8 @@ import {
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
-import { RichList } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-list";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import { RichList } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-list";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -111,9 +111,9 @@ function PlasmicCateringDisplay__RenderFunc(props) {
     inventory: usePlasmicDataOp(() => {
       return {
         sourceId: "4ACnaEgTThrwyGmam4pjE6",
-        opId: "be1d495e-9658-40a1-aed5-f8ec0ca25945",
+        opId: "8f6a2fae-0d83-4914-b42d-53f895b0ce5e",
         userArgs: {},
-        cacheKey: `plasmic.$.be1d495e-9658-40a1-aed5-f8ec0ca25945.$.`,
+        cacheKey: `plasmic.$.8f6a2fae-0d83-4914-b42d-53f895b0ce5e.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -178,12 +178,14 @@ function PlasmicCateringDisplay__RenderFunc(props) {
               key={currentIndex}
             >
               <div className={classNames(projectcss.all, sty.freeBox__hmD0)}>
-                <h3
+                <h2
+                  data-plasmic-name={"h2"}
+                  data-plasmic-override={overrides.h2}
                   className={classNames(
                     projectcss.all,
-                    projectcss.h3,
+                    projectcss.h2,
                     projectcss.__wab_text,
-                    sty.h3__oF7Vz
+                    sty.h2
                   )}
                 >
                   <React.Fragment>
@@ -195,13 +197,13 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                           e instanceof TypeError ||
                           e?.plasmicType === "PlasmicUndefinedDataError"
                         ) {
-                          return "You won't believe what happens next.";
+                          return "Caterer Name";
                         }
                         throw e;
                       }
                     })()}
                   </React.Fragment>
-                </h3>
+                </h2>
                 <h5
                   className={classNames(
                     projectcss.all,
@@ -226,12 +228,12 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                     })()}
                   </React.Fragment>
                 </h5>
-                <h6
+                <h4
                   className={classNames(
                     projectcss.all,
-                    projectcss.h6,
+                    projectcss.h4,
                     projectcss.__wab_text,
-                    sty.h6___9Eiqo
+                    sty.h4___9Eiqo
                   )}
                 >
                   <React.Fragment>
@@ -249,13 +251,13 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                       }
                     })()}
                   </React.Fragment>
-                </h6>
-                <h6
+                </h4>
+                <h4
                   className={classNames(
                     projectcss.all,
-                    projectcss.h6,
+                    projectcss.h4,
                     projectcss.__wab_text,
-                    sty.h6__wCdQf
+                    sty.h4__wCdQf
                   )}
                 >
                   <React.Fragment>
@@ -273,13 +275,13 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                       }
                     })()}
                   </React.Fragment>
-                </h6>
-                <h6
+                </h4>
+                <h5
                   className={classNames(
                     projectcss.all,
-                    projectcss.h6,
+                    projectcss.h5,
                     projectcss.__wab_text,
-                    sty.h6__uSmlp
+                    sty.h5__uSmlp
                   )}
                 >
                   <React.Fragment>
@@ -297,7 +299,7 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                       }
                     })()}
                   </React.Fragment>
-                </h6>
+                </h5>
               </div>
               {(() => {
                 try {
@@ -482,11 +484,13 @@ function PlasmicCateringDisplay__RenderFunc(props) {
       </div>
       <div className={classNames(projectcss.all, sty.freeBox__dqv7K)}>
         <h3
+          data-plasmic-name={"h3"}
+          data-plasmic-override={overrides.h3}
           className={classNames(
             projectcss.all,
             projectcss.h3,
             projectcss.__wab_text,
-            sty.h3__azSHq
+            sty.h3
           )}
         >
           {"Commercial Caterers:"}
@@ -516,12 +520,12 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                 className={classNames(projectcss.all, sty.section__lwkgq)}
                 key={currentIndex}
               >
-                <h3
+                <h4
                   className={classNames(
                     projectcss.all,
-                    projectcss.h3,
+                    projectcss.h4,
                     projectcss.__wab_text,
-                    sty.h3___8F6
+                    sty.h4___8F6
                   )}
                 >
                   <React.Fragment>
@@ -539,7 +543,7 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                       }
                     })()}
                   </React.Fragment>
-                </h3>
+                </h4>
                 <h5
                   className={classNames(
                     projectcss.all,
@@ -600,6 +604,30 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                     {(() => {
                       try {
                         return currentItem.phoneNumber;
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return "You won't believe what happens next.";
+                        }
+                        throw e;
+                      }
+                    })()}
+                  </React.Fragment>
+                </h6>
+                <h6
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.h6,
+                    projectcss.__wab_text,
+                    sty.h6__hzwSs
+                  )}
+                >
+                  <React.Fragment>
+                    {(() => {
+                      try {
+                        return currentItem.display_notes;
                       } catch (e) {
                         if (
                           e instanceof TypeError ||
@@ -800,6 +828,212 @@ function PlasmicCateringDisplay__RenderFunc(props) {
           })}
         </div>
       </div>
+      <div className={classNames(projectcss.all, sty.freeBox__i4Et0)}>
+        <div className={classNames(projectcss.all, sty.freeBox__hs9Gd)}>
+          <h5
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5__rw0Wq
+            )}
+          >
+            {"Select Caterer: "}
+          </h5>
+          <AntdSelect
+            data-plasmic-name={"select"}
+            data-plasmic-override={overrides.select}
+            allowClear={true}
+            className={classNames("__wab_instance", sty.select)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            onChange={generateStateOnChangeProp($state, ["select", "value"])}
+            options={(() => {
+              try {
+                return $queries.partners.data.map(caterer => ({
+                  value: caterer.id,
+                  label: caterer.name
+                }));
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [
+                    { value: "option1", label: "Option 1", type: "option" },
+                    { value: "option2", label: "Option 2", type: "option" }
+                  ];
+                }
+                throw e;
+              }
+            })()}
+            placeholder={"Select..."}
+            popupScopeClassName={sty["select__popup"]}
+            value={generateStateValueProp($state, ["select", "value"])}
+          />
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__zY1H)}>
+          <h5
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5__yNpkb
+            )}
+          >
+            {"Select Option: "}
+          </h5>
+          <AntdSelect
+            data-plasmic-name={"select2"}
+            data-plasmic-override={overrides.select2}
+            allowClear={true}
+            className={classNames("__wab_instance", sty.select2)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            onChange={generateStateOnChangeProp($state, ["select2", "value"])}
+            options={(() => {
+              try {
+                return $queries.inventory.data
+                  .filter(item => item.partnerID === $state.select.value)
+                  .map(inventory => ({
+                    value: inventory.id,
+                    label: inventory.memo
+                  }));
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [
+                    { value: "option1", label: "Option 1", type: "option" },
+                    { value: "option2", label: "Option 2", type: "option" }
+                  ];
+                }
+                throw e;
+              }
+            })()}
+            placeholder={"Select..."}
+            popupScopeClassName={sty["select2__popup"]}
+            value={generateStateValueProp($state, ["select2", "value"])}
+          />
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__aisRp)}>
+          <h5
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5__cfSw
+            )}
+          >
+            {"Select Snacks: "}
+          </h5>
+          <AntdSelect
+            data-plasmic-name={"select4"}
+            data-plasmic-override={overrides.select4}
+            allowClear={true}
+            className={classNames("__wab_instance", sty.select4)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            mode={"multiple"}
+            onChange={generateStateOnChangeProp($state, ["select4", "value"])}
+            options={(() => {
+              try {
+                return $queries.inventory.data
+                  .filter(item => item.category === "Snacks")
+                  .map(item => ({
+                    value: item.id,
+                    label: item.memo
+                  }));
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [
+                    { value: "option1", label: "Option 1", type: "option" },
+                    { value: "option2", label: "Option 2", type: "option" }
+                  ];
+                }
+                throw e;
+              }
+            })()}
+            placeholder={"Select..."}
+            popupScopeClassName={sty["select4__popup"]}
+            value={generateStateValueProp($state, ["select4", "value"])}
+          />
+        </div>
+        <div className={classNames(projectcss.all, sty.freeBox__mqakU)}>
+          <h5
+            className={classNames(
+              projectcss.all,
+              projectcss.h5,
+              projectcss.__wab_text,
+              sty.h5__lgYqc
+            )}
+          >
+            {"Select Beverages:  "}
+          </h5>
+          <AntdSelect
+            data-plasmic-name={"select3"}
+            data-plasmic-override={overrides.select3}
+            allowClear={true}
+            className={classNames("__wab_instance", sty.select3)}
+            defaultStylesClassName={classNames(
+              projectcss.root_reset,
+              projectcss.plasmic_default_styles,
+              projectcss.plasmic_mixins,
+              projectcss.plasmic_tokens,
+              plasmic_antd_5_hostless_css.plasmic_tokens,
+              plasmic_plasmic_rich_components_css.plasmic_tokens
+            )}
+            mode={"multiple"}
+            onChange={generateStateOnChangeProp($state, ["select3", "value"])}
+            options={(() => {
+              try {
+                return $queries.inventory.data
+                  .filter(item => item.category === "Beverage")
+                  .map(item => ({
+                    value: item.id,
+                    label: item.memo
+                  }));
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [
+                    { value: "option1", label: "Option 1", type: "option" },
+                    { value: "option2", label: "Option 2", type: "option" }
+                  ];
+                }
+                throw e;
+              }
+            })()}
+            placeholder={"Select..."}
+            popupScopeClassName={sty["select3__popup"]}
+            value={generateStateValueProp($state, ["select3", "value"])}
+          />
+        </div>
+      </div>
       <section className={classNames(projectcss.all, sty.section__u8CUg)}>
         <h4
           className={classNames(
@@ -835,7 +1069,7 @@ function PlasmicCateringDisplay__RenderFunc(props) {
           data={(() => {
             try {
               return $queries.inventory.data.filter(
-                item => item.category === "Snacks"
+                item => item.category === "5|Snack"
               );
             } catch (e) {
               if (
@@ -891,7 +1125,7 @@ function PlasmicCateringDisplay__RenderFunc(props) {
           data={(() => {
             try {
               return $queries.inventory.data.filter(
-                item => item.category === "Beverage"
+                item => item.category === "6|Beverage"
               );
             } catch (e) {
               if (
@@ -913,208 +1147,6 @@ function PlasmicCateringDisplay__RenderFunc(props) {
           type={"grid"}
         />
       </section>
-      <div className={classNames(projectcss.all, sty.freeBox__i4Et0)}>
-        <div className={classNames(projectcss.all, sty.freeBox__hs9Gd)}>
-          <h5
-            className={classNames(
-              projectcss.all,
-              projectcss.h5,
-              projectcss.__wab_text,
-              sty.h5__rw0Wq
-            )}
-          >
-            {"Select Caterer: "}
-          </h5>
-          <AntdSelect
-            data-plasmic-name={"select"}
-            data-plasmic-override={overrides.select}
-            className={classNames("__wab_instance", sty.select)}
-            defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
-              projectcss.plasmic_tokens,
-              plasmic_antd_5_hostless_css.plasmic_tokens,
-              plasmic_plasmic_rich_components_css.plasmic_tokens
-            )}
-            onChange={generateStateOnChangeProp($state, ["select", "value"])}
-            options={(() => {
-              try {
-                return $queries.partners.data.map(caterer => ({
-                  value: caterer.id,
-                  label: caterer.name
-                }));
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [
-                    { value: "option1", label: "Option 1", type: "option" },
-                    { value: "option2", label: "Option 2", type: "option" }
-                  ];
-                }
-                throw e;
-              }
-            })()}
-            placeholder={"Select..."}
-            popupScopeClassName={sty["select__popup"]}
-            value={generateStateValueProp($state, ["select", "value"])}
-          />
-        </div>
-        <div className={classNames(projectcss.all, sty.freeBox__zY1H)}>
-          <h5
-            className={classNames(
-              projectcss.all,
-              projectcss.h5,
-              projectcss.__wab_text,
-              sty.h5__yNpkb
-            )}
-          >
-            {"Select Option: "}
-          </h5>
-          <AntdSelect
-            data-plasmic-name={"select2"}
-            data-plasmic-override={overrides.select2}
-            className={classNames("__wab_instance", sty.select2)}
-            defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
-              projectcss.plasmic_tokens,
-              plasmic_antd_5_hostless_css.plasmic_tokens,
-              plasmic_plasmic_rich_components_css.plasmic_tokens
-            )}
-            onChange={generateStateOnChangeProp($state, ["select2", "value"])}
-            options={(() => {
-              try {
-                return $queries.inventory.data
-                  .filter(item => item.contactid === $state.select.value)
-                  .map(inventory => ({
-                    value: inventory.id,
-                    label: inventory.name
-                  }));
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [
-                    { value: "option1", label: "Option 1", type: "option" },
-                    { value: "option2", label: "Option 2", type: "option" }
-                  ];
-                }
-                throw e;
-              }
-            })()}
-            placeholder={"Select..."}
-            popupScopeClassName={sty["select2__popup"]}
-            value={generateStateValueProp($state, ["select2", "value"])}
-          />
-        </div>
-        <div className={classNames(projectcss.all, sty.freeBox__aisRp)}>
-          <h5
-            className={classNames(
-              projectcss.all,
-              projectcss.h5,
-              projectcss.__wab_text,
-              sty.h5__cfSw
-            )}
-          >
-            {"Select Snacks: "}
-          </h5>
-          <AntdSelect
-            data-plasmic-name={"select4"}
-            data-plasmic-override={overrides.select4}
-            className={classNames("__wab_instance", sty.select4)}
-            defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
-              projectcss.plasmic_tokens,
-              plasmic_antd_5_hostless_css.plasmic_tokens,
-              plasmic_plasmic_rich_components_css.plasmic_tokens
-            )}
-            mode={"multiple"}
-            onChange={generateStateOnChangeProp($state, ["select4", "value"])}
-            options={(() => {
-              try {
-                return $queries.inventory.data
-                  .filter(item => item.category === "Snacks")
-                  .map(item => ({
-                    value: item.id,
-                    label: item.memo
-                  }));
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [
-                    { value: "option1", label: "Option 1", type: "option" },
-                    { value: "option2", label: "Option 2", type: "option" }
-                  ];
-                }
-                throw e;
-              }
-            })()}
-            placeholder={"Select..."}
-            popupScopeClassName={sty["select4__popup"]}
-            value={generateStateValueProp($state, ["select4", "value"])}
-          />
-        </div>
-        <div className={classNames(projectcss.all, sty.freeBox__mqakU)}>
-          <h5
-            className={classNames(
-              projectcss.all,
-              projectcss.h5,
-              projectcss.__wab_text,
-              sty.h5__lgYqc
-            )}
-          >
-            {"Select Beverages:  "}
-          </h5>
-          <AntdSelect
-            data-plasmic-name={"select3"}
-            data-plasmic-override={overrides.select3}
-            className={classNames("__wab_instance", sty.select3)}
-            defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
-              projectcss.plasmic_tokens,
-              plasmic_antd_5_hostless_css.plasmic_tokens,
-              plasmic_plasmic_rich_components_css.plasmic_tokens
-            )}
-            mode={"multiple"}
-            onChange={generateStateOnChangeProp($state, ["select3", "value"])}
-            options={(() => {
-              try {
-                return $queries.inventory.data
-                  .filter(item => item.category === "Beverage")
-                  .map(item => ({
-                    value: item.id,
-                    label: item.memo
-                  }));
-              } catch (e) {
-                if (
-                  e instanceof TypeError ||
-                  e?.plasmicType === "PlasmicUndefinedDataError"
-                ) {
-                  return [
-                    { value: "option1", label: "Option 1", type: "option" },
-                    { value: "option2", label: "Option 2", type: "option" }
-                  ];
-                }
-                throw e;
-              }
-            })()}
-            placeholder={"Select..."}
-            popupScopeClassName={sty["select3__popup"]}
-            value={generateStateValueProp($state, ["select3", "value"])}
-          />
-        </div>
-      </div>
       <AntdButton
         data-plasmic-name={"button"}
         data-plasmic-override={overrides.button}
@@ -1166,8 +1198,21 @@ function PlasmicCateringDisplay__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "h1", "select", "select2", "select4", "select3", "button"],
+  root: [
+    "root",
+    "h1",
+    "h2",
+    "h3",
+    "select",
+    "select2",
+    "select4",
+    "select3",
+    "button"
+  ],
+
   h1: ["h1"],
+  h2: ["h2"],
+  h3: ["h3"],
   select: ["select"],
   select2: ["select2"],
   select4: ["select4"],
@@ -1208,6 +1253,8 @@ export const PlasmicCateringDisplay = Object.assign(
   {
     // Helper components rendering sub-elements
     h1: makeNodeComponent("h1"),
+    h2: makeNodeComponent("h2"),
+    h3: makeNodeComponent("h3"),
     select: makeNodeComponent("select"),
     select2: makeNodeComponent("select2"),
     select4: makeNodeComponent("select4"),

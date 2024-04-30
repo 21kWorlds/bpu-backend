@@ -36,9 +36,9 @@ import { FormWrapper } from "@plasmicpkgs/antd5/skinny/Form";
 import { formHelpers as FormWrapper_Helpers } from "@plasmicpkgs/antd5/skinny/Form";
 import { FormItemWrapper } from "@plasmicpkgs/antd5/skinny/FormItem";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
-import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdInput } from "@plasmicpkgs/antd5/skinny/registerInput";
 import { inputHelpers as AntdInput_Helpers } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdSwitch } from "@plasmicpkgs/antd5/skinny/registerSwitch";
 import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -184,7 +184,7 @@ function PlasmicNewRows2__RenderFunc(props) {
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       },
       {
-        path: "select2.value",
+        path: "iCat.value",
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
@@ -244,6 +244,13 @@ function PlasmicNewRows2__RenderFunc(props) {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => "This is a text area."
+      },
+      {
+        path: "input.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       }
     ],
 
@@ -291,7 +298,7 @@ function PlasmicNewRows2__RenderFunc(props) {
         <React.Fragment>
           <AntdAccordionItem
             className={classNames("__wab_instance", sty.accordionItem___1Gzv8)}
-            id={2}
+            id={"1"}
             label2={
               <div
                 className={classNames(
@@ -594,6 +601,70 @@ function PlasmicNewRows2__RenderFunc(props) {
                   <FormItemWrapper
                     className={classNames(
                       "__wab_instance",
+                      sty.formField___25VeP
+                    )}
+                    label={
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__gD6H6
+                        )}
+                      >
+                        <React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ fontWeight: 700 }}
+                          >
+                            {"Description"}
+                          </span>
+                        </React.Fragment>
+                      </div>
+                    }
+                    name={"description"}
+                    rules={[{ ruleType: "required" }]}
+                  >
+                    {(() => {
+                      const child$Props = {
+                        className: classNames("__wab_instance", sty.input),
+                        onChange: generateStateOnChangePropForCodeComponents(
+                          $state,
+                          "value",
+                          ["input", "value"],
+                          AntdInput_Helpers
+                        ),
+                        value: generateStateValueProp($state, [
+                          "input",
+                          "value"
+                        ])
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "value",
+                            plasmicStateName: "input.value"
+                          }
+                        ],
+
+                        [],
+                        AntdInput_Helpers ?? {},
+                        child$Props
+                      );
+                      return (
+                        <AntdInput
+                          data-plasmic-name={"input"}
+                          data-plasmic-override={overrides.input}
+                          {...child$Props}
+                        />
+                      );
+                    })()}
+                  </FormItemWrapper>
+                  <FormItemWrapper
+                    className={classNames(
+                      "__wab_instance",
                       sty.formField__kzaQz
                     )}
                     initialValue={undefined}
@@ -678,7 +749,7 @@ function PlasmicNewRows2__RenderFunc(props) {
           </AntdAccordionItem>
           <AntdAccordionItem
             className={classNames("__wab_instance", sty.accordionItem___8Jef3)}
-            id={1}
+            id={"2"}
             label2={
               <div
                 className={classNames(
@@ -827,6 +898,7 @@ function PlasmicNewRows2__RenderFunc(props) {
                         </div>
                       }
                       name={"name"}
+                      rules={[{ ruleType: "required" }]}
                     >
                       {(() => {
                         const child$Props = {
@@ -1264,7 +1336,7 @@ function PlasmicNewRows2__RenderFunc(props) {
           </AntdAccordionItem>
           <AntdAccordionItem
             className={classNames("__wab_instance", sty.accordionItem__pomUw)}
-            id={2}
+            id={"3"}
             label2={
               <div
                 className={classNames(
@@ -1413,6 +1485,7 @@ function PlasmicNewRows2__RenderFunc(props) {
                         </div>
                       }
                       name={"memo"}
+                      rules={[{ ruleType: "required" }]}
                     >
                       {(() => {
                         const child$Props = {
@@ -1544,10 +1617,9 @@ function PlasmicNewRows2__RenderFunc(props) {
                     className={classNames(projectcss.all, sty.freeBox__f6HtA)}
                   >
                     <FormItemWrapper
-                      className={classNames(
-                        "__wab_instance",
-                        sty.formField__eh8D4
-                      )}
+                      data-plasmic-name={"iCategory"}
+                      data-plasmic-override={overrides.iCategory}
+                      className={classNames("__wab_instance", sty.iCategory)}
                       initialValue={undefined}
                       label={
                         <div
@@ -1570,11 +1642,12 @@ function PlasmicNewRows2__RenderFunc(props) {
                         </div>
                       }
                       name={"category"}
+                      rules={[{ ruleType: "required" }]}
                     >
                       <AntdSelect
-                        data-plasmic-name={"select2"}
-                        data-plasmic-override={overrides.select2}
-                        className={classNames("__wab_instance", sty.select2)}
+                        data-plasmic-name={"iCat"}
+                        data-plasmic-override={overrides.iCat}
+                        className={classNames("__wab_instance", sty.iCat)}
                         defaultStylesClassName={classNames(
                           projectcss.root_reset,
                           projectcss.plasmic_default_styles,
@@ -1584,99 +1657,116 @@ function PlasmicNewRows2__RenderFunc(props) {
                           plasmic_plasmic_rich_components_css.plasmic_tokens
                         )}
                         onChange={generateStateOnChangeProp($state, [
-                          "select2",
+                          "iCat",
                           "value"
                         ])}
                         options={(() => {
                           const __composite = [
                             { value: null, label: null, type: "option" },
+                            { type: "option", value: null, label: null },
                             { value: null, label: null, type: "option" }
                           ];
 
-                          __composite["0"]["value"] = "Catering";
-                          __composite["0"]["label"] = "Catering";
-                          __composite["1"]["value"] = "Snacks";
-                          __composite["1"]["label"] = "Snacks";
+                          __composite["0"]["value"] = "5|Snack";
+                          __composite["0"]["label"] = "Snacks";
+                          __composite["1"]["value"] = "6|Beverage";
+                          __composite["1"]["label"] = "Beverage";
+                          __composite["2"]["value"] = "7|Catering";
+                          __composite["2"]["label"] = "Catering";
                           return __composite;
                         })()}
                         placeholder={"Select..."}
-                        popupScopeClassName={sty["select2__popup"]}
+                        popupScopeClassName={sty["iCat__popup"]}
                         value={generateStateValueProp($state, [
-                          "select2",
+                          "iCat",
                           "value"
                         ])}
                       />
                     </FormItemWrapper>
-                    <FormItemWrapper
-                      className={classNames(
-                        "__wab_instance",
-                        sty.formField___9BtF
-                      )}
-                      initialValue={undefined}
-                      label={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__dxE5T
-                          )}
-                        >
-                          <React.Fragment>
-                            <span
-                              className={
-                                "plasmic_default__all plasmic_default__span"
-                              }
-                              style={{ fontWeight: 700 }}
-                            >
-                              {"Partner"}
-                            </span>
-                          </React.Fragment>
-                        </div>
+                    {(() => {
+                      try {
+                        return $state.iCat.value === "Catering";
+                      } catch (e) {
+                        if (
+                          e instanceof TypeError ||
+                          e?.plasmicType === "PlasmicUndefinedDataError"
+                        ) {
+                          return true;
+                        }
+                        throw e;
                       }
-                      name={"partnerID"}
-                    >
-                      <AntdSelect
-                        data-plasmic-name={"select3"}
-                        data-plasmic-override={overrides.select3}
-                        className={classNames("__wab_instance", sty.select3)}
-                        defaultStylesClassName={classNames(
-                          projectcss.root_reset,
-                          projectcss.plasmic_default_styles,
-                          projectcss.plasmic_mixins,
-                          projectcss.plasmic_tokens,
-                          plasmic_antd_5_hostless_css.plasmic_tokens,
-                          plasmic_plasmic_rich_components_css.plasmic_tokens
+                    })() ? (
+                      <FormItemWrapper
+                        className={classNames(
+                          "__wab_instance",
+                          sty.formField___9BtF
                         )}
-                        onChange={generateStateOnChangeProp($state, [
-                          "select3",
-                          "value"
-                        ])}
-                        options={(() => {
-                          try {
-                            return $queries.partners.data
-                              .filter(item => item.PartnerType !== null)
-                              .map(item => ({
-                                label: item.name,
-                                value: item.id
-                              }));
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return [{ type: "option" }];
+                        initialValue={undefined}
+                        label={
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.__wab_text,
+                              sty.text__dxE5T
+                            )}
+                          >
+                            <React.Fragment>
+                              <span
+                                className={
+                                  "plasmic_default__all plasmic_default__span"
+                                }
+                                style={{ fontWeight: 700 }}
+                              >
+                                {"Partner"}
+                              </span>
+                            </React.Fragment>
+                          </div>
+                        }
+                        name={"partnerID"}
+                      >
+                        <AntdSelect
+                          data-plasmic-name={"select3"}
+                          data-plasmic-override={overrides.select3}
+                          className={classNames("__wab_instance", sty.select3)}
+                          defaultStylesClassName={classNames(
+                            projectcss.root_reset,
+                            projectcss.plasmic_default_styles,
+                            projectcss.plasmic_mixins,
+                            projectcss.plasmic_tokens,
+                            plasmic_antd_5_hostless_css.plasmic_tokens,
+                            plasmic_plasmic_rich_components_css.plasmic_tokens
+                          )}
+                          onChange={generateStateOnChangeProp($state, [
+                            "select3",
+                            "value"
+                          ])}
+                          options={(() => {
+                            try {
+                              return $queries.partners.data
+                                .filter(item => item.PartnerType !== null)
+                                .map(item => ({
+                                  label: item.name,
+                                  value: item.id
+                                }));
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return [{ type: "option" }];
+                              }
+                              throw e;
                             }
-                            throw e;
-                          }
-                        })()}
-                        placeholder={"Select..."}
-                        popupScopeClassName={sty["select3__popup"]}
-                        value={generateStateValueProp($state, [
-                          "select3",
-                          "value"
-                        ])}
-                      />
-                    </FormItemWrapper>
+                          })()}
+                          placeholder={"Select..."}
+                          popupScopeClassName={sty["select3__popup"]}
+                          value={generateStateValueProp($state, [
+                            "select3",
+                            "value"
+                          ])}
+                        />
+                      </FormItemWrapper>
+                    ) : null}
                   </div>
                   <FormItemWrapper
                     className={classNames(
@@ -1793,6 +1883,7 @@ const PlasmicDescendants = {
     "select4",
     "bcSelect",
     "boSelect",
+    "input",
     "bNotes",
     "form",
     "input4",
@@ -1806,16 +1897,27 @@ const PlasmicDescendants = {
     "iMemo",
     "numberInput2",
     "switch2",
-    "select2",
+    "iCategory",
+    "iCat",
     "select3",
     "textarea2"
   ],
 
-  form3: ["form3", "contactId", "select4", "bcSelect", "boSelect", "bNotes"],
+  form3: [
+    "form3",
+    "contactId",
+    "select4",
+    "bcSelect",
+    "boSelect",
+    "input",
+    "bNotes"
+  ],
+
   contactId: ["contactId", "select4", "bcSelect"],
   select4: ["select4", "bcSelect"],
   bcSelect: ["bcSelect"],
   boSelect: ["boSelect"],
+  input: ["input"],
   bNotes: ["bNotes"],
   form: [
     "form",
@@ -1840,7 +1942,8 @@ const PlasmicDescendants = {
     "iMemo",
     "numberInput2",
     "switch2",
-    "select2",
+    "iCategory",
+    "iCat",
     "select3",
     "textarea2"
   ],
@@ -1848,7 +1951,8 @@ const PlasmicDescendants = {
   iMemo: ["iMemo"],
   numberInput2: ["numberInput2"],
   switch2: ["switch2"],
-  select2: ["select2"],
+  iCategory: ["iCategory", "iCat"],
+  iCat: ["iCat"],
   select3: ["select3"],
   textarea2: ["textarea2"]
 };
@@ -1890,6 +1994,7 @@ export const PlasmicNewRows2 = Object.assign(
     select4: makeNodeComponent("select4"),
     bcSelect: makeNodeComponent("bcSelect"),
     boSelect: makeNodeComponent("boSelect"),
+    input: makeNodeComponent("input"),
     bNotes: makeNodeComponent("bNotes"),
     form: makeNodeComponent("form"),
     input4: makeNodeComponent("input4"),
@@ -1903,7 +2008,8 @@ export const PlasmicNewRows2 = Object.assign(
     iMemo: makeNodeComponent("iMemo"),
     numberInput2: makeNodeComponent("numberInput2"),
     switch2: makeNodeComponent("switch2"),
-    select2: makeNodeComponent("select2"),
+    iCategory: makeNodeComponent("iCategory"),
+    iCat: makeNodeComponent("iCat"),
     select3: makeNodeComponent("select3"),
     textarea2: makeNodeComponent("textarea2"),
     // Metadata about props expected for PlasmicNewRows2
