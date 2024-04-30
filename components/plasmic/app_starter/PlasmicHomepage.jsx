@@ -34,7 +34,6 @@ import { usePlasmicDataOp } from "@plasmicapp/react-web/lib/data-sources";
 import { AntdTabs } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { AntdTabItem } from "@plasmicpkgs/antd5/skinny/registerTabs";
 import { RichList } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-list";
-import NewRows2 from "../../NewRows2"; // plasmic-import: NP6K4NtaonuD/component
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
@@ -42,6 +41,7 @@ import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-com
 import { AntdAccordion } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { accordionHelpers as AntdAccordion_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { AntdAccordionItem } from "@plasmicpkgs/antd5/skinny/registerCollapse";
+import NewRows2 from "../../NewRows2"; // plasmic-import: NP6K4NtaonuD/component
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import Drawer from "../../Drawer"; // plasmic-import: jeKLErA7oK4P/component
 import BookingDisplay from "../../BookingDisplay"; // plasmic-import: immbM_V6pqdI/component
@@ -533,12 +533,6 @@ function PlasmicHomepage__RenderFunc(props) {
                           return __composite;
                         })()}
                         type={"list"}
-                      />
-
-                      <NewRows2
-                        data-plasmic-name={"newRows2"}
-                        data-plasmic-override={overrides.newRows2}
-                        className={classNames("__wab_instance", sty.newRows2)}
                       />
                     </section>
                   </AntdTabItem>
@@ -2074,6 +2068,12 @@ function PlasmicHomepage__RenderFunc(props) {
               tabsScopeClassName={sty["tabs__tabs"]}
             />
 
+            <NewRows2
+              data-plasmic-name={"newRows2"}
+              data-plasmic-override={overrides.newRows2}
+              className={classNames("__wab_instance", sty.newRows2)}
+            />
+
             <div className={classNames(projectcss.all, sty.freeBox__m5Fc)}>
               <AntdButton
                 className={classNames("__wab_instance", sty.button__r43E)}
@@ -2267,7 +2267,6 @@ const PlasmicDescendants = {
     "tabs",
     "h1",
     "dataList",
-    "newRows2",
     "collapse",
     "table6",
     "collapse2",
@@ -2277,6 +2276,7 @@ const PlasmicDescendants = {
     "table3",
     "table4",
     "table5",
+    "newRows2",
     "drawer",
     "bookingDisplay",
     "modal",
@@ -2287,7 +2287,6 @@ const PlasmicDescendants = {
     "tabs",
     "h1",
     "dataList",
-    "newRows2",
     "collapse",
     "table6",
     "collapse2",
@@ -2301,7 +2300,6 @@ const PlasmicDescendants = {
 
   h1: ["h1"],
   dataList: ["dataList"],
-  newRows2: ["newRows2"],
   collapse: ["collapse", "table6"],
   table6: ["table6"],
   collapse2: ["collapse2", "table"],
@@ -2311,6 +2309,7 @@ const PlasmicDescendants = {
   table3: ["table3"],
   table4: ["table4"],
   table5: ["table5"],
+  newRows2: ["newRows2"],
   drawer: ["drawer", "bookingDisplay"],
   bookingDisplay: ["bookingDisplay"],
   modal: ["modal", "contactDisplay"],
@@ -2389,7 +2388,6 @@ export const PlasmicHomepage = Object.assign(
     tabs: makeNodeComponent("tabs"),
     h1: makeNodeComponent("h1"),
     dataList: makeNodeComponent("dataList"),
-    newRows2: makeNodeComponent("newRows2"),
     collapse: makeNodeComponent("collapse"),
     table6: makeNodeComponent("table6"),
     collapse2: makeNodeComponent("collapse2"),
@@ -2399,6 +2397,7 @@ export const PlasmicHomepage = Object.assign(
     table3: makeNodeComponent("table3"),
     table4: makeNodeComponent("table4"),
     table5: makeNodeComponent("table5"),
+    newRows2: makeNodeComponent("newRows2"),
     drawer: makeNodeComponent("drawer"),
     bookingDisplay: makeNodeComponent("bookingDisplay"),
     modal: makeNodeComponent("modal"),
