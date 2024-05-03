@@ -720,18 +720,18 @@
           "componentType": "component"
         },
         {
-          "id": "iB4rR5cgbkRc",
-          "name": "CateringIntake",
+          "id": "g7A-uOo3Gouu",
+          "name": "CateringIntakePage",
           "type": "managed",
           "projectId": "m9sTNijpsuGxLr6622n67c",
-          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicCateringIntake.jsx",
+          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicCateringIntakePage.jsx",
           "importSpec": {
-            "modulePath": "../pages/new-page.jsx"
+            "modulePath": "../pages/catering-intake/[id].jsx"
           },
-          "cssFilePath": "plasmic/bpu_backend/PlasmicCateringIntake.module.css",
+          "cssFilePath": "plasmic/bpu_backend/PlasmicCateringIntakePage.module.css",
           "scheme": "blackbox",
           "componentType": "page",
-          "path": "/new-page"
+          "path": "/catering-intake/[id]"
         }
       ],
       "icons": [
