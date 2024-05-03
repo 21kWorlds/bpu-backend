@@ -259,144 +259,19 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
       },
       {
-        path: "lodgeHrs",
+        path: "formData",
         type: "private",
-        variableType: "number",
+        variableType: "object",
         initFunc: ({ $props, $state, $queries, $ctx }) =>
           (() => {
             try {
-              return (() => {
-                const parseTime = time => {
-                  const [hours, minutes] = time.split(":").map(Number);
-                  return {
-                    hours,
-                    minutes
-                  };
-                };
-                const calculateHoursDifference = (startTime, endTime) => {
-                  const start = parseTime(startTime);
-                  const end = parseTime(endTime);
-                  const startDate = new Date(
-                    0,
-                    0,
-                    0,
-                    start.hours,
-                    start.minutes
-                  );
-                  const endDate = new Date(0, 0, 0, end.hours, end.minutes);
-                  let diff = (endDate - startDate) / 3600000;
-                  if (diff < 0) {
-                    diff += 24;
-                  }
-                  return diff;
-                };
-                return calculateHoursDifference(
-                  $state.form2.value.lodge_start,
-                  $state.form2.value.lodge_end
-                );
-              })();
+              return { ...$state.form2.value, booking_id: $ctx.params.id };
             } catch (e) {
               if (
                 e instanceof TypeError ||
                 e?.plasmicType === "PlasmicUndefinedDataError"
               ) {
-                return 0;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "libraryHours",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                const parseTime = time => {
-                  const [hours, minutes] = time.split(":").map(Number);
-                  return {
-                    hours,
-                    minutes
-                  };
-                };
-                const calculateHoursDifference = (startTime, endTime) => {
-                  const start = parseTime(startTime);
-                  const end = parseTime(endTime);
-                  const startDate = new Date(
-                    0,
-                    0,
-                    0,
-                    start.hours,
-                    start.minutes
-                  );
-                  const endDate = new Date(0, 0, 0, end.hours, end.minutes);
-                  let diff = (endDate - startDate) / 3600000;
-                  if (diff < 0) {
-                    diff += 24;
-                  }
-                  return diff;
-                };
-                return calculateHoursDifference(
-                  $state.form2.value.library_start,
-                  $state.form2.value.library_end
-                );
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return 0;
-              }
-              throw e;
-            }
-          })()
-      },
-      {
-        path: "kitchenHours",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) =>
-          (() => {
-            try {
-              return (() => {
-                const parseTime = time => {
-                  const [hours, minutes] = time.split(":").map(Number);
-                  return {
-                    hours,
-                    minutes
-                  };
-                };
-                const calculateHoursDifference = (startTime, endTime) => {
-                  const start = parseTime(startTime);
-                  const end = parseTime(endTime);
-                  const startDate = new Date(
-                    0,
-                    0,
-                    0,
-                    start.hours,
-                    start.minutes
-                  );
-                  const endDate = new Date(0, 0, 0, end.hours, end.minutes);
-                  let diff = (endDate - startDate) / 3600000;
-                  if (diff < 0) {
-                    diff += 24;
-                  }
-                  return diff;
-                };
-                return calculateHoursDifference(
-                  $state.form2.value.kitchen_start,
-                  $state.form2.value.kitchen_end
-                );
-              })();
-            } catch (e) {
-              if (
-                e instanceof TypeError ||
-                e?.plasmicType === "PlasmicUndefinedDataError"
-              ) {
-                return 0;
+                return {};
               }
               throw e;
             }
@@ -486,9 +361,9 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
                       const actionArgs = {
                         dataOp: {
                           sourceId: "4ACnaEgTThrwyGmam4pjE6",
-                          opId: "413fb99d-58fc-41c9-8604-49bc73903f60",
+                          opId: "ef6a70ab-5434-48f4-8350-649ac1b8595f",
                           userArgs: {
-                            variables: [$state.form2.value]
+                            variables: [$state.formData]
                           },
                           cacheKey: null,
                           invalidatedKeys: ["plasmic_refresh_all"],

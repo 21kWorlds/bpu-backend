@@ -147,10 +147,26 @@ function PlasmicBookingDisplay__RenderFunc(props) {
         onMutate: generateOnMutateForSpec("open", AntdSingleCollapse_Helpers)
       },
       {
-        path: "status",
+        path: "inquiryData",
         type: "private",
-        variableType: "text",
-        initFunc: ({ $props, $state, $queries, $ctx }) => ``
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return (() => {
+                const { id, booking_id, ...result } = $queries.query.data[0];
+                return result;
+              })();
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       },
       {
         path: "edit",
@@ -2239,7 +2255,7 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                     href={(() => {
                       try {
                         return (
-                          "https://bpu-backend.vercel.app/new-page/" +
+                          "https://bpu-backend.vercel.app/catering-intake/" +
                           $props.booking.id
                         );
                       } catch (e) {
@@ -2258,7 +2274,7 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                       {(() => {
                         try {
                           return (
-                            "https://bpu-backend.vercel.app/new-page/" +
+                            "https://bpu-backend.vercel.app/catering-intake/" +
                             $props.booking.id
                           );
                         } catch (e) {
@@ -2282,7 +2298,7 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                       "edit"
                     )
                   })}
-                  disabled={true}
+                  disabled={false}
                   onClick={async () => {
                     const $steps = {};
                     $steps["postgresUpdateById"] = true
@@ -2293,7 +2309,7 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                               opId: "f04af95e-7b5c-481a-bedd-675a07b57f34",
                               userArgs: {
                                 keys: [$props.booking.id],
-                                variables: [$queries.query.data[0]]
+                                variables: [$state.inquiryData]
                               },
                               cacheKey: null,
                               invalidatedKeys: ["plasmic_refresh_all"],
