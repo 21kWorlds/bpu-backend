@@ -2104,7 +2104,7 @@ function PlasmicHomepage__RenderFunc(props) {
               </AntdButton>
               <AntdButton
                 className={classNames("__wab_instance", sty.button___2I7C7)}
-                href={`/new-page/[id]`}
+                href={`/new-page`}
                 onClick={async () => {
                   const $steps = {};
                 }}
