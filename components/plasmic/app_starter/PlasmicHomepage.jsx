@@ -345,6 +345,16 @@ function PlasmicHomepage__RenderFunc(props) {
         invalidatedKeys: null,
         roleId: null
       };
+    }),
+    inquiries: usePlasmicDataOp(() => {
+      return {
+        sourceId: "4ACnaEgTThrwyGmam4pjE6",
+        opId: "21bb36e2-bbbe-4a01-a219-ab03855a07d0",
+        userArgs: {},
+        cacheKey: `plasmic.$.21bb36e2-bbbe-4a01-a219-ab03855a07d0.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
     })
   };
   if (Object.keys(new$Queries).some(k => new$Queries[k] !== $queries[k])) {
@@ -2094,7 +2104,7 @@ function PlasmicHomepage__RenderFunc(props) {
               </AntdButton>
               <AntdButton
                 className={classNames("__wab_instance", sty.button___2I7C7)}
-                href={`/new-page`}
+                href={`/new-page/[id]`}
                 onClick={async () => {
                   const $steps = {};
                 }}

@@ -2021,10 +2021,10 @@ function PlasmicClientIntakeForm__RenderFunc(props) {
                             { type: "option", value: null, label: null }
                           ];
 
-                          __composite["0"]["value"] = "four of two";
-                          __composite["0"]["label"] = "(4) Panels of two sizes";
-                          __composite["1"]["value"] = "two of one";
-                          __composite["1"]["label"] = "(2) Panels of one size";
+                          __composite["0"]["value"] = "two of one";
+                          __composite["0"]["label"] = "(2) of 1";
+                          __composite["1"]["value"] = "four of two";
+                          __composite["1"]["label"] = "(4) of 2";
                           __composite["2"]["value"] = "all eight";
                           __composite["2"]["label"] = "All (8) Panels";
                           return __composite;

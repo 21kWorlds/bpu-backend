@@ -726,7 +726,7 @@
           "projectId": "m9sTNijpsuGxLr6622n67c",
           "renderModuleFilePath": "plasmic/bpu_backend/PlasmicCateringIntake.jsx",
           "importSpec": {
-            "modulePath": "../pages/new-page.jsx"
+            "modulePath": "../pages/new-page/[id].jsx"
           },
           "cssFilePath": "plasmic/bpu_backend/PlasmicCateringIntake.module.css",
           "scheme": "blackbox",
