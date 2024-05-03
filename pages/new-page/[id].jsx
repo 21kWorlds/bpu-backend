@@ -3,7 +3,7 @@
 import * as React from "react";
 import { PageParamsProvider as PageParamsProvider__ } from "@plasmicapp/react-web/lib/host";
 import GlobalContextsProvider from "../components/plasmic/app_starter/PlasmicGlobalContextsProvider";
-import { PlasmicNewPage } from "../components/plasmic/bpu_backend/PlasmicNewPage";
+import { PlasmicNewPage } from "../components/plasmic/bpu_backend/PlasmicNewPage.jsx";
 import { useRouter } from "next/router";
 
 function NewPage() {
