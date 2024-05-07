@@ -43,8 +43,10 @@ import { AntdCheckbox } from "@plasmicpkgs/antd5/skinny/registerCheckbox";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
 import { AntdSingleCollapse } from "@plasmicpkgs/antd5/skinny/registerCollapse";
 import { singleCollapseHelpers as AntdSingleCollapse_Helpers } from "@plasmicpkgs/antd5/skinny/registerCollapse";
-import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
+import { RichTable } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
+import { tableHelpers as RichTable_Helpers } from "@plasmicpkgs/plasmic-rich-components/skinny/rich-table";
 import { AntdSelect } from "@plasmicpkgs/antd5/skinny/registerSelect";
+import { AntdInputNumber } from "@plasmicpkgs/antd5/skinny/registerInput";
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
@@ -154,7 +156,8 @@ function PlasmicBookingDisplay__RenderFunc(props) {
           (() => {
             try {
               return (() => {
-                const { id, booking_id, ...result } = $queries.query.data[0];
+                const { id, booking_id, ...result } =
+                  $queries.inquiries.data[0];
                 return result;
               })();
             } catch (e) {
@@ -403,6 +406,88 @@ function PlasmicBookingDisplay__RenderFunc(props) {
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
         onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "table.selectedRowKey",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("selectedRowKey", RichTable_Helpers)
+      },
+      {
+        path: "table.selectedRow",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("selectedRow", RichTable_Helpers)
+      },
+      {
+        path: "table.selectedRows",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("selectedRows", RichTable_Helpers)
+      },
+      {
+        path: "table.selectedRowKeys",
+        type: "private",
+        variableType: "array",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("selectedRowKeys", RichTable_Helpers)
+      },
+      {
+        path: "form2.value",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        refName: "form2",
+        onMutate: generateOnMutateForSpec("value", FormWrapper_Helpers)
+      },
+      {
+        path: "form2.isSubmitting",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => false,
+        refName: "form2",
+        onMutate: generateOnMutateForSpec("isSubmitting", FormWrapper_Helpers)
+      },
+      {
+        path: "input21.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "numberInput4.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "numberInput5.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "input23.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined,
+        onMutate: generateOnMutateForSpec("value", AntdInput_Helpers)
+      },
+      {
+        path: "select5.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "checkbox5.checked",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
 
@@ -417,7 +502,7 @@ function PlasmicBookingDisplay__RenderFunc(props) {
   const dataSourcesCtx = usePlasmicDataSourceContext();
   const plasmicInvalidate = usePlasmicInvalidate();
   const new$Queries = {
-    query: usePlasmicDataOp(() => {
+    inquiries: usePlasmicDataOp(() => {
       return {
         sourceId: "4ACnaEgTThrwyGmam4pjE6",
         opId: "0017dd0f-1c39-40c1-bc25-ad34ce6ad4e7",
@@ -425,6 +510,28 @@ function PlasmicBookingDisplay__RenderFunc(props) {
           filters: [$props.booking.id]
         },
         cacheKey: `plasmic.$.0017dd0f-1c39-40c1-bc25-ad34ce6ad4e7.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    lineItems: usePlasmicDataOp(() => {
+      return {
+        sourceId: "4ACnaEgTThrwyGmam4pjE6",
+        opId: "fba76589-ad7b-47d1-af2e-1b73c178bb30",
+        userArgs: {
+          filters: [$props.booking.id]
+        },
+        cacheKey: `plasmic.$.fba76589-ad7b-47d1-af2e-1b73c178bb30.$.`,
+        invalidatedKeys: null,
+        roleId: null
+      };
+    }),
+    inventory: usePlasmicDataOp(() => {
+      return {
+        sourceId: "4ACnaEgTThrwyGmam4pjE6",
+        opId: "0ec4d106-bd31-43a7-9517-3aa9569d4209",
+        userArgs: {},
+        cacheKey: `plasmic.$.0ec4d106-bd31-43a7-9517-3aa9569d4209.$.`,
         invalidatedKeys: null,
         roleId: null
       };
@@ -2361,6 +2468,750 @@ function PlasmicBookingDisplay__RenderFunc(props) {
               {(() => {
                 const child$Props = {
                   bordered: true,
+                  className: classNames("__wab_instance", sty.collapse2),
+                  defaultOpen: true,
+                  label2: (
+                    <h1
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h1,
+                        projectcss.__wab_text,
+                        sty.h1__t17QI
+                      )}
+                    >
+                      {"Line Items"}
+                    </h1>
+                  ),
+
+                  onChange: generateStateOnChangePropForCodeComponents(
+                    $state,
+                    "open",
+                    ["collapse2", "open"],
+                    AntdSingleCollapse_Helpers
+                  ),
+                  open: generateStateValueProp($state, ["collapse2", "open"]),
+                  showArrow: true
+                };
+                initializeCodeComponentStates(
+                  $state,
+                  [
+                    {
+                      name: "open",
+                      plasmicStateName: "collapse2.open"
+                    }
+                  ],
+
+                  [],
+                  AntdSingleCollapse_Helpers ?? {},
+                  child$Props
+                );
+                return (
+                  <AntdSingleCollapse
+                    data-plasmic-name={"collapse2"}
+                    data-plasmic-override={overrides.collapse2}
+                    {...child$Props}
+                  >
+                    {(() => {
+                      const child$Props = {
+                        className: classNames("__wab_instance", sty.table),
+                        data: (() => {
+                          try {
+                            return $queries.lineItems;
+                          } catch (e) {
+                            if (
+                              e instanceof TypeError ||
+                              e?.plasmicType === "PlasmicUndefinedDataError"
+                            ) {
+                              return undefined;
+                            }
+                            throw e;
+                          }
+                        })(),
+                        defaultSize: "large",
+                        fields: (() => {
+                          const __composite = [
+                            {
+                              key: "booking_id",
+                              fieldId: "booking_id",
+                              isHidden: null
+                            },
+                            {
+                              key: "inventory_id",
+                              fieldId: "inventory_id",
+                              expr: null,
+                              title: null
+                            },
+                            { key: "price", fieldId: "price", title: null },
+                            { key: "qty", fieldId: "qty", title: null },
+                            { key: "notes", fieldId: "notes" },
+                            { key: "id", fieldId: "id", isHidden: null },
+                            {
+                              key: "created_at",
+                              fieldId: "created_at",
+                              isHidden: null
+                            },
+                            {
+                              key: "inventory_memo",
+                              fieldId: "inventory_memo",
+                              isHidden: null
+                            }
+                          ];
+
+                          __composite["0"]["isHidden"] = true;
+                          __composite["1"]["expr"] = (
+                            currentItem,
+                            currentValue
+                          ) => {
+                            return $queries.inventory.data.find(
+                              item => item.id === currentValue
+                            ).memo;
+                          };
+                          __composite["1"]["title"] = "Memo";
+                          __composite["2"]["title"] = "Price";
+                          __composite["3"]["title"] = "Qty";
+                          __composite["5"]["isHidden"] = true;
+                          __composite["6"]["isHidden"] = true;
+                          __composite["7"]["isHidden"] = true;
+                          return __composite;
+                        })(),
+                        hideColumnPicker: true,
+                        hideExports: true,
+                        hideSearch: true,
+                        onRowSelectionChanged: async (...eventArgs) => {
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "selectedRowKey",
+                            ["table", "selectedRowKey"],
+                            RichTable_Helpers
+                          ).apply(null, eventArgs);
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "selectedRow",
+                            ["table", "selectedRow"],
+                            RichTable_Helpers
+                          ).apply(null, eventArgs);
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "selectedRows",
+                            ["table", "selectedRows"],
+                            RichTable_Helpers
+                          ).apply(null, eventArgs);
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "selectedRowKeys",
+                            ["table", "selectedRowKeys"],
+                            RichTable_Helpers
+                          ).apply(null, eventArgs);
+                        },
+                        pagination: false,
+                        scopeClassName: sty["table__instance"],
+                        selectedRowKey: generateStateValueProp($state, [
+                          "table",
+                          "selectedRowKey"
+                        ]),
+                        selectedRowKeys: generateStateValueProp($state, [
+                          "table",
+                          "selectedRowKeys"
+                        ]),
+                        themeResetClassName: classNames(
+                          projectcss.root_reset,
+                          projectcss.root_reset_tags,
+                          projectcss.plasmic_default_styles,
+                          projectcss.plasmic_mixins,
+                          projectcss.plasmic_tokens,
+                          plasmic_antd_5_hostless_css.plasmic_tokens,
+                          plasmic_plasmic_rich_components_css.plasmic_tokens
+                        )
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "selectedRowKey",
+                            plasmicStateName: "table.selectedRowKey"
+                          },
+                          {
+                            name: "selectedRow",
+                            plasmicStateName: "table.selectedRow"
+                          },
+                          {
+                            name: "selectedRows",
+                            plasmicStateName: "table.selectedRows"
+                          },
+                          {
+                            name: "selectedRowKeys",
+                            plasmicStateName: "table.selectedRowKeys"
+                          }
+                        ],
+
+                        [],
+                        RichTable_Helpers ?? {},
+                        child$Props
+                      );
+                      return (
+                        <RichTable
+                          data-plasmic-name={"table"}
+                          data-plasmic-override={overrides.table}
+                          {...child$Props}
+                        />
+                      );
+                    })()}
+                    {(() => {
+                      const child$Props = {
+                        className: classNames("__wab_instance", sty.form2),
+                        extendedOnValuesChange:
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "value",
+                            ["form2", "value"],
+                            FormWrapper_Helpers
+                          ),
+                        formItems: [
+                          { label: "Name", name: "name", inputType: "Text" },
+                          {
+                            label: "Message",
+                            name: "message",
+                            inputType: "Text Area"
+                          }
+                        ],
+
+                        labelCol: { span: 8, horizontalOnly: true },
+                        layout: "vertical",
+                        mode: "advanced",
+                        onFinish: async values => {
+                          const $steps = {};
+                          $steps["defaultSubmit"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  dataOp: {
+                                    sourceId: "4ACnaEgTThrwyGmam4pjE6",
+                                    opId: "745624eb-cf93-4a04-88f3-f63cabf5a6d3",
+                                    userArgs: {
+                                      variables: [
+                                        $state.form2.value.booking_id,
+                                        $state.form2.value.inventory_id,
+                                        $state.form2.value.notes,
+                                        $queries.inventory.data.find(
+                                          item =>
+                                            item.id ===
+                                            $state.form2.value.inventory_id
+                                        ).price ?? $state.form2.value.price,
+                                        $state.form2.value.qty ?? 1
+                                      ]
+                                    },
+                                    cacheKey: null,
+                                    invalidatedKeys: ["plasmic_refresh_all"],
+                                    roleId: null
+                                  }
+                                };
+                                return (async ({ dataOp, continueOnError }) => {
+                                  try {
+                                    const response = await executePlasmicDataOp(
+                                      dataOp,
+                                      {
+                                        userAuthToken:
+                                          dataSourcesCtx?.userAuthToken,
+                                        user: dataSourcesCtx?.user
+                                      }
+                                    );
+                                    await plasmicInvalidate(
+                                      dataOp.invalidatedKeys
+                                    );
+                                    return response;
+                                  } catch (e) {
+                                    if (!continueOnError) {
+                                      throw e;
+                                    }
+                                    return e;
+                                  }
+                                })?.apply(null, [actionArgs]);
+                              })()
+                            : undefined;
+                          if (
+                            $steps["defaultSubmit"] != null &&
+                            typeof $steps["defaultSubmit"] === "object" &&
+                            typeof $steps["defaultSubmit"].then === "function"
+                          ) {
+                            $steps["defaultSubmit"] = await $steps[
+                              "defaultSubmit"
+                            ];
+                          }
+                        },
+                        onIsSubmittingChange:
+                          generateStateOnChangePropForCodeComponents(
+                            $state,
+                            "isSubmitting",
+                            ["form2", "isSubmitting"],
+                            FormWrapper_Helpers
+                          ),
+                        ref: ref => {
+                          $refs["form2"] = ref;
+                        },
+                        submitSlot: null,
+                        wrapperCol: { span: 16, horizontalOnly: true }
+                      };
+                      initializeCodeComponentStates(
+                        $state,
+                        [
+                          {
+                            name: "value",
+                            plasmicStateName: "form2.value"
+                          },
+                          {
+                            name: "isSubmitting",
+                            plasmicStateName: "form2.isSubmitting"
+                          }
+                        ],
+
+                        [],
+                        FormWrapper_Helpers ?? {},
+                        child$Props
+                      );
+                      return (
+                        <FormWrapper
+                          data-plasmic-name={"form2"}
+                          data-plasmic-override={overrides.form2}
+                          {...child$Props}
+                        >
+                          <FormItemWrapper
+                            className={classNames(
+                              "__wab_instance",
+                              sty.formField__gnJj7
+                            )}
+                            hidden={true}
+                            initialValue={(() => {
+                              try {
+                                return $props.booking.id;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return undefined;
+                                }
+                                throw e;
+                              }
+                            })()}
+                            label={"booking_id"}
+                            name={"booking_id"}
+                          >
+                            {(() => {
+                              const child$Props = {
+                                className: classNames(
+                                  "__wab_instance",
+                                  sty.input21
+                                ),
+                                onChange:
+                                  generateStateOnChangePropForCodeComponents(
+                                    $state,
+                                    "value",
+                                    ["input21", "value"],
+                                    AntdInput_Helpers
+                                  ),
+                                value: generateStateValueProp($state, [
+                                  "input21",
+                                  "value"
+                                ])
+                              };
+                              initializeCodeComponentStates(
+                                $state,
+                                [
+                                  {
+                                    name: "value",
+                                    plasmicStateName: "input21.value"
+                                  }
+                                ],
+
+                                [],
+                                AntdInput_Helpers ?? {},
+                                child$Props
+                              );
+                              return (
+                                <AntdInput
+                                  data-plasmic-name={"input21"}
+                                  data-plasmic-override={overrides.input21}
+                                  {...child$Props}
+                                />
+                              );
+                            })()}
+                          </FormItemWrapper>
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__exTgm
+                            )}
+                          >
+                            <FormItemWrapper
+                              className={classNames(
+                                "__wab_instance",
+                                sty.formField__pPj2
+                              )}
+                              initialValue={undefined}
+                              label={
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__i0TLy
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ fontWeight: 700 }}
+                                    >
+                                      {"Memo"}
+                                    </span>
+                                  </React.Fragment>
+                                </div>
+                              }
+                              name={"inventory_id"}
+                            >
+                              <AntdSelect
+                                data-plasmic-name={"select5"}
+                                data-plasmic-override={overrides.select5}
+                                allowClear={true}
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.select5
+                                )}
+                                defaultStylesClassName={classNames(
+                                  projectcss.root_reset,
+                                  projectcss.plasmic_default_styles,
+                                  projectcss.plasmic_mixins,
+                                  projectcss.plasmic_tokens,
+                                  plasmic_antd_5_hostless_css.plasmic_tokens,
+                                  plasmic_plasmic_rich_components_css.plasmic_tokens
+                                )}
+                                onChange={generateStateOnChangeProp($state, [
+                                  "select5",
+                                  "value"
+                                ])}
+                                options={(() => {
+                                  try {
+                                    return $queries.inventory.data.map(
+                                      item => ({
+                                        value: item.id,
+                                        label: item.memo
+                                      })
+                                    );
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [
+                                        {
+                                          value: "option1",
+                                          label: "Option 1",
+                                          type: "option"
+                                        }
+                                      ];
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                                placeholder={"Select..."}
+                                popupScopeClassName={sty["select5__popup"]}
+                                value={generateStateValueProp($state, [
+                                  "select5",
+                                  "value"
+                                ])}
+                              />
+                            </FormItemWrapper>
+                            {(() => {
+                              try {
+                                return (
+                                  $queries.inventory.data.find(
+                                    item =>
+                                      item.id ===
+                                      $state.form2.value.inventory_id
+                                  ).price === null
+                                );
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <FormItemWrapper
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.formField__tgCv3
+                                )}
+                                initialValue={undefined}
+                                label={
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__vJ8We
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      <span
+                                        className={
+                                          "plasmic_default__all plasmic_default__span"
+                                        }
+                                        style={{ fontWeight: 700 }}
+                                      >
+                                        {"Price"}
+                                      </span>
+                                    </React.Fragment>
+                                  </div>
+                                }
+                                name={"price"}
+                                rules={(() => {
+                                  try {
+                                    return undefined;
+                                  } catch (e) {
+                                    if (
+                                      e instanceof TypeError ||
+                                      e?.plasmicType ===
+                                        "PlasmicUndefinedDataError"
+                                    ) {
+                                      return [{ ruleType: "required" }];
+                                    }
+                                    throw e;
+                                  }
+                                })()}
+                              >
+                                <AntdInputNumber
+                                  data-plasmic-name={"numberInput4"}
+                                  data-plasmic-override={overrides.numberInput4}
+                                  allowClear={true}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.numberInput4
+                                  )}
+                                  onChange={generateStateOnChangeProp($state, [
+                                    "numberInput4",
+                                    "value"
+                                  ])}
+                                  type={"number"}
+                                  value={generateStateValueProp($state, [
+                                    "numberInput4",
+                                    "value"
+                                  ])}
+                                />
+                              </FormItemWrapper>
+                            ) : null}
+                            {(() => {
+                              try {
+                                return $queries.inventory.data.find(
+                                  item =>
+                                    item.id === $state.form2.value.inventory_id
+                                ).qty;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return false;
+                                }
+                                throw e;
+                              }
+                            })() ? (
+                              <FormItemWrapper
+                                className={classNames(
+                                  "__wab_instance",
+                                  sty.formField__dygw1
+                                )}
+                                initialValue={undefined}
+                                label={
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      projectcss.__wab_text,
+                                      sty.text__bjH5
+                                    )}
+                                  >
+                                    <React.Fragment>
+                                      <span
+                                        className={
+                                          "plasmic_default__all plasmic_default__span"
+                                        }
+                                        style={{ fontWeight: 700 }}
+                                      >
+                                        {"Qty"}
+                                      </span>
+                                    </React.Fragment>
+                                  </div>
+                                }
+                                name={"qty"}
+                              >
+                                <AntdInputNumber
+                                  data-plasmic-name={"numberInput5"}
+                                  data-plasmic-override={overrides.numberInput5}
+                                  allowClear={true}
+                                  className={classNames(
+                                    "__wab_instance",
+                                    sty.numberInput5
+                                  )}
+                                  onChange={generateStateOnChangeProp($state, [
+                                    "numberInput5",
+                                    "value"
+                                  ])}
+                                  type={"number"}
+                                  value={generateStateValueProp($state, [
+                                    "numberInput5",
+                                    "value"
+                                  ])}
+                                />
+                              </FormItemWrapper>
+                            ) : null}
+                            <AntdCheckbox
+                              data-plasmic-name={"checkbox5"}
+                              data-plasmic-override={overrides.checkbox5}
+                              checked={generateStateValueProp($state, [
+                                "checkbox5",
+                                "checked"
+                              ])}
+                              className={classNames(
+                                "__wab_instance",
+                                sty.checkbox5
+                              )}
+                              onChange={generateStateOnChangeProp($state, [
+                                "checkbox5",
+                                "checked"
+                              ])}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__gcKVo
+                                )}
+                              >
+                                <React.Fragment>
+                                  <span
+                                    className={
+                                      "plasmic_default__all plasmic_default__span"
+                                    }
+                                    style={{ fontWeight: 700 }}
+                                  >
+                                    {"Add Note"}
+                                  </span>
+                                </React.Fragment>
+                              </div>
+                            </AntdCheckbox>
+                          </div>
+                          {(() => {
+                            try {
+                              return $state.checkbox5.checked;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
+                              }
+                              throw e;
+                            }
+                          })() ? (
+                            <FormItemWrapper
+                              className={classNames(
+                                "__wab_instance",
+                                sty.formField__lpZH
+                              )}
+                              initialValue={undefined}
+                              label={
+                                <div
+                                  className={classNames(
+                                    projectcss.all,
+                                    projectcss.__wab_text,
+                                    sty.text__uhGa
+                                  )}
+                                >
+                                  <React.Fragment>
+                                    <span
+                                      className={
+                                        "plasmic_default__all plasmic_default__span"
+                                      }
+                                      style={{ fontWeight: 700 }}
+                                    >
+                                      {"Notes"}
+                                    </span>
+                                  </React.Fragment>
+                                </div>
+                              }
+                              name={"notes"}
+                            >
+                              {(() => {
+                                const child$Props = {
+                                  className: classNames(
+                                    "__wab_instance",
+                                    sty.input23
+                                  ),
+                                  onChange:
+                                    generateStateOnChangePropForCodeComponents(
+                                      $state,
+                                      "value",
+                                      ["input23", "value"],
+                                      AntdInput_Helpers
+                                    ),
+                                  value: generateStateValueProp($state, [
+                                    "input23",
+                                    "value"
+                                  ])
+                                };
+                                initializeCodeComponentStates(
+                                  $state,
+                                  [
+                                    {
+                                      name: "value",
+                                      plasmicStateName: "input23.value"
+                                    }
+                                  ],
+
+                                  [],
+                                  AntdInput_Helpers ?? {},
+                                  child$Props
+                                );
+                                return (
+                                  <AntdInput
+                                    data-plasmic-name={"input23"}
+                                    data-plasmic-override={overrides.input23}
+                                    {...child$Props}
+                                  />
+                                );
+                              })()}
+                            </FormItemWrapper>
+                          ) : null}
+                          <AntdButton
+                            className={classNames(
+                              "__wab_instance",
+                              sty.button__y8ZgH
+                            )}
+                            submitsForm={true}
+                            type={"primary"}
+                          >
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__ujWtQ
+                              )}
+                            >
+                              {"Submit"}
+                            </div>
+                          </AntdButton>
+                        </FormWrapper>
+                      );
+                    })()}
+                  </AntdSingleCollapse>
+                );
+              })()}
+              {(() => {
+                const child$Props = {
+                  bordered: true,
                   className: classNames("__wab_instance", sty.collapse),
                   defaultOpen: true,
                   label2: (
@@ -2456,55 +3307,6 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                         );
                       })()}
                     </FormItemWrapper>
-                  </AntdSingleCollapse>
-                );
-              })()}
-              {(() => {
-                const child$Props = {
-                  bordered: true,
-                  className: classNames("__wab_instance", sty.collapse2),
-                  defaultOpen: true,
-                  label2: (
-                    <h1
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h1,
-                        projectcss.__wab_text,
-                        sty.h1__t17QI
-                      )}
-                    >
-                      {"Coffee"}
-                    </h1>
-                  ),
-
-                  onChange: generateStateOnChangePropForCodeComponents(
-                    $state,
-                    "open",
-                    ["collapse2", "open"],
-                    AntdSingleCollapse_Helpers
-                  ),
-                  open: generateStateValueProp($state, ["collapse2", "open"]),
-                  showArrow: true
-                };
-                initializeCodeComponentStates(
-                  $state,
-                  [
-                    {
-                      name: "open",
-                      plasmicStateName: "collapse2.open"
-                    }
-                  ],
-
-                  [],
-                  AntdSingleCollapse_Helpers ?? {},
-                  child$Props
-                );
-                return (
-                  <AntdSingleCollapse
-                    data-plasmic-name={"collapse2"}
-                    data-plasmic-override={overrides.collapse2}
-                    {...child$Props}
-                  >
                     <div
                       className={classNames(projectcss.all, sty.freeBox__peLbg)}
                     >
@@ -3631,9 +4433,17 @@ const PlasmicDescendants = {
     "input11",
     "checkbox4",
     "checkbox2",
+    "collapse2",
+    "table",
+    "form2",
+    "input21",
+    "select5",
+    "numberInput4",
+    "numberInput5",
+    "checkbox5",
+    "input23",
     "collapse",
     "input18",
-    "collapse2",
     "input19",
     "numberInput",
     "select4",
@@ -3670,9 +4480,17 @@ const PlasmicDescendants = {
     "input11",
     "checkbox4",
     "checkbox2",
+    "collapse2",
+    "table",
+    "form2",
+    "input21",
+    "select5",
+    "numberInput4",
+    "numberInput5",
+    "checkbox5",
+    "input23",
     "collapse",
     "input18",
-    "collapse2",
     "input19",
     "numberInput",
     "select4",
@@ -3707,9 +4525,37 @@ const PlasmicDescendants = {
   input11: ["input11"],
   checkbox4: ["checkbox4"],
   checkbox2: ["checkbox2"],
-  collapse: ["collapse", "input18"],
+  collapse2: [
+    "collapse2",
+    "table",
+    "form2",
+    "input21",
+    "select5",
+    "numberInput4",
+    "numberInput5",
+    "checkbox5",
+    "input23"
+  ],
+
+  table: ["table"],
+  form2: [
+    "form2",
+    "input21",
+    "select5",
+    "numberInput4",
+    "numberInput5",
+    "checkbox5",
+    "input23"
+  ],
+
+  input21: ["input21"],
+  select5: ["select5"],
+  numberInput4: ["numberInput4"],
+  numberInput5: ["numberInput5"],
+  checkbox5: ["checkbox5"],
+  input23: ["input23"],
+  collapse: ["collapse", "input18", "input19", "numberInput"],
   input18: ["input18"],
-  collapse2: ["collapse2", "input19", "numberInput"],
   input19: ["input19"],
   numberInput: ["numberInput"],
   select4: ["select4"],
@@ -3777,9 +4623,17 @@ export const PlasmicBookingDisplay = Object.assign(
     input11: makeNodeComponent("input11"),
     checkbox4: makeNodeComponent("checkbox4"),
     checkbox2: makeNodeComponent("checkbox2"),
+    collapse2: makeNodeComponent("collapse2"),
+    table: makeNodeComponent("table"),
+    form2: makeNodeComponent("form2"),
+    input21: makeNodeComponent("input21"),
+    select5: makeNodeComponent("select5"),
+    numberInput4: makeNodeComponent("numberInput4"),
+    numberInput5: makeNodeComponent("numberInput5"),
+    checkbox5: makeNodeComponent("checkbox5"),
+    input23: makeNodeComponent("input23"),
     collapse: makeNodeComponent("collapse"),
     input18: makeNodeComponent("input18"),
-    collapse2: makeNodeComponent("collapse2"),
     input19: makeNodeComponent("input19"),
     numberInput: makeNodeComponent("numberInput"),
     select4: makeNodeComponent("select4"),

@@ -766,6 +766,31 @@
           "id": "5Ppi3N2V9yOU",
           "name": "060116_WA+Hall+reopening+celebration_credit+Sticks+&+Stones+Photography+(42).jpeg 2",
           "filePath": "../public/plasmic/bpu_backend/images/_060116WaHallreopeningcelebrationCreditSticksStonesPhotography42Jpeg2.jpg"
+        },
+        {
+          "id": "pV6925qXarsV",
+          "name": "phone-svgrepo-com.svg",
+          "filePath": "../public/plasmic/bpu_backend/images/phoneSvgrepoComsvg.svg"
+        },
+        {
+          "id": "p8lbl0sjUIKR",
+          "name": "email-1572-svgrepo-com.svg",
+          "filePath": "../public/plasmic/bpu_backend/images/email1572SvgrepoComsvg.svg"
+        },
+        {
+          "id": "abk8Z5F6XkFy",
+          "name": "email-svgrepo-com.svg",
+          "filePath": "../public/plasmic/bpu_backend/images/emailSvgrepoComsvg.svg"
+        },
+        {
+          "id": "mOxF6phVfEcU",
+          "name": "phone-svgrepo-com (1).svg",
+          "filePath": "../public/plasmic/bpu_backend/images/phoneSvgrepoCom1Svg.svg"
+        },
+        {
+          "id": "ErMR7WAUb7Qm",
+          "name": "website-ui-web-svgrepo-com (1).svg",
+          "filePath": "../public/plasmic/bpu_backend/images/websiteUiWebSvgrepoCom1Svg.svg"
         }
       ],
       "indirect": false,
