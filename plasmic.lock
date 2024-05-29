@@ -2,7 +2,7 @@
   "projects": [
     {
       "projectId": "9Vr5YWkf3w7jj6SsTcCEta",
-      "version": "0.8.0",
+      "version": "0.10.0",
       "dependencies": {},
       "lang": "js",
       "fileLocks": [
@@ -16,7 +16,7 @@
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
-      "version": "16.8.0",
+      "version": "16.10.0",
       "dependencies": {},
       "lang": "js",
       "fileLocks": [
@@ -30,7 +30,7 @@
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
-      "version": "6.22.0",
+      "version": "6.24.0",
       "dependencies": {},
       "lang": "js",
       "fileLocks": [
@@ -51,20 +51,20 @@
       "projectId": "m9sTNijpsuGxLr6622n67c",
       "version": "latest",
       "dependencies": {
-        "ohDidvG9XsCeFumugENU3J": "6.22.0",
-        "jkU633o1Cz7HrJdwdxhVHk": "16.8.0",
-        "9Vr5YWkf3w7jj6SsTcCEta": "0.8.0",
-        "7nJ7UcFmq9UzB6eXfC5z4a": "0.26.0",
-        "caTPwKxj5ZrD9LQ7DMdK4Z": "3.34.0",
-        "sqPBLwEBBKHA2WDuGb17eV": "0.10.0",
-        "3m3vFk1dnCzZnwT8k489Jy": "0.1.0"
+        "ohDidvG9XsCeFumugENU3J": "6.24.0",
+        "jkU633o1Cz7HrJdwdxhVHk": "16.10.0",
+        "9Vr5YWkf3w7jj6SsTcCEta": "0.10.0",
+        "7nJ7UcFmq9UzB6eXfC5z4a": "0.28.0",
+        "caTPwKxj5ZrD9LQ7DMdK4Z": "3.36.0",
+        "sqPBLwEBBKHA2WDuGb17eV": "0.12.0",
+        "3m3vFk1dnCzZnwT8k489Jy": "0.3.0"
       },
       "lang": "js",
       "fileLocks": [
         {
           "type": "globalVariant",
           "assetId": "g9NO4kkMLSC_",
-          "checksum": "1a5c324fe85355a0d98fe0c67e86fee1"
+          "checksum": "51ae82d0d1ec1e4ca18ea4a0f31a9fff"
         },
         {
           "assetId": "m9sTNijpsuGxLr6622n67c",
@@ -74,12 +74,12 @@
         {
           "type": "renderModule",
           "assetId": "T0kg29-yPouZ",
-          "checksum": "cce506b5fc7bd128e6c1f18bf309aad8"
+          "checksum": "4de6ed5966ea6f274e95476950fff3f7"
         },
         {
           "type": "cssRules",
           "assetId": "T0kg29-yPouZ",
-          "checksum": "cce506b5fc7bd128e6c1f18bf309aad8"
+          "checksum": "4de6ed5966ea6f274e95476950fff3f7"
         },
         {
           "type": "renderModule",
@@ -104,12 +104,12 @@
         {
           "type": "renderModule",
           "assetId": "3gDeoVff23-u",
-          "checksum": "1ccc807dd0e16160e31c5ad3a1489336"
+          "checksum": "06448bca5a871deacc7a409def80e1bc"
         },
         {
           "type": "cssRules",
           "assetId": "3gDeoVff23-u",
-          "checksum": "1ccc807dd0e16160e31c5ad3a1489336"
+          "checksum": "06448bca5a871deacc7a409def80e1bc"
         },
         {
           "type": "renderModule",
@@ -164,12 +164,12 @@
         {
           "type": "renderModule",
           "assetId": "vQVS53MpXGDW",
-          "checksum": "93e42033926c8b4f002926ab02c9a82c"
+          "checksum": "80494194989caf782628f138344e9ec0"
         },
         {
           "type": "cssRules",
           "assetId": "vQVS53MpXGDW",
-          "checksum": "93e42033926c8b4f002926ab02c9a82c"
+          "checksum": "80494194989caf782628f138344e9ec0"
         },
         {
           "type": "renderModule",
@@ -184,12 +184,12 @@
         {
           "type": "renderModule",
           "assetId": "immbM_V6pqdI",
-          "checksum": "c7ca6d8734964055438536efc04fa828"
+          "checksum": "909fa037f8cb46f3183798f085ea0c6c"
         },
         {
           "type": "cssRules",
           "assetId": "immbM_V6pqdI",
-          "checksum": "c7ca6d8734964055438536efc04fa828"
+          "checksum": "909fa037f8cb46f3183798f085ea0c6c"
         },
         {
           "type": "renderModule",
@@ -224,12 +224,12 @@
         {
           "type": "renderModule",
           "assetId": "NP6K4NtaonuD",
-          "checksum": "2285ffc1fefa7ef2efaee92fb68f72e6"
+          "checksum": "ab71a687a4e2e2b3e01c8eae83718f1e"
         },
         {
           "type": "cssRules",
           "assetId": "NP6K4NtaonuD",
-          "checksum": "2285ffc1fefa7ef2efaee92fb68f72e6"
+          "checksum": "ab71a687a4e2e2b3e01c8eae83718f1e"
         },
         {
           "type": "icon",
@@ -244,12 +244,12 @@
         {
           "type": "renderModule",
           "assetId": "HNh49Ai2o5aV",
-          "checksum": "6e43e78a7ce47a181c939122866a3063"
+          "checksum": "f0d68e09410cca58d737fca57cfceef0"
         },
         {
           "type": "cssRules",
           "assetId": "HNh49Ai2o5aV",
-          "checksum": "6e43e78a7ce47a181c939122866a3063"
+          "checksum": "f0d68e09410cca58d737fca57cfceef0"
         },
         {
           "type": "image",
@@ -264,12 +264,12 @@
         {
           "type": "renderModule",
           "assetId": "g7A-uOo3Gouu",
-          "checksum": "59b92218276b0456ab52356332b20748"
+          "checksum": "9fe5c3063470787031ee959cd30f0071"
         },
         {
           "type": "cssRules",
           "assetId": "g7A-uOo3Gouu",
-          "checksum": "59b92218276b0456ab52356332b20748"
+          "checksum": "9fe5c3063470787031ee959cd30f0071"
         },
         {
           "type": "image",
@@ -300,13 +300,23 @@
           "assetId": "m9sTNijpsuGxLr6622n67c",
           "type": "projectCss",
           "checksum": "5eff4806824a376d98bf9497bccb83f8"
+        },
+        {
+          "type": "renderModule",
+          "assetId": "ad0F70G0qfxW",
+          "checksum": "9fa6dc43b378e68dd0fb51de324a3f2c"
+        },
+        {
+          "type": "cssRules",
+          "assetId": "ad0F70G0qfxW",
+          "checksum": "9fa6dc43b378e68dd0fb51de324a3f2c"
         }
       ],
       "codegenVersion": "0.0.1"
     },
     {
       "projectId": "7nJ7UcFmq9UzB6eXfC5z4a",
-      "version": "0.26.0",
+      "version": "0.28.0",
       "dependencies": {},
       "lang": "js",
       "fileLocks": [
@@ -320,7 +330,7 @@
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
-      "version": "3.34.0",
+      "version": "3.36.0",
       "dependencies": {},
       "lang": "js",
       "fileLocks": [
@@ -334,7 +344,7 @@
     },
     {
       "projectId": "3m3vFk1dnCzZnwT8k489Jy",
-      "version": "0.1.0",
+      "version": "0.3.0",
       "dependencies": {},
       "lang": "js",
       "fileLocks": [
@@ -348,7 +358,7 @@
     },
     {
       "projectId": "sqPBLwEBBKHA2WDuGb17eV",
-      "version": "0.10.0",
+      "version": "0.12.0",
       "dependencies": {},
       "lang": "js",
       "fileLocks": [

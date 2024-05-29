@@ -2119,6 +2119,21 @@ function PlasmicHomepage__RenderFunc(props) {
                   {"Go to Catering Intake"}
                 </div>
               </AntdButton>
+              <AntdButton
+                className={classNames("__wab_instance", sty.button__m8F33)}
+                href={`/bookings-3/${"e08de53f-8636-4fe0-9934-295a9d226790"}`}
+                target={true}
+              >
+                <div
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__c1LNt
+                  )}
+                >
+                  {"New Catering Intake"}
+                </div>
+              </AntdButton>
             </div>
           </section>
           <Drawer

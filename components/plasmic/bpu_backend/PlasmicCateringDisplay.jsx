@@ -244,38 +244,141 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__hmD0
+                          sty.freeBox__kPirk
                         )}
                       >
-                        <h1
-                          data-plasmic-name={"h1"}
-                          data-plasmic-override={overrides.h1}
+                        <div
                           className={classNames(
                             projectcss.all,
-                            projectcss.h1,
-                            projectcss.__wab_text,
-                            sty.h1
+                            sty.freeBox__hmD0
                           )}
                         >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem.name;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "Caterer Name";
+                          <h1
+                            data-plasmic-name={"h1"}
+                            data-plasmic-override={overrides.h1}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h1,
+                              projectcss.__wab_text,
+                              sty.h1
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.name;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "Caterer Name";
+                                  }
+                                  throw e;
                                 }
-                                throw e;
+                              })()}
+                            </React.Fragment>
+                          </h1>
+                          {(() => {
+                            try {
+                              return currentItem.website !== null;
+                            } catch (e) {
+                              if (
+                                e instanceof TypeError ||
+                                e?.plasmicType === "PlasmicUndefinedDataError"
+                              ) {
+                                return true;
                               }
-                            })()}
-                          </React.Fragment>
-                        </h1>
+                              throw e;
+                            }
+                          })() ? (
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__uuC6L
+                              )}
+                            >
+                              <PlasmicImg__
+                                alt={""}
+                                className={classNames(sty.img__ztavr)}
+                                displayHeight={"auto"}
+                                displayMaxHeight={"none"}
+                                displayMaxWidth={"100%"}
+                                displayMinHeight={"0"}
+                                displayMinWidth={"0"}
+                                displayWidth={"30px"}
+                                loading={"lazy"}
+                                src={{
+                                  src: "/plasmic/bpu_backend/images/websiteUiWebSvgrepoCom1Svg.svg",
+                                  fullWidth: 150,
+                                  fullHeight: 150,
+                                  aspectRatio: 1
+                                }}
+                              />
+
+                              <h2
+                                data-plasmic-name={"h2"}
+                                data-plasmic-override={overrides.h2}
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.h2,
+                                  projectcss.__wab_text,
+                                  sty.h2
+                                )}
+                              >
+                                <React.Fragment>
+                                  {(() => {
+                                    try {
+                                      return currentItem.website;
+                                    } catch (e) {
+                                      if (
+                                        e instanceof TypeError ||
+                                        e?.plasmicType ===
+                                          "PlasmicUndefinedDataError"
+                                      ) {
+                                        return "Website";
+                                      }
+                                      throw e;
+                                    }
+                                  })()}
+                                </React.Fragment>
+                              </h2>
+                            </div>
+                          ) : null}
+                          <h4
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.h4,
+                              projectcss.__wab_text,
+                              sty.h4__uSmlp
+                            )}
+                          >
+                            <React.Fragment>
+                              {(() => {
+                                try {
+                                  return currentItem.display_notes;
+                                } catch (e) {
+                                  if (
+                                    e instanceof TypeError ||
+                                    e?.plasmicType ===
+                                      "PlasmicUndefinedDataError"
+                                  ) {
+                                    return "You won't believe what happens next.";
+                                  }
+                                  throw e;
+                                }
+                              })()}
+                            </React.Fragment>
+                          </h4>
+                        </div>
                         {(() => {
                           try {
-                            return currentItem.website !== null;
+                            return (
+                              $queries.inventory.data.filter(
+                                obj => obj.partnerID === currentItem.id
+                              ).length > 0
+                            );
                           } catch (e) {
                             if (
                               e instanceof TypeError ||
@@ -289,103 +392,15 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                           <div
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__uuC6L
+                              sty.freeBox__kp97B
                             )}
                           >
-                            <PlasmicImg__
-                              alt={""}
-                              className={classNames(sty.img__ztavr)}
-                              displayHeight={"auto"}
-                              displayMaxHeight={"none"}
-                              displayMaxWidth={"100%"}
-                              displayMinHeight={"0"}
-                              displayMinWidth={"0"}
-                              displayWidth={"30px"}
-                              loading={"lazy"}
-                              src={{
-                                src: "/plasmic/bpu_backend/images/websiteUiWebSvgrepoCom1Svg.svg",
-                                fullWidth: 150,
-                                fullHeight: 150,
-                                aspectRatio: 1
-                              }}
-                            />
-
-                            <h2
-                              data-plasmic-name={"h2"}
-                              data-plasmic-override={overrides.h2}
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h2,
-                                projectcss.__wab_text,
-                                sty.h2
-                              )}
-                            >
-                              <React.Fragment>
-                                {(() => {
-                                  try {
-                                    return currentItem.website;
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return "Website";
-                                    }
-                                    throw e;
-                                  }
-                                })()}
-                              </React.Fragment>
-                            </h2>
-                          </div>
-                        ) : null}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___6BuS8
-                          )}
-                        >
-                          {(() => {
-                            try {
-                              return currentItem.phoneNumber !== null;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__u2Wlx
-                              )}
-                            >
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img__lpD73)}
-                                displayHeight={"auto"}
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={"30px"}
-                                loading={"lazy"}
-                                src={{
-                                  src: "/plasmic/bpu_backend/images/phoneSvgrepoCom1Svg.svg",
-                                  fullWidth: 150,
-                                  fullHeight: 150,
-                                  aspectRatio: 1
-                                }}
-                              />
-
-                              {(() => {
+                            {(_par =>
+                              !_par ? [] : Array.isArray(_par) ? _par : [_par])(
+                              (() => {
                                 try {
-                                  return (
-                                    currentItem.phoneNumber.length !== null
+                                  return $queries.inventory.data.filter(
+                                    obj => obj.partnerID === currentItem.id
                                   );
                                 } catch (e) {
                                   if (
@@ -393,232 +408,100 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                                     e?.plasmicType ===
                                       "PlasmicUndefinedDataError"
                                   ) {
-                                    return true;
+                                    return [];
                                   }
                                   throw e;
                                 }
-                              })() ? (
-                                <h3
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h3,
-                                    projectcss.__wab_text,
-                                    sty.h3__wCdQf
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.phoneNumber;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "You won't believe what happens next.";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </h3>
-                              ) : null}
-                            </div>
-                          ) : null}
-                          {(() => {
-                            try {
-                              return currentItem.email !== null;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return true;
-                              }
-                              throw e;
-                            }
-                          })() ? (
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__kwOCt
-                              )}
-                            >
-                              <PlasmicImg__
-                                alt={""}
-                                className={classNames(sty.img___2H5UY)}
-                                displayHeight={"auto"}
-                                displayMaxHeight={"none"}
-                                displayMaxWidth={"100%"}
-                                displayMinHeight={"0"}
-                                displayMinWidth={"0"}
-                                displayWidth={"30px"}
-                                loading={"lazy"}
-                                src={{
-                                  src: "/plasmic/bpu_backend/images/emailSvgrepoComsvg.svg",
-                                  fullWidth: 150,
-                                  fullHeight: 150,
-                                  aspectRatio: 1
-                                }}
-                              />
-
-                              <h3
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.h3,
-                                  projectcss.__wab_text,
-                                  sty.h3___9Eiqo
-                                )}
-                              >
-                                <React.Fragment>
-                                  {(() => {
-                                    try {
-                                      return currentItem.email ?? "Email";
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return "You won't believe what happens next.";
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                </React.Fragment>
-                              </h3>
-                            </div>
-                          ) : null}
-                        </div>
-                        <h4
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.h4,
-                            projectcss.__wab_text,
-                            sty.h4__uSmlp
-                          )}
-                        >
-                          <React.Fragment>
-                            {(() => {
-                              try {
-                                return currentItem.display_notes;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return "You won't believe what happens next.";
-                                }
-                                throw e;
-                              }
-                            })()}
-                          </React.Fragment>
-                        </h4>
-                      </div>
-                      {(() => {
-                        try {
-                          return (
-                            $queries.inventory.data.filter(
-                              obj => obj.partnerID === currentItem.id
-                            ).length > 0
-                          );
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return true;
-                          }
-                          throw e;
-                        }
-                      })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__kp97B
-                          )}
-                        >
-                          {(_par =>
-                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                            (() => {
-                              try {
-                                return $queries.inventory.data.filter(
-                                  obj => obj.partnerID === currentItem.id
-                                );
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                          ).map((__plasmic_item_1, __plasmic_idx_1) => {
-                            const currentItem = __plasmic_item_1;
-                            const currentIndex = __plasmic_idx_1;
-                            return (
-                              <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__cV1Hg
-                                )}
-                                key={currentIndex}
-                              >
+                              })()
+                            ).map((__plasmic_item_1, __plasmic_idx_1) => {
+                              const currentItem = __plasmic_item_1;
+                              const currentIndex = __plasmic_idx_1;
+                              return (
                                 <div
                                   className={classNames(
                                     projectcss.all,
-                                    sty.freeBox__xIx7B
+                                    sty.freeBox__cV1Hg
                                   )}
+                                  key={currentIndex}
                                 >
-                                  <h5
+                                  <div
                                     className={classNames(
                                       projectcss.all,
-                                      projectcss.h5,
-                                      projectcss.__wab_text,
-                                      sty.h5__nlDxH
+                                      sty.freeBox__xIx7B
                                     )}
                                   >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return currentItem.memo;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "Memo";
+                                    <h5
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.h5,
+                                        projectcss.__wab_text,
+                                        sty.h5__nlDxH
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return currentItem.memo;
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "Memo";
+                                            }
+                                            throw e;
                                           }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </h5>
+                                        })()}
+                                      </React.Fragment>
+                                    </h5>
+                                    <h5
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.h5,
+                                        projectcss.__wab_text,
+                                        sty.h5__ixJcu
+                                      )}
+                                    >
+                                      <React.Fragment>
+                                        {(() => {
+                                          try {
+                                            return (
+                                              "$" + currentItem.price.toFixed(2)
+                                            );
+                                          } catch (e) {
+                                            if (
+                                              e instanceof TypeError ||
+                                              e?.plasmicType ===
+                                                "PlasmicUndefinedDataError"
+                                            ) {
+                                              return "Price";
+                                            }
+                                            throw e;
+                                          }
+                                        })()}
+                                      </React.Fragment>
+                                    </h5>
+                                  </div>
                                   <h5
                                     className={classNames(
                                       projectcss.all,
                                       projectcss.h5,
                                       projectcss.__wab_text,
-                                      sty.h5__ixJcu
+                                      sty.h5__xMk
                                     )}
                                   >
                                     <React.Fragment>
                                       {(() => {
                                         try {
-                                          return (
-                                            "$" + currentItem.price.toFixed(2)
-                                          );
+                                          return currentItem.notes;
                                         } catch (e) {
                                           if (
                                             e instanceof TypeError ||
                                             e?.plasmicType ===
                                               "PlasmicUndefinedDataError"
                                           ) {
-                                            return "Price";
+                                            return "Notes";
                                           }
                                           throw e;
                                         }
@@ -626,36 +509,11 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                                     </React.Fragment>
                                   </h5>
                                 </div>
-                                <h5
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h5,
-                                    projectcss.__wab_text,
-                                    sty.h5__xMk
-                                  )}
-                                >
-                                  <React.Fragment>
-                                    {(() => {
-                                      try {
-                                        return currentItem.notes;
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return "Notes";
-                                        }
-                                        throw e;
-                                      }
-                                    })()}
-                                  </React.Fragment>
-                                </h5>
-                              </div>
-                            );
-                          })}
-                        </div>
-                      ) : null}
+                              );
+                            })}
+                          </div>
+                        ) : null}
+                      </div>
                     </section>
                   );
                 })}
@@ -743,11 +601,13 @@ function PlasmicCateringDisplay__RenderFunc(props) {
                       key={currentIndex}
                     >
                       <h3
+                        data-plasmic-name={"h3"}
+                        data-plasmic-override={overrides.h3}
                         className={classNames(
                           projectcss.all,
                           projectcss.h3,
                           projectcss.__wab_text,
-                          sty.h3___8F6
+                          sty.h3
                         )}
                       >
                         <React.Fragment>
@@ -1611,6 +1471,7 @@ const PlasmicDescendants = {
     "tabs",
     "h1",
     "h2",
+    "h3",
     "select",
     "select2",
     "select4",
@@ -1618,9 +1479,10 @@ const PlasmicDescendants = {
     "button"
   ],
 
-  tabs: ["tabs", "h1", "h2"],
+  tabs: ["tabs", "h1", "h2", "h3"],
   h1: ["h1"],
   h2: ["h2"],
+  h3: ["h3"],
   select: ["select"],
   select2: ["select2"],
   select4: ["select4"],
@@ -1663,6 +1525,7 @@ export const PlasmicCateringDisplay = Object.assign(
     tabs: makeNodeComponent("tabs"),
     h1: makeNodeComponent("h1"),
     h2: makeNodeComponent("h2"),
+    h3: makeNodeComponent("h3"),
     select: makeNodeComponent("select"),
     select2: makeNodeComponent("select2"),
     select4: makeNodeComponent("select4"),

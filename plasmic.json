@@ -41,8 +41,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -96,8 +95,7 @@
           }
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -497,8 +495,7 @@
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerBreadcrumb"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "m9sTNijpsuGxLr6622n67c",
@@ -732,6 +729,20 @@
           "scheme": "blackbox",
           "componentType": "page",
           "path": "/catering-intake/[id]"
+        },
+        {
+          "id": "ad0F70G0qfxW",
+          "name": "NewCateringIntake",
+          "type": "managed",
+          "projectId": "m9sTNijpsuGxLr6622n67c",
+          "renderModuleFilePath": "plasmic/bpu_backend/PlasmicNewCateringIntake.jsx",
+          "importSpec": {
+            "modulePath": "../pages/bookings-3/[id].jsx"
+          },
+          "cssFilePath": "plasmic/bpu_backend/PlasmicNewCateringIntake.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/bookings-3/[id]"
         }
       ],
       "icons": [
@@ -868,8 +879,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-nav"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -927,8 +937,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "3m3vFk1dnCzZnwT8k489Jy",
@@ -950,8 +959,7 @@
           "componentImportPath": "@plasmicpkgs/plasmic-link-preview"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     },
     {
       "projectId": "sqPBLwEBBKHA2WDuGb17eV",
@@ -1041,8 +1049,7 @@
           "componentImportPath": "@plasmicpkgs/radix-ui"
         }
       ],
-      "customFunctions": [],
-      "jsBundleThemes": []
+      "customFunctions": []
     }
   ],
   "globalVariants": {

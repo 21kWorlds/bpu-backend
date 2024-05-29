@@ -334,6 +334,18 @@
   max-width: 100%;
   min-width: 0;
 }
+.button__m8F33:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.text__c1LNt {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
 .drawer:global(.__wab_instance):global(.__wab_instance) {
   max-width: 100%;
   position: relative;

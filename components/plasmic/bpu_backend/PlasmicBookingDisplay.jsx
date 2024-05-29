@@ -474,6 +474,25 @@ function PlasmicBookingDisplay__RenderFunc(props) {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "lineItemData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $ctx }) =>
+          (() => {
+            try {
+              return undefined;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return {};
+              }
+              throw e;
+            }
+          })()
       }
     ],
 
@@ -2004,9 +2023,11 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                     label={"kitchen_start"}
                     name={"kitchen_start"}
                     noLabel={true}
+                    valuePropName={"KitchenIn"}
                   >
                     {(() => {
                       const child$Props = {
+                        allowClear: true,
                         className: classNames("__wab_instance", sty.input8),
                         onChange: generateStateOnChangePropForCodeComponents(
                           $state,
@@ -2014,6 +2035,9 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                           ["input8", "value"],
                           AntdInput_Helpers
                         ),
+                        onPressEnter: async event => {
+                          const $steps = {};
+                        },
                         type: "time",
                         value: generateStateValueProp($state, [
                           "input8",
@@ -2617,24 +2641,48 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                   mode: "advanced",
                   onFinish: async values => {
                     const $steps = {};
-                    $steps["defaultSubmit"] = true
+                    $steps["runActionOnForm2"] =
+                      $state.form2.value.price === null
+                        ? (() => {
+                            const actionArgs = {
+                              tplRef: "form2",
+                              action: "setFieldValue",
+                              args: [
+                                ["price"],
+                                $queries.inventory.data.find(
+                                  item =>
+                                    item.id === $state.form2.value.inventory_id
+                                ).price
+                              ]
+                            };
+                            return (({ tplRef, action, args }) => {
+                              return $refs?.[tplRef]?.[action]?.(
+                                ...(args ?? [])
+                              );
+                            })?.apply(null, [actionArgs]);
+                          })()
+                        : undefined;
+                    if (
+                      $steps["runActionOnForm2"] != null &&
+                      typeof $steps["runActionOnForm2"] === "object" &&
+                      typeof $steps["runActionOnForm2"].then === "function"
+                    ) {
+                      $steps["runActionOnForm2"] = await $steps[
+                        "runActionOnForm2"
+                      ];
+                    }
+                    $steps["postgresCreate"] = true
                       ? (() => {
                           const actionArgs = {
                             dataOp: {
                               sourceId: "4ACnaEgTThrwyGmam4pjE6",
-                              opId: "58952014-bdfd-4aa1-85df-e079ef141dc6",
+                              opId: "7e9607fa-0f1f-4a14-8b2c-ef6d3734fd30",
                               userArgs: {
                                 variables: [
-                                  $state.form2.value.inventory_id,
-                                  $state.form2.value.notes ?? "",
-                                  $state.form2.value.price ??
-                                    $queries.inventory.data.find(
-                                      item =>
-                                        item.id ===
-                                        $state.form2.value.inventory_id
-                                    ).price,
-                                  $props.booking.id,
-                                  $state.form2.value.qty ?? 1
+                                  {
+                                    ...$state.form2.value,
+                                    booking_id: $props.booking.id
+                                  }
                                 ]
                               },
                               cacheKey: null,
@@ -2663,11 +2711,11 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                         })()
                       : undefined;
                     if (
-                      $steps["defaultSubmit"] != null &&
-                      typeof $steps["defaultSubmit"] === "object" &&
-                      typeof $steps["defaultSubmit"].then === "function"
+                      $steps["postgresCreate"] != null &&
+                      typeof $steps["postgresCreate"] === "object" &&
+                      typeof $steps["postgresCreate"].then === "function"
                     ) {
-                      $steps["defaultSubmit"] = await $steps["defaultSubmit"];
+                      $steps["postgresCreate"] = await $steps["postgresCreate"];
                     }
                   },
                   onIsSubmittingChange:
@@ -2807,7 +2855,6 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                             "__wab_instance",
                             sty.formField__tgCv3
                           )}
-                          initialValue={undefined}
                           label={
                             <div
                               className={classNames(
@@ -2829,19 +2876,6 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                             </div>
                           }
                           name={"price"}
-                          rules={(() => {
-                            try {
-                              return undefined;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return [{ ruleType: "required" }];
-                              }
-                              throw e;
-                            }
-                          })()}
                         >
                           <AntdInputNumber
                             data-plasmic-name={"numberInput4"}
@@ -2883,7 +2917,7 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                             "__wab_instance",
                             sty.formField__dygw1
                           )}
-                          initialValue={undefined}
+                          initialValue={1}
                           label={
                             <div
                               className={classNames(
@@ -2977,7 +3011,6 @@ function PlasmicBookingDisplay__RenderFunc(props) {
                           "__wab_instance",
                           sty.formField__lpZH
                         )}
-                        initialValue={false}
                         label={
                           <div
                             className={classNames(
